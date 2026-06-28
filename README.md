@@ -4,7 +4,7 @@
 
 ### AI-Generated Persistent Micro-Applications for the Modern Web
 
-*Build intelligent tools that live inside the websites you already use.*
+_Build intelligent tools that live inside the websites you already use._
 
 ---
 
@@ -40,12 +40,12 @@ Every generated Lab executes inside a sandboxed runtime, communicates through a 
 
 Modern knowledge work happens across dozens of web applications:
 
-* GitHub
-* LeetCode
-* YouTube
-* Documentation
-* Internal dashboards
-* Enterprise SaaS platforms
+- GitHub
+- LeetCode
+- YouTube
+- Documentation
+- Internal dashboards
+- Enterprise SaaS platforms
 
 Every workflow is slightly different.
 
@@ -57,11 +57,11 @@ Instead of installing another static extension, users generate exactly the tool 
 
 Examples include:
 
-* A pull request review assistant inside GitHub.
-* A personalized DSA companion on LeetCode.
-* A meeting note organizer embedded into internal dashboards.
-* A YouTube learning workspace with persistent notes and AI summaries.
-* A research assistant that lives beside technical documentation.
+- A pull request review assistant inside GitHub.
+- A personalized DSA companion on LeetCode.
+- A meeting note organizer embedded into internal dashboards.
+- A YouTube learning workspace with persistent notes and AI summaries.
+- A research assistant that lives beside technical documentation.
 
 Rather than forcing users to adapt to software, Novus adapts software to users.
 
@@ -141,19 +141,19 @@ Language models are interchangeable execution engines rather than platform depen
 
 # Key Features
 
-* ✨ Generate persistent AI-powered Labs from natural language.
-* 🔐 Sandboxed execution with capability-based security.
-* 🧠 Provider-independent AI architecture.
-* 📦 Immutable verified bundle artifacts.
-* 🧩 Versioned Feature Manifest contracts.
-* 🔄 Automatic compatibility validation.
-* 🗂️ Persistent browser workspaces.
-* 🏗️ Contract-driven adapter architecture.
-* 📊 Dataset provenance and health monitoring.
-* 🛡️ Sensitive Context Firewall.
-* ⚡ Local-first runtime with graceful offline behaviour.
-* 🔁 Replay-safe bridge protocol.
-* 📈 Extensible SDK for future Labs.
+- ✨ Generate persistent AI-powered Labs from natural language.
+- 🔐 Sandboxed execution with capability-based security.
+- 🧠 Provider-independent AI architecture.
+- 📦 Immutable verified bundle artifacts.
+- 🧩 Versioned Feature Manifest contracts.
+- 🔄 Automatic compatibility validation.
+- 🗂️ Persistent browser workspaces.
+- 🏗️ Contract-driven adapter architecture.
+- 📊 Dataset provenance and health monitoring.
+- 🛡️ Sensitive Context Firewall.
+- ⚡ Local-first runtime with graceful offline behaviour.
+- 🔁 Replay-safe bridge protocol.
+- 📈 Extensible SDK for future Labs.
 
 ---
 
@@ -211,8 +211,6 @@ The repository contains extensive technical documentation covering every major s
 | `/docs/api`          | Runtime and SDK specifications          |
 | `/docs/contributing` | Contribution guidelines                 |
 
-
-
 ---
 
 # 🏛️ System Architecture
@@ -252,14 +250,14 @@ flowchart TB
 
 The platform is intentionally divided into trusted and untrusted execution zones.
 
-| Layer | Responsibility |
-|--------|----------------|
-| **AI Platform** | Generates Labs and Feature Manifests |
-| **Trusted Runtime** | Security, validation, storage, permissions, bridge |
-| **Sandbox** | Executes generated React applications |
-| **Adapters** | Understand supported websites |
-| **Storage** | Persistent local workspace state |
-| **Supported Website** | External application being augmented |
+| Layer                 | Responsibility                                     |
+| --------------------- | -------------------------------------------------- |
+| **AI Platform**       | Generates Labs and Feature Manifests               |
+| **Trusted Runtime**   | Security, validation, storage, permissions, bridge |
+| **Sandbox**           | Executes generated React applications              |
+| **Adapters**          | Understand supported websites                      |
+| **Storage**           | Persistent local workspace state                   |
+| **Supported Website** | External application being augmented               |
 
 ---
 
@@ -386,11 +384,11 @@ This creates a consistent security model across the platform.
 
 Novus separates persistent storage according to responsibility.
 
-| Storage | Purpose |
-|----------|---------|
-| `chrome.storage.local` | Runtime configuration and metadata |
-| IndexedDB | Large persistent workspace datasets |
-| In-Memory Cache | Active runtime state |
+| Storage                | Purpose                             |
+| ---------------------- | ----------------------------------- |
+| `chrome.storage.local` | Runtime configuration and metadata  |
+| IndexedDB              | Large persistent workspace datasets |
+| In-Memory Cache        | Active runtime state                |
 
 This separation improves performance while preserving long-term maintainability.
 
@@ -476,16 +474,16 @@ This principle influences every architectural decision within Novus.
 
 Every subsystem follows the same engineering philosophy.
 
-| Principle | Description |
-|------------|-------------|
-| **Security First** | Trust is established through validation rather than assumption. |
-| **Contracts Before Code** | Manifests define behaviour before implementation executes. |
-| **Least Privilege** | Labs receive only explicitly approved capabilities. |
-| **Local First** | User workspaces remain browser-owned by default. |
-| **Provider Independent** | AI models are interchangeable execution engines. |
-| **Immutable Artifacts** | Published bundles are never modified after validation. |
-| **Progressive Enhancement** | Websites continue functioning independently of Novus. |
-| **Versioned Evolution** | Platform changes preserve compatibility through explicit versioning. |
+| Principle                   | Description                                                          |
+| --------------------------- | -------------------------------------------------------------------- |
+| **Security First**          | Trust is established through validation rather than assumption.      |
+| **Contracts Before Code**   | Manifests define behaviour before implementation executes.           |
+| **Least Privilege**         | Labs receive only explicitly approved capabilities.                  |
+| **Local First**             | User workspaces remain browser-owned by default.                     |
+| **Provider Independent**    | AI models are interchangeable execution engines.                     |
+| **Immutable Artifacts**     | Published bundles are never modified after validation.               |
+| **Progressive Enhancement** | Websites continue functioning independently of Novus.                |
+| **Versioned Evolution**     | Platform changes preserve compatibility through explicit versioning. |
 
 ---
 
@@ -529,61 +527,61 @@ Novus combines modern web technologies with AI infrastructure and browser-native
 
 ## Frontend
 
-| Technology | Purpose |
-|------------|---------|
-| **React** | Component-based user interfaces |
-| **TypeScript** | End-to-end type safety |
-| **Tailwind CSS** | Utility-first styling |
-| **Vite** | Development tooling and bundling |
+| Technology       | Purpose                          |
+| ---------------- | -------------------------------- |
+| **React**        | Component-based user interfaces  |
+| **TypeScript**   | End-to-end type safety           |
+| **Tailwind CSS** | Utility-first styling            |
+| **Vite**         | Development tooling and bundling |
 
 ---
 
 ## Browser Platform
 
-| Technology | Purpose |
-|------------|---------|
-| **Chrome Manifest V3** | Browser extension platform |
-| **Service Worker** | Background runtime |
-| **Content Scripts** | Website integration |
+| Technology              | Purpose                         |
+| ----------------------- | ------------------------------- |
+| **Chrome Manifest V3**  | Browser extension platform      |
+| **Service Worker**      | Background runtime              |
+| **Content Scripts**     | Website integration             |
 | **Offscreen Documents** | Long-running browser operations |
-| **Chrome Storage API** | Runtime metadata |
-| **IndexedDB** | Persistent workspace storage |
+| **Chrome Storage API**  | Runtime metadata                |
+| **IndexedDB**           | Persistent workspace storage    |
 
 ---
 
 ## AI Platform
 
-| Technology | Purpose |
-|------------|---------|
-| **Provider Abstraction Layer** | Multi-provider AI support |
-| **Prompt Builder** | Structured prompt construction |
-| **Evaluation Harness** | Generation quality validation |
-| **Repair Pipeline** | Automated regeneration workflow |
+| Technology                     | Purpose                         |
+| ------------------------------ | ------------------------------- |
+| **Provider Abstraction Layer** | Multi-provider AI support       |
+| **Prompt Builder**             | Structured prompt construction  |
+| **Evaluation Harness**         | Generation quality validation   |
+| **Repair Pipeline**            | Automated regeneration workflow |
 
 ---
 
 ## Runtime
 
-| Component | Purpose |
-|-----------|---------|
-| **Capability Runtime** | Authorization engine |
-| **Sandbox Runtime** | Secure Lab execution |
-| **Adapter Engine** | Website abstraction |
-| **Bridge Protocol** | Typed communication |
-| **Validation Pipeline** | Bundle verification |
+| Component               | Purpose              |
+| ----------------------- | -------------------- |
+| **Capability Runtime**  | Authorization engine |
+| **Sandbox Runtime**     | Secure Lab execution |
+| **Adapter Engine**      | Website abstraction  |
+| **Bridge Protocol**     | Typed communication  |
+| **Validation Pipeline** | Bundle verification  |
 
 ---
 
 ## Developer Experience
 
-| Tool | Purpose |
-|------|---------|
-| **pnpm** | Package management |
-| **TurboRepo** | Monorepo orchestration |
-| **ESLint** | Code quality |
-| **Prettier** | Formatting |
-| **Vitest** | Unit testing |
-| **Playwright** | End-to-end testing |
+| Tool           | Purpose                |
+| -------------- | ---------------------- |
+| **pnpm**       | Package management     |
+| **TurboRepo**  | Monorepo orchestration |
+| **ESLint**     | Code quality           |
+| **Prettier**   | Formatting             |
+| **Vitest**     | Unit testing           |
+| **Playwright** | End-to-end testing     |
 
 ---
 
@@ -687,14 +685,14 @@ Significant architectural changes must also include a new Architecture Decision 
 
 The documentation is organized by purpose.
 
-| Directory | Description |
-|-----------|-------------|
-| `docs/architecture` | High-level system architecture |
-| `docs/adr` | Architecture Decision Records |
-| `docs/security` | Security model and threat analysis |
-| `docs/api` | Runtime and SDK specifications |
-| `docs/contributing` | Contribution guidelines |
-| `docs/roadmap` | Project roadmap and milestones |
+| Directory           | Description                        |
+| ------------------- | ---------------------------------- |
+| `docs/architecture` | High-level system architecture     |
+| `docs/adr`          | Architecture Decision Records      |
+| `docs/security`     | Security model and threat analysis |
+| `docs/api`          | Runtime and SDK specifications     |
+| `docs/contributing` | Contribution guidelines            |
+| `docs/roadmap`      | Project roadmap and milestones     |
 
 ---
 
@@ -783,15 +781,15 @@ For a detailed explanation, see the documentation in `docs/security/` and the co
 
 The project evolves through incremental architectural milestones.
 
-| Phase | Focus |
-|--------|-------|
-| Phase 0 | Architecture Foundation |
-| Phase 1 | Runtime Infrastructure |
-| Phase 2 | Capability Runtime |
-| Phase 3 | AI Generation Pipeline |
-| Phase 4 | Adapter Platform |
-| Phase 5 | Lab SDK |
-| Phase 6+ | Ecosystem Expansion |
+| Phase    | Focus                   |
+| -------- | ----------------------- |
+| Phase 0  | Architecture Foundation |
+| Phase 1  | Runtime Infrastructure  |
+| Phase 2  | Capability Runtime      |
+| Phase 3  | AI Generation Pipeline  |
+| Phase 4  | Adapter Platform        |
+| Phase 5  | Lab SDK                 |
+| Phase 6+ | Ecosystem Expansion     |
 
 Every phase builds upon the architectural principles documented throughout the repository.
 
@@ -833,6 +831,6 @@ The project builds upon ideas pioneered by the open-source community and aims to
 
 ## Build once. Live inside your workflow.
 
-**Novus** — *AI-Generated Persistent Micro-Applications for the Modern Web.*
+**Novus** — _AI-Generated Persistent Micro-Applications for the Modern Web._
 
 </div>

@@ -28,10 +28,10 @@ AI-generated applications evolve over time as prompts improve, bugs are fixed, c
 
 If bundles were mutable, the runtime could no longer guarantee:
 
-* what code is executing;
-* whether an update is trusted;
-* whether a cached artifact has changed;
-* whether rollback is possible.
+- what code is executing;
+- whether an update is trusted;
+- whether a cached artifact has changed;
+- whether rollback is possible.
 
 A deterministic delivery model is therefore required.
 
@@ -41,12 +41,12 @@ A deterministic delivery model is therefore required.
 
 The platform requires a delivery mechanism that:
 
-* guarantees artifact integrity;
-* supports secure caching;
-* enables rollback;
-* prevents silent modification;
-* separates source generation from runtime execution;
-* allows reproducible validation.
+- guarantees artifact integrity;
+- supports secure caching;
+- enables rollback;
+- prevents silent modification;
+- separates source generation from runtime execution;
+- allows reproducible validation.
 
 Without immutable artifacts, the runtime cannot establish long-term execution trust.
 
@@ -58,17 +58,17 @@ Every generated feature is transformed into an immutable bundle artifact.
 
 Each artifact contains:
 
-* compiled bundle;
-* manifest;
-* source hash;
-* compiled hash;
-* manifest hash;
-* compiler version;
-* validator version;
-* dependency lock hash;
-* creation metadata;
-* optional expiration metadata;
-* signing information.
+- compiled bundle;
+- manifest;
+- source hash;
+- compiled hash;
+- manifest hash;
+- compiler version;
+- validator version;
+- dependency lock hash;
+- creation metadata;
+- optional expiration metadata;
+- signing information.
 
 Artifacts are stored using content-addressed identities.
 
@@ -118,16 +118,16 @@ The runtime never executes an artifact that has not passed verification.
 
 ### Advantages
 
-* Simpler update process.
-* Lower storage usage.
-* Easier patching.
+- Simpler update process.
+- Lower storage usage.
+- Easier patching.
 
 ### Disadvantages
 
-* Weak integrity guarantees.
-* Difficult auditing.
-* Rollback becomes unreliable.
-* Cached artifacts lose identity.
+- Weak integrity guarantees.
+- Difficult auditing.
+- Rollback becomes unreliable.
+- Cached artifacts lose identity.
 
 ---
 
@@ -135,15 +135,15 @@ The runtime never executes an artifact that has not passed verification.
 
 ### Advantages
 
-* Minimal storage.
-* Always up-to-date.
+- Minimal storage.
+- Always up-to-date.
 
 ### Disadvantages
 
-* Slower startup.
-* Repeated compilation.
-* Non-deterministic execution.
-* Difficult debugging.
+- Slower startup.
+- Repeated compilation.
+- Non-deterministic execution.
+- Difficult debugging.
 
 ---
 
@@ -151,18 +151,18 @@ The runtime never executes an artifact that has not passed verification.
 
 ### Advantages
 
-* Strong integrity guarantees.
-* Deterministic execution.
-* Reliable rollback.
-* Efficient caching.
-* Easier auditing.
-* Reproducible validation.
+- Strong integrity guarantees.
+- Deterministic execution.
+- Reliable rollback.
+- Efficient caching.
+- Easier auditing.
+- Reproducible validation.
 
 ### Disadvantages
 
-* Additional storage.
-* Version management.
-* Artifact lifecycle management.
+- Additional storage.
+- Version management.
+- Artifact lifecycle management.
 
 ---
 
@@ -184,12 +184,12 @@ Immutability provides several architectural advantages.
 
 It allows the runtime to:
 
-* verify artifact identity;
-* detect tampering;
-* guarantee reproducible execution;
-* cache safely;
-* support explicit updates;
-* preserve previous versions.
+- verify artifact identity;
+- detect tampering;
+- guarantee reproducible execution;
+- cache safely;
+- support explicit updates;
+- preserve previous versions.
 
 This model also separates generation from execution, allowing validation to occur once while execution remains deterministic.
 
@@ -199,18 +199,18 @@ This model also separates generation from execution, allowing validation to occu
 
 ## Benefits
 
-* Deterministic execution.
-* Strong integrity guarantees.
-* Reliable rollback.
-* Efficient local caching.
-* Better diagnostics.
-* Clear version history.
+- Deterministic execution.
+- Strong integrity guarantees.
+- Reliable rollback.
+- Efficient local caching.
+- Better diagnostics.
+- Clear version history.
 
 ## Drawbacks
 
-* Larger storage footprint.
-* More sophisticated release pipeline.
-* Additional artifact metadata.
+- Larger storage footprint.
+- More sophisticated release pipeline.
+- Additional artifact metadata.
 
 ---
 
@@ -218,22 +218,22 @@ This model also separates generation from execution, allowing validation to occu
 
 ## Positive Consequences
 
-* Every executed bundle has a verifiable identity.
-* Runtime validation becomes deterministic.
-* Cached bundles remain trustworthy.
-* Users can safely rollback to previous versions.
-* Artifact history becomes auditable.
+- Every executed bundle has a verifiable identity.
+- Runtime validation becomes deterministic.
+- Cached bundles remain trustworthy.
+- Users can safely rollback to previous versions.
+- Artifact history becomes auditable.
 
 ## Negative Consequences
 
-* Minor feature changes require new artifacts.
-* Cache management becomes an important runtime responsibility.
+- Minor feature changes require new artifacts.
+- Cache management becomes an important runtime responsibility.
 
 ## Risks
 
-* Incorrect hash calculation would invalidate execution.
-* Signing infrastructure becomes a critical security dependency.
-* Artifact compatibility must be preserved across runtime updates.
+- Incorrect hash calculation would invalidate execution.
+- Signing infrastructure becomes a critical security dependency.
+- Artifact compatibility must be preserved across runtime updates.
 
 ---
 
@@ -241,11 +241,11 @@ This model also separates generation from execution, allowing validation to occu
 
 Future releases may introduce:
 
-* incremental artifact distribution;
-* stronger cryptographic signatures;
-* enterprise signing infrastructure;
-* remote artifact mirrors;
-* improved cache eviction policies.
+- incremental artifact distribution;
+- stronger cryptographic signatures;
+- enterprise signing infrastructure;
+- remote artifact mirrors;
+- improved cache eviction policies.
 
 Regardless of future enhancements, the platform will preserve the following principle:
 
@@ -255,14 +255,14 @@ Regardless of future enhancements, the platform will preserve the following prin
 
 # References
 
-* Master Execution Plan
-* Bundle Validation Pipeline
-* Immutable Artifact Model
-* Runtime Verification
-* Cached Bundle Policy
-* ADR-004 – Manifest Compatibility & Versioning
-* ADR-005 – Generated Bundle Policy
+- Master Execution Plan
+- Bundle Validation Pipeline
+- Immutable Artifact Model
+- Runtime Verification
+- Cached Bundle Policy
+- ADR-004 – Manifest Compatibility & Versioning
+- ADR-005 – Generated Bundle Policy
 
 ---
 
-*End of ADR*
+_End of ADR_

@@ -26,14 +26,14 @@ Novus generates persistent micro-apps that augment supported website workspaces 
 
 These generated tools require capabilities unavailable to ordinary web applications, including:
 
-* Detecting supported routes.
-* Persisting local workspace state.
-* Managing browser storage.
-* Mounting side-panel interfaces.
-* Interacting with trusted site adapters.
-* Enforcing capability permissions.
-* Managing lifecycle events.
-* Operating independently of individual websites.
+- Detecting supported routes.
+- Persisting local workspace state.
+- Managing browser storage.
+- Mounting side-panel interfaces.
+- Interacting with trusted site adapters.
+- Enforcing capability permissions.
+- Managing lifecycle events.
+- Operating independently of individual websites.
 
 The platform therefore requires a trusted execution environment capable of interacting with the browser while maintaining strict separation between privileged runtime code and AI-generated code.
 
@@ -43,12 +43,12 @@ The platform therefore requires a trusted execution environment capable of inter
 
 Novus needs a runtime capable of:
 
-* Integrating directly with supported websites.
-* Managing browser-level capabilities.
-* Persisting state across browsing sessions.
-* Enforcing strict security boundaries.
-* Supporting AI-generated micro-apps safely.
-* Remaining maintainable as additional sites and capabilities are introduced.
+- Integrating directly with supported websites.
+- Managing browser-level capabilities.
+- Persisting state across browsing sessions.
+- Enforcing strict security boundaries.
+- Supporting AI-generated micro-apps safely.
+- Remaining maintainable as additional sites and capabilities are introduced.
 
 The chosen architecture must balance flexibility, security, portability, and long-term maintainability.
 
@@ -60,15 +60,15 @@ Novus adopts Chrome Manifest V3 as its primary runtime platform.
 
 The extension owns all privileged browser functionality, including:
 
-* Route detection.
-* Browser messaging.
-* Storage access.
-* Adapter execution.
-* Capability validation.
-* Permission management.
-* Lifecycle orchestration.
-* Bundle verification.
-* Secure communication with generated micro-apps.
+- Route detection.
+- Browser messaging.
+- Storage access.
+- Adapter execution.
+- Capability validation.
+- Permission management.
+- Lifecycle orchestration.
+- Bundle verification.
+- Secure communication with generated micro-apps.
 
 AI-generated applications never receive direct browser APIs or extension privileges.
 
@@ -108,16 +108,16 @@ The extension forms the trusted boundary between browser capabilities and genera
 
 ### Advantages
 
-* Cross-platform deployment.
-* Simpler hosting model.
-* Familiar web development workflow.
+- Cross-platform deployment.
+- Simpler hosting model.
+- Familiar web development workflow.
 
 ### Disadvantages
 
-* Cannot interact directly with website workspaces.
-* No browser extension APIs.
-* Cannot provide contextual augmentation beside existing websites.
-* Cannot manage browser-side persistence or permissions.
+- Cannot interact directly with website workspaces.
+- No browser extension APIs.
+- Cannot provide contextual augmentation beside existing websites.
+- Cannot manage browser-side persistence or permissions.
 
 ---
 
@@ -125,17 +125,17 @@ The extension forms the trusted boundary between browser capabilities and genera
 
 ### Advantages
 
-* Lightweight.
-* Easy distribution.
-* Direct page access.
+- Lightweight.
+- Easy distribution.
+- Direct page access.
 
 ### Disadvantages
 
-* Weak isolation.
-* Difficult permission model.
-* Limited lifecycle management.
-* Poor long-term maintainability.
-* Generated code would execute with excessive trust.
+- Weak isolation.
+- Difficult permission model.
+- Limited lifecycle management.
+- Poor long-term maintainability.
+- Generated code would execute with excessive trust.
 
 ---
 
@@ -143,15 +143,15 @@ The extension forms the trusted boundary between browser capabilities and genera
 
 ### Advantages
 
-* Complete runtime control.
-* Rich local capabilities.
+- Complete runtime control.
+- Rich local capabilities.
 
 ### Disadvantages
 
-* Poor integration with existing browsing workflows.
-* Increased installation complexity.
-* Higher maintenance cost.
-* Does not naturally augment websites already open in the user's browser.
+- Poor integration with existing browsing workflows.
+- Increased installation complexity.
+- Higher maintenance cost.
+- Does not naturally augment websites already open in the user's browser.
 
 ---
 
@@ -165,12 +165,12 @@ Chrome Manifest V3 provides the best balance of browser integration, security, l
 
 Choosing Manifest V3 aligns with Novus' core architectural principles:
 
-* Browser capabilities remain inside trusted runtime code.
-* Generated applications operate with minimal privileges.
-* Security boundaries are explicit and enforceable.
-* Browser lifecycle events are managed consistently.
-* Storage, adapters, and permissions remain centrally controlled.
-* Future platform capabilities can be introduced without expanding generated code privileges.
+- Browser capabilities remain inside trusted runtime code.
+- Generated applications operate with minimal privileges.
+- Security boundaries are explicit and enforceable.
+- Browser lifecycle events are managed consistently.
+- Storage, adapters, and permissions remain centrally controlled.
+- Future platform capabilities can be introduced without expanding generated code privileges.
 
 This separation is fundamental to Novus' security model and enables AI-generated features without compromising browser integrity.
 
@@ -180,19 +180,19 @@ This separation is fundamental to Novus' security model and enables AI-generated
 
 ## Benefits
 
-* Strong browser security model.
-* Clear trust boundaries.
-* Native browser integration.
-* Persistent local storage.
-* Consistent lifecycle management.
-* Scalable architecture for additional supported websites.
+- Strong browser security model.
+- Clear trust boundaries.
+- Native browser integration.
+- Persistent local storage.
+- Consistent lifecycle management.
+- Scalable architecture for additional supported websites.
 
 ## Drawbacks
 
-* Chrome-specific implementation for v1.
-* Manifest V3 service worker lifecycle introduces additional complexity.
-* Extension packaging and review requirements.
-* Additional runtime abstraction compared to ordinary web applications.
+- Chrome-specific implementation for v1.
+- Manifest V3 service worker lifecycle introduces additional complexity.
+- Extension packaging and review requirements.
+- Additional runtime abstraction compared to ordinary web applications.
 
 ---
 
@@ -200,21 +200,21 @@ This separation is fundamental to Novus' security model and enables AI-generated
 
 ## Positive Consequences
 
-* Trusted runtime owns all privileged operations.
-* Generated code remains isolated.
-* Security policies can be centrally enforced.
-* New features integrate through stable runtime interfaces.
+- Trusted runtime owns all privileged operations.
+- Generated code remains isolated.
+- Security policies can be centrally enforced.
+- New features integrate through stable runtime interfaces.
 
 ## Negative Consequences
 
-* Browser APIs become implementation dependencies.
-* Additional extension infrastructure must be maintained.
-* Browser compatibility requires explicit planning.
+- Browser APIs become implementation dependencies.
+- Additional extension infrastructure must be maintained.
+- Browser compatibility requires explicit planning.
 
 ## Risks
 
-* Future Manifest V3 platform changes may require architectural updates.
-* Browser vendor policy changes could affect extension capabilities.
+- Future Manifest V3 platform changes may require architectural updates.
+- Browser vendor policy changes could affect extension capabilities.
 
 ---
 
@@ -226,12 +226,12 @@ Future versions may support additional Chromium-based browsers and evaluate supp
 
 # References
 
-* Master Execution Plan
-* Phase 1 – Extension Platform
-* Runtime Architecture
-* Security Architecture
-* ADR-002 – Sandbox, CSP, Origin & Bridge Model
+- Master Execution Plan
+- Phase 1 – Extension Platform
+- Runtime Architecture
+- Security Architecture
+- ADR-002 – Sandbox, CSP, Origin & Bridge Model
 
 ---
 
-*End of ADR*
+_End of ADR_

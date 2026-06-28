@@ -30,11 +30,11 @@ These operations require contextual information from supported websites.
 
 However, unrestricted context transmission would violate several core architectural principles:
 
-* minimum-data collection;
-* capability-based permissions;
-* transparent user consent;
-* adapter ownership;
-* provenance tracking.
+- minimum-data collection;
+- capability-based permissions;
+- transparent user consent;
+- adapter ownership;
+- provenance tracking.
 
 The platform therefore requires a centralized policy governing every piece of information transmitted to external AI providers.
 
@@ -44,12 +44,12 @@ The platform therefore requires a centralized policy governing every piece of in
 
 The runtime must guarantee that:
 
-* AI providers receive only approved information;
-* generated Labs cannot bypass runtime policies;
-* sensitive website content remains protected;
-* prompt construction remains deterministic;
-* user consent is respected;
-* transmitted context is explainable and auditable.
+- AI providers receive only approved information;
+- generated Labs cannot bypass runtime policies;
+- sensitive website content remains protected;
+- prompt construction remains deterministic;
+- user consent is respected;
+- transmitted context is explainable and auditable.
 
 Without a centralized firewall, context handling would become inconsistent and difficult to secure.
 
@@ -61,14 +61,14 @@ Novus introduces a **Sensitive Context Firewall** positioned between the Trusted
 
 The firewall is responsible for:
 
-* validating requested capabilities;
-* evaluating user permissions;
-* selecting approved datasets;
-* applying projection rules;
-* removing restricted fields;
-* enforcing size limits;
-* preserving provenance;
-* constructing the final AI context package.
+- validating requested capabilities;
+- evaluating user permissions;
+- selecting approved datasets;
+- applying projection rules;
+- removing restricted fields;
+- enforcing size limits;
+- preserving provenance;
+- constructing the final AI context package.
 
 No runtime component may communicate directly with an AI provider without passing through this firewall.
 
@@ -110,17 +110,17 @@ The firewall becomes the single gateway between local browser data and external 
 
 ### Advantages
 
-* Simple implementation.
-* Minimal runtime processing.
-* Flexible prompt construction.
+- Simple implementation.
+- Minimal runtime processing.
+- Flexible prompt construction.
 
 ### Disadvantages
 
-* No centralized security policy.
-* Difficult auditing.
-* High privacy risk.
-* Weak permission enforcement.
-* Inconsistent context handling.
+- No centralized security policy.
+- Difficult auditing.
+- High privacy risk.
+- Weak permission enforcement.
+- Inconsistent context handling.
 
 ---
 
@@ -128,15 +128,15 @@ The firewall becomes the single gateway between local browser data and external 
 
 ### Advantages
 
-* Less runtime logic.
-* Adapter-specific optimization.
+- Less runtime logic.
+- Adapter-specific optimization.
 
 ### Disadvantages
 
-* Inconsistent behaviour.
-* Duplicated security policies.
-* Difficult maintenance.
-* Weak platform governance.
+- Inconsistent behaviour.
+- Duplicated security policies.
+- Difficult maintenance.
+- Weak platform governance.
 
 ---
 
@@ -144,18 +144,18 @@ The firewall becomes the single gateway between local browser data and external 
 
 ### Advantages
 
-* Consistent security policy.
-* Deterministic prompt construction.
-* Strong privacy guarantees.
-* Better auditing.
-* Centralized enforcement.
-* Easier future evolution.
+- Consistent security policy.
+- Deterministic prompt construction.
+- Strong privacy guarantees.
+- Better auditing.
+- Centralized enforcement.
+- Easier future evolution.
 
 ### Disadvantages
 
-* Additional runtime processing.
-* More sophisticated context pipeline.
-* Increased implementation complexity.
+- Additional runtime processing.
+- More sophisticated context pipeline.
+- Increased implementation complexity.
 
 ---
 
@@ -185,10 +185,10 @@ Prompt construction is a security-sensitive operation.
 
 Allowing arbitrary runtime components to construct AI requests would undermine:
 
-* minimum-data guarantees;
-* permission transparency;
-* capability validation;
-* provenance tracking.
+- minimum-data guarantees;
+- permission transparency;
+- capability validation;
+- provenance tracking.
 
 By centralizing context preparation inside the Trusted Runtime, Novus establishes a single, auditable enforcement point that remains independent of adapters, generated Labs, and AI providers.
 
@@ -200,18 +200,18 @@ This architecture also allows future AI providers to be introduced without chang
 
 ## Benefits
 
-* Strong privacy guarantees.
-* Deterministic context generation.
-* Easier auditing.
-* Consistent AI behaviour.
-* Better permission enforcement.
-* Provider-independent security policy.
+- Strong privacy guarantees.
+- Deterministic context generation.
+- Easier auditing.
+- Consistent AI behaviour.
+- Better permission enforcement.
+- Provider-independent security policy.
 
 ## Drawbacks
 
-* Additional processing before AI requests.
-* More complex runtime pipeline.
-* Central firewall becomes a critical platform component.
+- Additional processing before AI requests.
+- More complex runtime pipeline.
+- Central firewall becomes a critical platform component.
 
 ---
 
@@ -219,23 +219,23 @@ This architecture also allows future AI providers to be introduced without chang
 
 ## Positive Consequences
 
-* AI providers receive only approved context.
-* Prompt construction becomes reproducible.
-* Generated Labs cannot leak additional information.
-* Runtime policies remain centralized.
-* Security reviews become significantly simpler.
+- AI providers receive only approved context.
+- Prompt construction becomes reproducible.
+- Generated Labs cannot leak additional information.
+- Runtime policies remain centralized.
+- Security reviews become significantly simpler.
 
 ## Negative Consequences
 
-* AI requests require additional validation.
-* Context construction becomes a shared runtime responsibility.
-* Runtime evolution must preserve firewall compatibility.
+- AI requests require additional validation.
+- Context construction becomes a shared runtime responsibility.
+- Runtime evolution must preserve firewall compatibility.
 
 ## Risks
 
-* Incorrect projection rules could omit useful context.
-* Firewall policy bugs could reject legitimate requests.
-* Future AI capabilities must remain compatible with existing context policies.
+- Incorrect projection rules could omit useful context.
+- Firewall policy bugs could reject legitimate requests.
+- Future AI capabilities must remain compatible with existing context policies.
 
 ---
 
@@ -243,33 +243,33 @@ This architecture also allows future AI providers to be introduced without chang
 
 Future platform versions may introduce:
 
-* multiple AI providers;
-* enterprise policy enforcement;
-* customer-managed prompt policies;
-* richer context projections;
-* local model execution.
+- multiple AI providers;
+- enterprise policy enforcement;
+- customer-managed prompt policies;
+- richer context projections;
+- local model execution.
 
 Regardless of future expansion, the following architectural principles remain permanent:
 
-* all AI-bound context passes through the Sensitive Context Firewall;
-* adapters never communicate directly with AI providers;
-* generated Labs never construct unrestricted AI requests;
-* minimum-data principles always apply.
+- all AI-bound context passes through the Sensitive Context Firewall;
+- adapters never communicate directly with AI providers;
+- generated Labs never construct unrestricted AI requests;
+- minimum-data principles always apply.
 
 ---
 
 # References
 
-* Master Execution Plan
-* AI Generation Pipeline
-* Sensitive Context Firewall
-* Context Builder
-* Prompt Construction Pipeline
-* Data Projection Layer
-* Data Source Strategy & Adapter Resilience
-* ADR-007 – Data Collection & Consent Policy
-* ADR-013 – Data Minimization & Content Handling Policy
+- Master Execution Plan
+- AI Generation Pipeline
+- Sensitive Context Firewall
+- Context Builder
+- Prompt Construction Pipeline
+- Data Projection Layer
+- Data Source Strategy & Adapter Resilience
+- ADR-007 – Data Collection & Consent Policy
+- ADR-013 – Data Minimization & Content Handling Policy
 
 ---
 
-*End of ADR*
+_End of ADR_

@@ -16,8 +16,8 @@
 
 Novus separates persistent data across two storage systems:
 
-* **chrome.storage** stores extension configuration, feature metadata, permissions, and lightweight state.
-* **IndexedDB** stores large datasets, workspaces, notes, snapshots, provenance, cached artifacts, and other structured records.
+- **chrome.storage** stores extension configuration, feature metadata, permissions, and lightweight state.
+- **IndexedDB** stores large datasets, workspaces, notes, snapshots, provenance, cached artifacts, and other structured records.
 
 This separation aligns storage technology with the characteristics of the data being stored, improving scalability, maintainability, and runtime performance.
 
@@ -29,19 +29,19 @@ Novus generates persistent micro-apps that create and manage many different cate
 
 Some information is extremely small and configuration-oriented:
 
-* enabled features
-* permission grants
-* user preferences
-* artifact metadata
+- enabled features
+- permission grants
+- user preferences
+- artifact metadata
 
 Other information can become very large:
 
-* workspace datasets
-* collected records
-* notes
-* snapshots
-* cached bundles
-* provenance history
+- workspace datasets
+- collected records
+- notes
+- snapshots
+- cached bundles
+- provenance history
 
 Attempting to store every category in a single storage mechanism would introduce performance limitations, size constraints, and maintenance complexity.
 
@@ -51,12 +51,12 @@ Attempting to store every category in a single storage mechanism would introduce
 
 The runtime requires a storage architecture that:
 
-* persists feature state across browser sessions;
-* supports large structured datasets;
-* provides fast access to configuration data;
-* scales as additional workspaces are added;
-* maintains clear ownership boundaries;
-* minimizes unnecessary synchronization.
+- persists feature state across browser sessions;
+- supports large structured datasets;
+- provides fast access to configuration data;
+- scales as additional workspaces are added;
+- maintains clear ownership boundaries;
+- minimizes unnecessary synchronization.
 
 A single storage backend cannot efficiently satisfy all of these requirements.
 
@@ -70,38 +70,38 @@ Novus adopts a dual-storage architecture.
 
 Used for:
 
-* Feature manifests
-* Permission grants
-* User preferences
-* Feature versions
-* Bundle metadata
-* Artifact hashes
-* Local profile identifier
-* Small configuration objects
+- Feature manifests
+- Permission grants
+- User preferences
+- Feature versions
+- Bundle metadata
+- Artifact hashes
+- Local profile identifier
+- Small configuration objects
 
 ## chrome.storage.session
 
 Used for:
 
-* Active route information
-* Runtime session metadata
-* Route epochs
-* Temporary worker state
+- Active route information
+- Runtime session metadata
+- Route epochs
+- Temporary worker state
 
 ## IndexedDB
 
 Used for:
 
-* Workspaces
-* Datasets
-* Normalized records
-* Notes
-* Snapshots
-* Collection jobs
-* Provenance
-* Coverage information
-* Cached verified bundles
-* Feature-generated state
+- Workspaces
+- Datasets
+- Normalized records
+- Notes
+- Snapshots
+- Collection jobs
+- Provenance
+- Coverage information
+- Cached verified bundles
+- Feature-generated state
 
 Each storage technology is responsible only for the data it manages best.
 
@@ -139,16 +139,16 @@ Generated micro-apps never access either storage directly.
 
 ### Advantages
 
-* Simpler implementation.
-* Single persistence layer.
-* Native extension API.
+- Simpler implementation.
+- Single persistence layer.
+- Native extension API.
 
 ### Disadvantages
 
-* Poor suitability for large datasets.
-* Limited querying capabilities.
-* Reduced scalability.
-* Inefficient for workspace data.
+- Poor suitability for large datasets.
+- Limited querying capabilities.
+- Reduced scalability.
+- Inefficient for workspace data.
 
 ---
 
@@ -156,15 +156,15 @@ Generated micro-apps never access either storage directly.
 
 ### Advantages
 
-* Excellent structured storage.
-* Supports large datasets.
-* Flexible querying.
+- Excellent structured storage.
+- Supports large datasets.
+- Flexible querying.
 
 ### Disadvantages
 
-* Unnecessarily complex for simple configuration.
-* Slower access for lightweight metadata.
-* Less convenient for extension configuration.
+- Unnecessarily complex for simple configuration.
+- Slower access for lightweight metadata.
+- Less convenient for extension configuration.
 
 ---
 
@@ -172,15 +172,15 @@ Generated micro-apps never access either storage directly.
 
 ### Advantages
 
-* Storage optimized for each data type.
-* Better scalability.
-* Clear ownership boundaries.
-* Easier future maintenance.
+- Storage optimized for each data type.
+- Better scalability.
+- Clear ownership boundaries.
+- Easier future maintenance.
 
 ### Disadvantages
 
-* Additional implementation complexity.
-* Two storage systems must be maintained.
+- Additional implementation complexity.
+- Two storage systems must be maintained.
 
 ---
 
@@ -196,11 +196,11 @@ Configuration data remains lightweight and easily accessible, while large datase
 
 Separating storage responsibilities supports several architectural goals:
 
-* Improves runtime performance.
-* Prevents configuration storage from becoming overloaded.
-* Enables efficient querying of workspace datasets.
-* Simplifies backup, migration, and versioning strategies.
-* Provides a natural separation between runtime metadata and user-generated content.
+- Improves runtime performance.
+- Prevents configuration storage from becoming overloaded.
+- Enables efficient querying of workspace datasets.
+- Simplifies backup, migration, and versioning strategies.
+- Provides a natural separation between runtime metadata and user-generated content.
 
 This architecture also supports future workspace growth without redesigning persistence.
 
@@ -210,17 +210,17 @@ This architecture also supports future workspace growth without redesigning pers
 
 ## Benefits
 
-* Better scalability.
-* Faster configuration access.
-* Efficient large-data storage.
-* Clear separation of responsibilities.
-* Easier future migrations.
+- Better scalability.
+- Faster configuration access.
+- Efficient large-data storage.
+- Clear separation of responsibilities.
+- Easier future migrations.
 
 ## Drawbacks
 
-* Two persistence systems.
-* Additional abstraction layer.
-* Slightly higher implementation complexity.
+- Two persistence systems.
+- Additional abstraction layer.
+- Slightly higher implementation complexity.
 
 ---
 
@@ -228,20 +228,20 @@ This architecture also supports future workspace growth without redesigning pers
 
 ## Positive Consequences
 
-* Runtime scales as workspaces grow.
-* Storage responsibilities remain clear.
-* Feature data remains organized.
-* Future migrations become easier.
+- Runtime scales as workspaces grow.
+- Storage responsibilities remain clear.
+- Feature data remains organized.
+- Future migrations become easier.
 
 ## Negative Consequences
 
-* Developers must understand storage boundaries.
-* Storage coordination logic becomes necessary.
+- Developers must understand storage boundaries.
+- Storage coordination logic becomes necessary.
 
 ## Risks
 
-* Incorrect storage placement could increase complexity.
-* Schema migrations must remain synchronized across both systems.
+- Incorrect storage placement could increase complexity.
+- Schema migrations must remain synchronized across both systems.
 
 ---
 
@@ -255,13 +255,13 @@ These enhancements should extend the storage architecture without changing the f
 
 # References
 
-* Master Execution Plan
-* Workspace Data Engine
-* Storage Architecture
-* Persistence Model
-* ADR-001 – Extension & Manifest V3 Architecture
-* ADR-002 – Sandboxed Runtime, CSP, Origin Isolation & Typed Bridge
+- Master Execution Plan
+- Workspace Data Engine
+- Storage Architecture
+- Persistence Model
+- ADR-001 – Extension & Manifest V3 Architecture
+- ADR-002 – Sandboxed Runtime, CSP, Origin Isolation & Typed Bridge
 
 ---
 
-*End of ADR*
+_End of ADR_

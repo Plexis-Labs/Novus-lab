@@ -30,12 +30,12 @@ While modern language models produce increasingly reliable code, generated outpu
 
 Generated code may contain:
 
-* unexpected APIs;
-* undeclared capabilities;
-* unsafe browser interactions;
-* compilation failures;
-* incompatible dependencies;
-* security violations.
+- unexpected APIs;
+- undeclared capabilities;
+- unsafe browser interactions;
+- compilation failures;
+- incompatible dependencies;
+- security violations.
 
 The runtime therefore cannot execute model output directly.
 
@@ -45,12 +45,12 @@ The runtime therefore cannot execute model output directly.
 
 The platform requires a repeatable process that guarantees:
 
-* generated code follows platform rules;
-* only approved APIs are used;
-* browser security boundaries remain intact;
-* capabilities match the approved manifest;
-* artifacts remain immutable after validation;
-* execution is deterministic.
+- generated code follows platform rules;
+- only approved APIs are used;
+- browser security boundaries remain intact;
+- capabilities match the approved manifest;
+- artifacts remain immutable after validation;
+- execution is deterministic.
 
 Trust must be established before execution.
 
@@ -113,16 +113,16 @@ It executes only verified artifacts.
 
 ### Advantages
 
-* Very simple architecture.
-* Faster generation.
-* Lower infrastructure cost.
+- Very simple architecture.
+- Faster generation.
+- Lower infrastructure cost.
 
 ### Disadvantages
 
-* No security guarantees.
-* No capability validation.
-* Impossible to establish execution trust.
-* High risk of unsafe code.
+- No security guarantees.
+- No capability validation.
+- Impossible to establish execution trust.
+- High risk of unsafe code.
 
 ---
 
@@ -130,14 +130,14 @@ It executes only verified artifacts.
 
 ### Advantages
 
-* Faster build pipeline.
-* Reduced implementation effort.
+- Faster build pipeline.
+- Reduced implementation effort.
 
 ### Disadvantages
 
-* Compilation alone does not guarantee safety.
-* Unsafe APIs remain possible.
-* No policy enforcement.
+- Compilation alone does not guarantee safety.
+- Unsafe APIs remain possible.
+- No policy enforcement.
 
 ---
 
@@ -145,17 +145,17 @@ It executes only verified artifacts.
 
 ### Advantages
 
-* Strong security guarantees.
-* Deterministic execution.
-* Clear validation failures.
-* Supports immutable artifacts.
-* Enables secure rollback.
+- Strong security guarantees.
+- Deterministic execution.
+- Clear validation failures.
+- Supports immutable artifacts.
+- Enables secure rollback.
 
 ### Disadvantages
 
-* Longer generation pipeline.
-* More infrastructure.
-* Additional maintenance.
+- Longer generation pipeline.
+- More infrastructure.
+- Additional maintenance.
 
 ---
 
@@ -167,11 +167,11 @@ Only after completing every validation stage does a bundle become a trusted exec
 
 Each validation stage is responsible for a distinct concern:
 
-* AST analysis validates source.
-* Compiler validates build correctness.
-* Manifest validator enforces declared capabilities.
-* Artifact signing guarantees integrity.
-* Runtime verification confirms execution safety.
+- AST analysis validates source.
+- Compiler validates build correctness.
+- Manifest validator enforces declared capabilities.
+- Artifact signing guarantees integrity.
+- Runtime verification confirms execution safety.
 
 No stage replaces another.
 
@@ -187,10 +187,10 @@ Each stage has one responsibility.
 
 This allows:
 
-* independent testing;
-* clearer diagnostics;
-* easier future improvements;
-* defense in depth.
+- independent testing;
+- clearer diagnostics;
+- easier future improvements;
+- defense in depth.
 
 Rather than relying on any single validation mechanism, Novus combines multiple layers that collectively determine whether execution is permitted.
 
@@ -200,19 +200,19 @@ Rather than relying on any single validation mechanism, Novus combines multiple 
 
 ## Benefits
 
-* Strong security posture.
-* Deterministic execution.
-* Immutable executable artifacts.
-* Easier debugging.
-* Better rollback support.
-* Independent validation layers.
+- Strong security posture.
+- Deterministic execution.
+- Immutable executable artifacts.
+- Easier debugging.
+- Better rollback support.
+- Independent validation layers.
 
 ## Drawbacks
 
-* Increased complexity.
-* Longer generation time.
-* Additional infrastructure requirements.
-* Higher maintenance effort.
+- Increased complexity.
+- Longer generation time.
+- Additional infrastructure requirements.
+- Higher maintenance effort.
 
 ---
 
@@ -220,21 +220,21 @@ Rather than relying on any single validation mechanism, Novus combines multiple 
 
 ## Positive Consequences
 
-* Unsafe bundles never execute.
-* Validation failures are explainable.
-* Artifact integrity becomes verifiable.
-* Future validation stages can be introduced independently.
+- Unsafe bundles never execute.
+- Validation failures are explainable.
+- Artifact integrity becomes verifiable.
+- Future validation stages can be introduced independently.
 
 ## Negative Consequences
 
-* Bundle generation requires additional compute.
-* Validation infrastructure becomes a critical platform component.
+- Bundle generation requires additional compute.
+- Validation infrastructure becomes a critical platform component.
 
 ## Risks
 
-* Validator bugs could incorrectly reject valid bundles.
-* Weak validation rules could permit unsafe execution.
-* Platform evolution requires validator updates.
+- Validator bugs could incorrectly reject valid bundles.
+- Weak validation rules could permit unsafe execution.
+- Platform evolution requires validator updates.
 
 ---
 
@@ -242,12 +242,12 @@ Rather than relying on any single validation mechanism, Novus combines multiple 
 
 Future releases may expand validation with:
 
-* accessibility analysis;
-* performance budgets;
-* memory budgets;
-* UI quality scoring;
-* automated repair suggestions;
-* model evaluation metrics.
+- accessibility analysis;
+- performance budgets;
+- memory budgets;
+- UI quality scoring;
+- automated repair suggestions;
+- model evaluation metrics.
 
 These enhancements should extend the validation pipeline without weakening its fundamental principle:
 
@@ -257,14 +257,14 @@ These enhancements should extend the validation pipeline without weakening its f
 
 # References
 
-* Master Execution Plan
-* Bundle Validation Pipeline
-* AI Generation Pipeline
-* Artifact Signing
-* Runtime Mount Verification
-* ADR-002 – Sandboxed Runtime, CSP, Origin & Bridge Model
-* ADR-004 – Manifest Compatibility & Versioning
+- Master Execution Plan
+- Bundle Validation Pipeline
+- AI Generation Pipeline
+- Artifact Signing
+- Runtime Mount Verification
+- ADR-002 – Sandboxed Runtime, CSP, Origin & Bridge Model
+- ADR-004 – Manifest Compatibility & Versioning
 
 ---
 
-*End of ADR*
+_End of ADR_

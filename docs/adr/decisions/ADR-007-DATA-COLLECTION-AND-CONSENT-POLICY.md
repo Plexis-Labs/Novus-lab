@@ -38,12 +38,12 @@ The platform therefore requires a unified policy governing how information is co
 
 The platform must answer several critical questions:
 
-* What information may be collected?
-* Who decides what can be collected?
-* How is user consent obtained?
-* How are sensitive routes protected?
-* How are datasets explained to users?
-* How does the runtime guarantee data minimization?
+- What information may be collected?
+- Who decides what can be collected?
+- How is user consent obtained?
+- How are sensitive routes protected?
+- How are datasets explained to users?
+- How does the runtime guarantee data minimization?
 
 Without a formal policy, collection behaviour would become inconsistent across adapters and generated features.
 
@@ -62,12 +62,12 @@ Data collection is permitted only when all required runtime conditions are satis
 
 Every collected dataset must include provenance describing:
 
-* adapter
-* adapter version
-* collection source
-* collection time
-* completeness
-* warnings
+- adapter
+- adapter version
+- collection source
+- collection time
+- completeness
+- warnings
 
 No generated bundle may initiate arbitrary website collection.
 
@@ -110,17 +110,17 @@ Generated applications never bypass this workflow.
 
 ### Advantages
 
-* Maximum flexibility.
-* Minimal runtime logic.
-* Easier implementation.
+- Maximum flexibility.
+- Minimal runtime logic.
+- Easier implementation.
 
 ### Disadvantages
 
-* Excessive permissions.
-* Privacy concerns.
-* Difficult auditing.
-* Poor user trust.
-* Incompatible with Novus' security model.
+- Excessive permissions.
+- Privacy concerns.
+- Difficult auditing.
+- Poor user trust.
+- Incompatible with Novus' security model.
 
 ---
 
@@ -128,15 +128,15 @@ Generated applications never bypass this workflow.
 
 ### Advantages
 
-* Simpler user experience.
-* Less interaction.
+- Simpler user experience.
+- Less interaction.
 
 ### Disadvantages
 
-* Reduced transparency.
-* Weak consent model.
-* Difficult compliance.
-* Poor user confidence.
+- Reduced transparency.
+- Weak consent model.
+- Difficult compliance.
+- Poor user confidence.
 
 ---
 
@@ -144,17 +144,17 @@ Generated applications never bypass this workflow.
 
 ### Advantages
 
-* Transparent permissions.
-* Strong privacy guarantees.
-* Predictable behaviour.
-* Consistent enforcement.
-* Better auditing.
+- Transparent permissions.
+- Strong privacy guarantees.
+- Predictable behaviour.
+- Consistent enforcement.
+- Better auditing.
 
 ### Disadvantages
 
-* Additional permission workflow.
-* More runtime validation.
-* Slightly more complex implementation.
+- Additional permission workflow.
+- More runtime validation.
+- Slightly more complex implementation.
 
 ---
 
@@ -164,14 +164,14 @@ Every collection request must satisfy all runtime policies before data is access
 
 Collection decisions consider:
 
-* active adapter;
-* supported route;
-* user permissions;
-* requested capability;
-* sensitive-context status;
-* approved collection mode;
-* declared projection;
-* runtime policy.
+- active adapter;
+- supported route;
+- user permissions;
+- requested capability;
+- sensitive-context status;
+- approved collection mode;
+- declared projection;
+- runtime policy.
 
 Only normalized datasets are exposed to generated features.
 
@@ -185,12 +185,12 @@ The value of Novus comes from helping users build better workflows—not from co
 
 By enforcing minimum-data collection, the platform:
 
-* reduces privacy risks;
-* improves explainability;
-* simplifies permission previews;
-* supports deterministic runtime validation;
-* enables stronger security guarantees;
-* improves long-term user trust.
+- reduces privacy risks;
+- improves explainability;
+- simplifies permission previews;
+- supports deterministic runtime validation;
+- enables stronger security guarantees;
+- improves long-term user trust.
 
 This philosophy is reflected throughout the runtime architecture.
 
@@ -200,18 +200,18 @@ This philosophy is reflected throughout the runtime architecture.
 
 ## Benefits
 
-* Explicit consent model.
-* Strong privacy guarantees.
-* Transparent data access.
-* Easier auditing.
-* Consistent adapter behaviour.
-* Better user trust.
+- Explicit consent model.
+- Strong privacy guarantees.
+- Transparent data access.
+- Easier auditing.
+- Consistent adapter behaviour.
+- Better user trust.
 
 ## Drawbacks
 
-* Additional permission dialogs.
-* More validation logic.
-* Reduced flexibility compared to unrestricted browser extensions.
+- Additional permission dialogs.
+- More validation logic.
+- Reduced flexibility compared to unrestricted browser extensions.
 
 ---
 
@@ -219,22 +219,22 @@ This philosophy is reflected throughout the runtime architecture.
 
 ## Positive Consequences
 
-* Users understand exactly what data is accessed.
-* Features receive only approved datasets.
-* Sensitive information remains protected.
-* Adapters become easier to review and maintain.
-* Provenance and coverage become reliable platform features.
+- Users understand exactly what data is accessed.
+- Features receive only approved datasets.
+- Sensitive information remains protected.
+- Adapters become easier to review and maintain.
+- Provenance and coverage become reliable platform features.
 
 ## Negative Consequences
 
-* Some advanced workflows require additional user approval.
-* Adapter development requires explicit data declarations.
+- Some advanced workflows require additional user approval.
+- Adapter development requires explicit data declarations.
 
 ## Risks
 
-* Incorrect adapter declarations could expose incomplete datasets.
-* Poor permission wording could confuse users.
-* Runtime policy bugs could incorrectly deny legitimate requests.
+- Incorrect adapter declarations could expose incomplete datasets.
+- Poor permission wording could confuse users.
+- Runtime policy bugs could incorrectly deny legitimate requests.
 
 ---
 
@@ -244,11 +244,11 @@ Future releases may introduce additional collection mechanisms, including offici
 
 Regardless of future capabilities, every collection mechanism must preserve the principles established by this ADR:
 
-* minimum necessary data;
-* explicit user understanding;
-* reviewed adapter ownership;
-* transparent provenance;
-* capability-based access.
+- minimum necessary data;
+- explicit user understanding;
+- reviewed adapter ownership;
+- transparent provenance;
+- capability-based access.
 
 These principles remain fundamental to Novus' privacy and security model.
 
@@ -256,14 +256,14 @@ These principles remain fundamental to Novus' privacy and security model.
 
 # References
 
-* Master Execution Plan
-* Data Source Strategy & Adapter Resilience
-* Dataset Provenance
-* Data Projection Layer
-* Sensitive Context Firewall
-* AI Generation Pipeline
-* ADR-006 – Adapter Contract & Maturity Levels
+- Master Execution Plan
+- Data Source Strategy & Adapter Resilience
+- Dataset Provenance
+- Data Projection Layer
+- Sensitive Context Firewall
+- AI Generation Pipeline
+- ADR-006 – Adapter Contract & Maturity Levels
 
 ---
 
-*End of ADR*
+_End of ADR_

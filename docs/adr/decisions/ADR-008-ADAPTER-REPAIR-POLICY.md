@@ -28,12 +28,12 @@ Supported websites evolve continuously.
 
 Examples include:
 
-* DOM structure changes.
-* Accessibility improvements.
-* CSS class regeneration.
-* Route redesigns.
-* API response changes.
-* UI framework migrations.
+- DOM structure changes.
+- Accessibility improvements.
+- CSS class regeneration.
+- Route redesigns.
+- API response changes.
+- UI framework migrations.
 
 Without a structured maintenance strategy, these changes would gradually reduce adapter reliability and break generated micro-apps.
 
@@ -47,12 +47,12 @@ Novus instead treats adapters as long-lived platform components that are continu
 
 The platform requires an adapter maintenance strategy that:
 
-* detects website changes early;
-* minimizes disruption for users;
-* supports AI-assisted maintenance;
-* prevents unsafe automatic updates;
-* preserves trust in official adapters;
-* ensures every repair is verified before release.
+- detects website changes early;
+- minimizes disruption for users;
+- supports AI-assisted maintenance;
+- prevents unsafe automatic updates;
+- preserves trust in official adapters;
+- ensures every repair is verified before release.
 
 Allowing AI to silently rewrite production adapters would create unacceptable security and reliability risks.
 
@@ -119,15 +119,15 @@ They do not replace them.
 
 ### Advantages
 
-* Maximum human control.
-* Simple release process.
-* Predictable behaviour.
+- Maximum human control.
+- Simple release process.
+- Predictable behaviour.
 
 ### Disadvantages
 
-* Slow response to website changes.
-* Higher maintenance burden.
-* Limited scalability.
+- Slow response to website changes.
+- Higher maintenance burden.
+- Limited scalability.
 
 ---
 
@@ -135,17 +135,17 @@ They do not replace them.
 
 ### Advantages
 
-* Rapid recovery.
-* Minimal maintainer effort.
-* Continuous adaptation.
+- Rapid recovery.
+- Minimal maintainer effort.
+- Continuous adaptation.
 
 ### Disadvantages
 
-* Unsafe production changes.
-* Difficult auditing.
-* Reduced user trust.
-* Potential privacy risks.
-* High probability of incorrect repairs.
+- Unsafe production changes.
+- Difficult auditing.
+- Reduced user trust.
+- Potential privacy risks.
+- High probability of incorrect repairs.
 
 ---
 
@@ -153,17 +153,17 @@ They do not replace them.
 
 ### Advantages
 
-* Faster maintenance.
-* Human oversight.
-* Auditable releases.
-* Secure deployment.
-* Scalable maintenance model.
+- Faster maintenance.
+- Human oversight.
+- Auditable releases.
+- Secure deployment.
+- Scalable maintenance model.
 
 ### Disadvantages
 
-* Additional review workflow.
-* More release infrastructure.
-* Slightly slower than full automation.
+- Additional review workflow.
+- More release infrastructure.
+- Slightly slower than full automation.
 
 ---
 
@@ -175,12 +175,12 @@ The platform automatically detects failures, gathers sanitized diagnostics, and 
 
 However, every proposed repair must successfully pass:
 
-* parser validation;
-* fixture validation;
-* snapshot validation;
-* extraction tests;
-* sensitive-route verification;
-* security checks;
+- parser validation;
+- fixture validation;
+- snapshot validation;
+- extraction tests;
+- sensitive-route verification;
+- security checks;
 
 before maintainer approval.
 
@@ -206,18 +206,18 @@ This architecture also provides complete traceability for every adapter release.
 
 ## Benefits
 
-* Faster adapter maintenance.
-* Improved reliability.
-* Better diagnostics.
-* Human accountability.
-* Secure release process.
-* Consistent version history.
+- Faster adapter maintenance.
+- Improved reliability.
+- Better diagnostics.
+- Human accountability.
+- Secure release process.
+- Consistent version history.
 
 ## Drawbacks
 
-* Review process introduces additional effort.
-* Repairs are not instantaneous.
-* Release infrastructure becomes more sophisticated.
+- Review process introduces additional effort.
+- Repairs are not instantaneous.
+- Release infrastructure becomes more sophisticated.
 
 ---
 
@@ -225,22 +225,22 @@ This architecture also provides complete traceability for every adapter release.
 
 ## Positive Consequences
 
-* Website changes are detected proactively.
-* AI reduces repetitive maintenance work.
-* Official adapters remain trusted components.
-* Every release is reproducible and auditable.
-* Users receive stable, validated updates.
+- Website changes are detected proactively.
+- AI reduces repetitive maintenance work.
+- Official adapters remain trusted components.
+- Every release is reproducible and auditable.
+- Users receive stable, validated updates.
 
 ## Negative Consequences
 
-* Critical website changes still require maintainer availability.
-* Repair proposals may occasionally require manual refinement.
+- Critical website changes still require maintainer availability.
+- Repair proposals may occasionally require manual refinement.
 
 ## Risks
 
-* Diagnostic quality directly affects repair quality.
-* Validation infrastructure becomes a critical dependency.
-* Delayed reviews may postpone adapter updates.
+- Diagnostic quality directly affects repair quality.
+- Validation infrastructure becomes a critical dependency.
+- Delayed reviews may postpone adapter updates.
 
 ---
 
@@ -258,17 +258,17 @@ No production adapter should ever be modified automatically without validation a
 
 # References
 
-* Master Execution Plan
-* Data Source Strategy & Adapter Resilience
-* DS-007 – Automated Adapter Health Monitoring
-* DS-008 – CI Repair Proposal Pipeline
-* DS-009 – Adapter Maintenance Model
-* FIX-012 – Adapter Verification Pipeline
-* FIX-013 – Official Adapter Snapshot Repository
-* FIX-014 – Adapter Monitoring Pipeline
-* ADR-006 – Adapter Contract & Maturity Levels
-* ADR-007 – Data Collection & Consent Policy
+- Master Execution Plan
+- Data Source Strategy & Adapter Resilience
+- DS-007 – Automated Adapter Health Monitoring
+- DS-008 – CI Repair Proposal Pipeline
+- DS-009 – Adapter Maintenance Model
+- FIX-012 – Adapter Verification Pipeline
+- FIX-013 – Official Adapter Snapshot Repository
+- FIX-014 – Adapter Monitoring Pipeline
+- ADR-006 – Adapter Contract & Maturity Levels
+- ADR-007 – Data Collection & Consent Policy
 
 ---
 
-*End of ADR*
+_End of ADR_

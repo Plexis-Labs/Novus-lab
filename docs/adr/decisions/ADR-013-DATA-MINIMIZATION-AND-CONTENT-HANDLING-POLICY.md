@@ -32,10 +32,10 @@ However, unrestricted website access would conflict with Novus' security, privac
 
 The platform therefore distinguishes between:
 
-* raw website data;
-* normalized workspace entities;
-* approved projections;
-* feature-specific datasets.
+- raw website data;
+- normalized workspace entities;
+- approved projections;
+- feature-specific datasets.
 
 Every stage of the platform is designed to reduce unnecessary information exposure.
 
@@ -45,12 +45,12 @@ Every stage of the platform is designed to reduce unnecessary information exposu
 
 The platform must answer several fundamental questions:
 
-* What information may be collected?
-* Who decides which fields are available?
-* What information is sent to AI services?
-* What information is exposed to generated bundles?
-* How are users informed about data usage?
-* How are sensitive fields protected?
+- What information may be collected?
+- Who decides which fields are available?
+- What information is sent to AI services?
+- What information is exposed to generated bundles?
+- How are users informed about data usage?
+- How are sensitive fields protected?
 
 Without explicit data minimization policies, features could gradually accumulate unnecessary access to user data.
 
@@ -108,17 +108,17 @@ Generated features operate exclusively on approved projections.
 
 ### Advantages
 
-* Maximum flexibility.
-* Minimal runtime processing.
-* Simplified feature generation.
+- Maximum flexibility.
+- Minimal runtime processing.
+- Simplified feature generation.
 
 ### Disadvantages
 
-* Excessive permissions.
-* Poor privacy.
-* Difficult auditing.
-* Weak security.
-* Reduced user trust.
+- Excessive permissions.
+- Poor privacy.
+- Difficult auditing.
+- Weak security.
+- Reduced user trust.
 
 ---
 
@@ -126,14 +126,14 @@ Generated features operate exclusively on approved projections.
 
 ### Advantages
 
-* Easier adapter implementation.
-* Flexible feature development.
+- Easier adapter implementation.
+- Flexible feature development.
 
 ### Disadvantages
 
-* Unnecessary information is still collected.
-* Larger attack surface.
-* Harder to reason about privacy guarantees.
+- Unnecessary information is still collected.
+- Larger attack surface.
+- Harder to reason about privacy guarantees.
 
 ---
 
@@ -141,18 +141,18 @@ Generated features operate exclusively on approved projections.
 
 ### Advantages
 
-* Strong privacy guarantees.
-* Explicit permissions.
-* Smaller attack surface.
-* Better explainability.
-* Consistent runtime behaviour.
-* Easier compliance with minimum-data principles.
+- Strong privacy guarantees.
+- Explicit permissions.
+- Smaller attack surface.
+- Better explainability.
+- Consistent runtime behaviour.
+- Easier compliance with minimum-data principles.
 
 ### Disadvantages
 
-* Additional adapter declarations.
-* Projection maintenance.
-* More runtime validation.
+- Additional adapter declarations.
+- Projection maintenance.
+- More runtime validation.
 
 ---
 
@@ -162,24 +162,24 @@ Data enters the platform only through reviewed adapters.
 
 Adapters declare:
 
-* approved data sources;
-* supported entities;
-* available fields;
-* excluded fields;
-* collection scope;
-* provenance information.
+- approved data sources;
+- supported entities;
+- available fields;
+- excluded fields;
+- collection scope;
+- provenance information.
 
 The runtime projects only the fields required by the active feature.
 
 Generated bundles never receive:
 
-* raw DOM;
-* arbitrary network responses;
-* browser credentials;
-* cookies;
-* authorization headers;
-* framework-private state;
-* unrestricted page content.
+- raw DOM;
+- arbitrary network responses;
+- browser credentials;
+- cookies;
+- authorization headers;
+- framework-private state;
+- unrestricted page content.
 
 ---
 
@@ -189,12 +189,12 @@ Data minimization is a fundamental architectural principle rather than an implem
 
 Reducing available information:
 
-* improves security;
-* strengthens privacy;
-* simplifies permissions;
-* improves transparency;
-* reduces accidental data exposure;
-* enables deterministic capability enforcement.
+- improves security;
+- strengthens privacy;
+- simplifies permissions;
+- improves transparency;
+- reduces accidental data exposure;
+- enables deterministic capability enforcement.
 
 The goal of Novus is not to collect the most data possible.
 
@@ -206,18 +206,18 @@ The goal is to provide sufficient information for a feature while exposing nothi
 
 ## Benefits
 
-* Smaller attack surface.
-* Better privacy.
-* Easier auditing.
-* Predictable permissions.
-* Improved user trust.
-* Consistent runtime enforcement.
+- Smaller attack surface.
+- Better privacy.
+- Easier auditing.
+- Predictable permissions.
+- Improved user trust.
+- Consistent runtime enforcement.
 
 ## Drawbacks
 
-* Richer features may require additional adapter work.
-* Projection schemas require maintenance.
-* Runtime validation becomes more sophisticated.
+- Richer features may require additional adapter work.
+- Projection schemas require maintenance.
+- Runtime validation becomes more sophisticated.
 
 ---
 
@@ -225,22 +225,22 @@ The goal is to provide sufficient information for a feature while exposing nothi
 
 ## Positive Consequences
 
-* Generated features operate on normalized data only.
-* AI services receive only explicitly approved context.
-* Sensitive information remains protected by default.
-* Permission previews accurately describe accessed information.
-* Provenance and coverage remain reliable.
+- Generated features operate on normalized data only.
+- AI services receive only explicitly approved context.
+- Sensitive information remains protected by default.
+- Permission previews accurately describe accessed information.
+- Provenance and coverage remain reliable.
 
 ## Negative Consequences
 
-* Some feature ideas may require additional adapter capabilities.
-* Adapter developers must explicitly model available fields.
+- Some feature ideas may require additional adapter capabilities.
+- Adapter developers must explicitly model available fields.
 
 ## Risks
 
-* Incorrect projection definitions may deny legitimate feature requests.
-* Poor adapter schemas may reduce feature usefulness.
-* Future platform capabilities must preserve minimum-data guarantees.
+- Incorrect projection definitions may deny legitimate feature requests.
+- Poor adapter schemas may reduce feature usefulness.
+- Future platform capabilities must preserve minimum-data guarantees.
 
 ---
 
@@ -248,32 +248,32 @@ The goal is to provide sufficient information for a feature while exposing nothi
 
 Future platform versions may support:
 
-* richer projection languages;
-* additional official integrations;
-* improved dataset composition;
-* more granular field-level permissions.
+- richer projection languages;
+- additional official integrations;
+- improved dataset composition;
+- more granular field-level permissions.
 
 Regardless of future enhancements, the following architectural principles remain permanent:
 
-* collect only what is necessary;
-* expose only approved projections;
-* preserve provenance;
-* maintain explicit user understanding;
-* never expose unrestricted website data to generated features or AI models.
+- collect only what is necessary;
+- expose only approved projections;
+- preserve provenance;
+- maintain explicit user understanding;
+- never expose unrestricted website data to generated features or AI models.
 
 ---
 
 # References
 
-* Master Execution Plan
-* Data Source Strategy & Adapter Resilience
-* Data Projection Layer
-* Dataset Provenance
-* Content Handling Policy
-* AI Generation Pipeline
-* ADR-006 – Adapter Contract & Maturity Levels
-* ADR-007 – Data Collection & Consent Policy
+- Master Execution Plan
+- Data Source Strategy & Adapter Resilience
+- Data Projection Layer
+- Dataset Provenance
+- Content Handling Policy
+- AI Generation Pipeline
+- ADR-006 – Adapter Contract & Maturity Levels
+- ADR-007 – Data Collection & Consent Policy
 
 ---
 
-*End of ADR*
+_End of ADR_

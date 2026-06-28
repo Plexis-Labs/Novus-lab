@@ -1,0 +1,4 @@
+echo "🔍 Running pre-commit checks (lint-staged)..."
+
+# Run lint-staged (configured in lint-staged.config.mjs)
+pnpm lint-staged

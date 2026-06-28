@@ -28,11 +28,11 @@ Novus combines local browser capabilities with optional cloud services.
 
 Cloud infrastructure is responsible for tasks such as:
 
-* AI-powered Lab generation;
-* artifact generation;
-* optional future synchronization;
-* platform telemetry;
-* update discovery.
+- AI-powered Lab generation;
+- artifact generation;
+- optional future synchronization;
+- platform telemetry;
+- update discovery.
 
 However, the core purpose of Novus is to provide persistent browser-side productivity tools.
 
@@ -44,11 +44,11 @@ Users should not lose access to existing workflows because an external service b
 
 The platform must define how it behaves when:
 
-* the AI gateway is unavailable;
-* backend APIs fail;
-* network connectivity is lost;
-* update services cannot be reached;
-* remote infrastructure experiences partial outages.
+- the AI gateway is unavailable;
+- backend APIs fail;
+- network connectivity is lost;
+- update services cannot be reached;
+- remote infrastructure experiences partial outages.
 
 Without explicit outage policies, runtime behaviour becomes inconsistent and user productivity may be unnecessarily interrupted.
 
@@ -62,23 +62,23 @@ During backend outages:
 
 ### Continue Operating
 
-* installed Labs;
-* verified bundle execution;
-* adapters;
-* local workspaces;
-* notes;
-* datasets;
-* cached artifacts;
-* browser-side permissions;
-* runtime SDK.
+- installed Labs;
+- verified bundle execution;
+- adapters;
+- local workspaces;
+- notes;
+- datasets;
+- cached artifacts;
+- browser-side permissions;
+- runtime SDK.
 
 ### Temporarily Unavailable
 
-* AI Lab generation;
-* cloud-assisted repair proposals;
-* remote publishing;
-* update discovery;
-* optional synchronization services.
+- AI Lab generation;
+- cloud-assisted repair proposals;
+- remote publishing;
+- update discovery;
+- optional synchronization services.
 
 The runtime never disables existing Labs solely because backend infrastructure is unavailable.
 
@@ -114,16 +114,16 @@ Cloud services enhance the platform but do not own its core functionality.
 
 ### Advantages
 
-* Simpler backend coordination.
-* Centralized execution.
-* Easier remote management.
+- Simpler backend coordination.
+- Centralized execution.
+- Easier remote management.
 
 ### Disadvantages
 
-* Platform becomes unavailable during outages.
-* Poor user experience.
-* Weak offline capability.
-* Contradicts local-first architecture.
+- Platform becomes unavailable during outages.
+- Poor user experience.
+- Weak offline capability.
+- Contradicts local-first architecture.
 
 ---
 
@@ -131,14 +131,14 @@ Cloud services enhance the platform but do not own its core functionality.
 
 ### Advantages
 
-* Simpler consistency model.
-* Reduced edge cases.
+- Simpler consistency model.
+- Reduced edge cases.
 
 ### Disadvantages
 
-* Existing user workflows break.
-* Previously generated Labs become unusable.
-* Reduced confidence in platform reliability.
+- Existing user workflows break.
+- Previously generated Labs become unusable.
+- Reduced confidence in platform reliability.
 
 ---
 
@@ -146,17 +146,17 @@ Cloud services enhance the platform but do not own its core functionality.
 
 ### Advantages
 
-* Existing workflows continue.
-* Better reliability.
-* Offline productivity.
-* Predictable behaviour.
-* Strong user trust.
+- Existing workflows continue.
+- Better reliability.
+- Offline productivity.
+- Predictable behaviour.
+- Strong user trust.
 
 ### Disadvantages
 
-* Runtime must distinguish local and cloud capabilities.
-* More sophisticated state management.
-* Retry infrastructure required.
+- Runtime must distinguish local and cloud capabilities.
+- More sophisticated state management.
+- Retry infrastructure required.
 
 ---
 
@@ -180,11 +180,11 @@ Cloud services exist to extend the platform rather than replace it.
 
 This architecture:
 
-* improves resilience;
-* protects user productivity;
-* supports offline usage;
-* reduces operational risk;
-* aligns with the platform's local-first philosophy.
+- improves resilience;
+- protects user productivity;
+- supports offline usage;
+- reduces operational risk;
+- aligns with the platform's local-first philosophy.
 
 Users should lose only the capabilities that genuinely require backend infrastructure—not their existing work.
 
@@ -194,19 +194,19 @@ Users should lose only the capabilities that genuinely require backend infrastru
 
 ## Benefits
 
-* Reliable offline operation.
-* Better user experience.
-* Reduced dependence on backend availability.
-* Graceful failure handling.
-* Improved platform resilience.
-* Stronger local-first architecture.
+- Reliable offline operation.
+- Better user experience.
+- Reduced dependence on backend availability.
+- Graceful failure handling.
+- Improved platform resilience.
+- Stronger local-first architecture.
 
 ## Drawbacks
 
-* More runtime complexity.
-* Offline state management.
-* Retry mechanisms.
-* Additional synchronization considerations.
+- More runtime complexity.
+- Offline state management.
+- Retry mechanisms.
+- Additional synchronization considerations.
 
 ---
 
@@ -214,23 +214,23 @@ Users should lose only the capabilities that genuinely require backend infrastru
 
 ## Positive Consequences
 
-* Existing Labs continue functioning.
-* Local workspaces remain accessible.
-* Cached artifacts remain executable.
-* Backend outages affect only cloud-dependent operations.
-* User productivity is preserved.
+- Existing Labs continue functioning.
+- Local workspaces remain accessible.
+- Cached artifacts remain executable.
+- Backend outages affect only cloud-dependent operations.
+- User productivity is preserved.
 
 ## Negative Consequences
 
-* AI generation becomes temporarily unavailable.
-* Cloud-assisted workflows pause until connectivity returns.
-* Users may temporarily operate on older platform metadata.
+- AI generation becomes temporarily unavailable.
+- Cloud-assisted workflows pause until connectivity returns.
+- Users may temporarily operate on older platform metadata.
 
 ## Risks
 
-* Retry logic must avoid duplicate operations.
-* Future synchronization features require careful conflict handling.
-* Backend recovery procedures must preserve consistency.
+- Retry logic must avoid duplicate operations.
+- Future synchronization features require careful conflict handling.
+- Backend recovery procedures must preserve consistency.
 
 ---
 
@@ -238,11 +238,11 @@ Users should lose only the capabilities that genuinely require backend infrastru
 
 Future releases may introduce:
 
-* background synchronization queues;
-* intelligent retry scheduling;
-* offline generation preparation;
-* distributed artifact mirrors;
-* enterprise offline deployment modes.
+- background synchronization queues;
+- intelligent retry scheduling;
+- offline generation preparation;
+- distributed artifact mirrors;
+- enterprise offline deployment modes.
 
 Regardless of future enhancements, the following architectural principle remains unchanged:
 
@@ -252,14 +252,14 @@ Regardless of future enhancements, the following architectural principle remains
 
 # References
 
-* Master Execution Plan
-* Offline & Backend Outage Behaviour
-* Bundle Artifact Cache
-* AI Gateway
-* Runtime Lifecycle
-* ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
-* ADR-011 – Identity, Device & Cloud Boundary
+- Master Execution Plan
+- Offline & Backend Outage Behaviour
+- Bundle Artifact Cache
+- AI Gateway
+- Runtime Lifecycle
+- ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
+- ADR-011 – Identity, Device & Cloud Boundary
 
 ---
 
-*End of ADR*
+_End of ADR_

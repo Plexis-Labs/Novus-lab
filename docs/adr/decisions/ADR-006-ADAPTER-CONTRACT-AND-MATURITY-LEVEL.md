@@ -32,9 +32,9 @@ An adapter understands a supported website, extracts only approved information, 
 
 This creates a clear separation between:
 
-* Website-specific implementation.
-* Trusted runtime services.
-* AI-generated application logic.
+- Website-specific implementation.
+- Trusted runtime services.
+- AI-generated application logic.
 
 ---
 
@@ -42,12 +42,12 @@ This creates a clear separation between:
 
 The platform requires a mechanism that:
 
-* Supports multiple websites with different structures.
-* Shields generated applications from website implementation changes.
-* Enforces minimum-data principles.
-* Defines supported capabilities explicitly.
-* Allows controlled evolution of website integrations.
-* Supports diagnostics, testing, and long-term maintenance.
+- Supports multiple websites with different structures.
+- Shields generated applications from website implementation changes.
+- Enforces minimum-data principles.
+- Defines supported capabilities explicitly.
+- Allows controlled evolution of website integrations.
+- Supports diagnostics, testing, and long-term maintenance.
 
 Without a formal adapter contract, every generated feature would become coupled to fragile website structures.
 
@@ -59,16 +59,16 @@ Every supported website integration shall be implemented as a versioned **Site A
 
 Each adapter must explicitly define:
 
-* Supported routes.
-* Entity schemas.
-* Available capabilities.
-* Approved data sources.
-* Collection policies.
-* Health status.
-* Version information.
-* Diagnostics.
-* Fixture coverage.
-* Maturity level.
+- Supported routes.
+- Entity schemas.
+- Available capabilities.
+- Approved data sources.
+- Collection policies.
+- Health status.
+- Version information.
+- Diagnostics.
+- Fixture coverage.
+- Maturity level.
 
 Generated micro-apps communicate only with normalized adapter entities exposed by the trusted runtime.
 
@@ -113,17 +113,17 @@ Generated applications never parse HTML, inspect network traffic, or understand 
 
 ### Advantages
 
-* Simple architecture.
-* No adapter layer.
-* Maximum flexibility.
+- Simple architecture.
+- No adapter layer.
+- Maximum flexibility.
 
 ### Disadvantages
 
-* Fragile against website updates.
-* Impossible to enforce data boundaries.
-* Security concerns.
-* Difficult testing.
-* Poor maintainability.
+- Fragile against website updates.
+- Impossible to enforce data boundaries.
+- Security concerns.
+- Difficult testing.
+- Poor maintainability.
 
 ---
 
@@ -131,16 +131,16 @@ Generated applications never parse HTML, inspect network traffic, or understand 
 
 ### Advantages
 
-* Less adapter code.
-* Easier initial implementation.
+- Less adapter code.
+- Easier initial implementation.
 
 ### Disadvantages
 
-* Poor reliability.
-* No semantic understanding.
-* Difficult permission model.
-* Weak diagnostics.
-* Site-specific behaviour still required.
+- Poor reliability.
+- No semantic understanding.
+- Difficult permission model.
+- Weak diagnostics.
+- Site-specific behaviour still required.
 
 ---
 
@@ -148,18 +148,18 @@ Generated applications never parse HTML, inspect network traffic, or understand 
 
 ### Advantages
 
-* Stable abstraction.
-* Strong security boundary.
-* Explicit contracts.
-* Better testing.
-* Versioned evolution.
-* Clear ownership.
+- Stable abstraction.
+- Strong security boundary.
+- Explicit contracts.
+- Better testing.
+- Versioned evolution.
+- Clear ownership.
 
 ### Disadvantages
 
-* Initial implementation effort.
-* Adapter maintenance.
-* Additional review process.
+- Initial implementation effort.
+- Adapter maintenance.
+- Additional review process.
 
 ---
 
@@ -169,13 +169,13 @@ Each supported website is represented by a reviewed adapter that owns website-sp
 
 Adapters declare:
 
-* supported entities;
-* extraction methods;
-* approved data sources;
-* route compatibility;
-* diagnostics;
-* health state;
-* collection capabilities.
+- supported entities;
+- extraction methods;
+- approved data sources;
+- route compatibility;
+- diagnostics;
+- health state;
+- collection capabilities.
 
 The runtime interacts only with adapter contracts, allowing generated applications to remain independent of website implementation details.
 
@@ -189,13 +189,13 @@ Rather than exposing raw website structures, adapters transform website-specific
 
 This enables:
 
-* stable SDK APIs;
-* deterministic permissions;
-* capability validation;
-* provenance tracking;
-* automated testing;
-* adapter repair workflows;
-* independent website evolution.
+- stable SDK APIs;
+- deterministic permissions;
+- capability validation;
+- provenance tracking;
+- automated testing;
+- adapter repair workflows;
+- independent website evolution.
 
 The adapter becomes the boundary between the external web and the internal Novus platform.
 
@@ -205,18 +205,18 @@ The adapter becomes the boundary between the external web and the internal Novus
 
 ## Benefits
 
-* Stable website abstraction.
-* Improved resilience.
-* Better diagnostics.
-* Explicit capability boundaries.
-* Independent adapter evolution.
-* Strong testing model.
+- Stable website abstraction.
+- Improved resilience.
+- Better diagnostics.
+- Explicit capability boundaries.
+- Independent adapter evolution.
+- Strong testing model.
 
 ## Drawbacks
 
-* Ongoing adapter maintenance.
-* Initial implementation cost.
-* Additional version management.
+- Ongoing adapter maintenance.
+- Initial implementation cost.
+- Additional version management.
 
 ---
 
@@ -224,21 +224,21 @@ The adapter becomes the boundary between the external web and the internal Novus
 
 ## Positive Consequences
 
-* Website changes are localized to adapters.
-* Generated features remain portable.
-* Runtime policies become deterministic.
-* Diagnostics and health monitoring become possible.
+- Website changes are localized to adapters.
+- Generated features remain portable.
+- Runtime policies become deterministic.
+- Diagnostics and health monitoring become possible.
 
 ## Negative Consequences
 
-* Every supported website requires adapter development.
-* Adapter quality directly affects feature reliability.
+- Every supported website requires adapter development.
+- Adapter quality directly affects feature reliability.
 
 ## Risks
 
-* Poorly maintained adapters may degrade user experience.
-* Adapter version drift requires compatibility management.
-* New websites require explicit onboarding and review.
+- Poorly maintained adapters may degrade user experience.
+- Adapter version drift requires compatibility management.
+- New websites require explicit onboarding and review.
 
 ---
 
@@ -252,14 +252,14 @@ Regardless of future enhancements, adapters will remain the only trusted compone
 
 # References
 
-* Master Execution Plan
-* Data Source Strategy & Adapter Resilience
-* Adapter Maintenance Model
-* Dataset Provenance
-* Workspace Engine
-* AI Context Builder
-* ADR-005 – Generated Bundle Policy
+- Master Execution Plan
+- Data Source Strategy & Adapter Resilience
+- Adapter Maintenance Model
+- Dataset Provenance
+- Workspace Engine
+- AI Context Builder
+- ADR-005 – Generated Bundle Policy
 
 ---
 
-*End of ADR*
+_End of ADR_
