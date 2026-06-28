@@ -1,35 +1,45 @@
 > Copy this template into the `decisions/` directory and rename it using the next available ADR number.
 
-# ADR-XXX: Decision Title
+# ADR-XXX: <Decision Title>
 
 **Status:** Draft | Accepted | Rejected | Superseded | Deprecated
 
 **Date:** YYYY-MM-DD
 
-**Authors:** Name(s)
-
-**Reviewer(s):** Name(s)
-
 **Version:** 1.0
+
+**Authors:** <Author(s)>
+
+**Reviewer(s):** <Reviewer(s)>
 
 ---
 
 # Summary
 
-A short (2–4 sentence) explanation of the decision.
+Provide a concise overview (2–5 sentences) of the architectural decision.
 
-Someone should understand the ADR just by reading this section.
+This section should answer:
+
+* What was decided?
+* Why was this decision made?
+* What is the expected outcome?
+
+A contributor should understand the essence of the decision by reading only this section.
 
 ---
 
 # Context
 
-Describe the background.
+Describe the background leading to this decision.
 
-* What feature or subsystem is involved?
-* Why is a decision required?
-* What constraints already exist?
-* Which previous ADRs influence this one?
+Include information such as:
+
+* Current architectural state
+* Project requirements
+* Constraints
+* Business or technical motivations
+* Related architectural decisions
+* Previous approaches (if any)
 
 ---
 
@@ -37,35 +47,56 @@ Describe the background.
 
 Clearly define the architectural problem.
 
-> What are we trying to solve?
+Answer questions such as:
+
+* What challenge are we solving?
+* Why is a decision required?
+* What risks exist if no decision is made?
 
 ---
 
 # Decision
 
-Describe the chosen solution.
+Document the chosen architectural solution.
 
-Explain:
+Describe:
 
-* What we decided
-* How it works
-* Why this approach was selected
+* What was selected
+* Scope of the decision
+* Design principles followed
+* Any important constraints or assumptions
 
-This should become the source of truth.
+This section becomes the official architectural source of truth.
+
+---
+
+# Architecture Overview
+
+Provide a high-level explanation of how the decision fits into the overall Novus architecture.
+
+Focus on interactions rather than implementation details.
+
+Simple diagrams or flowcharts may be included where helpful.
 
 ---
 
 # Alternatives Considered
 
+Document realistic alternatives that were evaluated.
+
+For each alternative include:
+
 ## Option A
 
-Description
+### Description
 
-**Pros**
+...
+
+### Advantages
 
 * ...
 
-**Cons**
+### Disadvantages
 
 * ...
 
@@ -73,33 +104,56 @@ Description
 
 ## Option B
 
-Description
+### Description
 
-**Pros**
+...
+
+### Advantages
 
 * ...
 
-**Cons**
+### Disadvantages
 
 * ...
 
 ---
 
-## Chosen Option
+## Selected Approach
 
-Why it won.
+Explain why the chosen solution was preferred over the alternatives.
+
+---
+
+# Rationale
+
+Explain the engineering reasoning behind the decision.
+
+Consider aspects such as:
+
+* Security
+* Maintainability
+* Scalability
+* Performance
+* Developer Experience
+* Reliability
+* User Experience
+* Future extensibility
+
+This section should explain *why* this architecture best satisfies Novus' goals.
 
 ---
 
 # Trade-offs
 
-### Advantages
+Every architectural decision has costs.
+
+## Benefits
 
 * ...
 * ...
 * ...
 
-### Disadvantages
+## Drawbacks
 
 * ...
 * ...
@@ -109,13 +163,15 @@ Why it won.
 
 # Consequences
 
-## Positive
+Describe the long-term impact of this decision.
+
+## Positive Consequences
 
 * ...
 * ...
 * ...
 
-## Negative
+## Negative Consequences
 
 * ...
 * ...
@@ -129,29 +185,35 @@ Why it won.
 
 ---
 
-# Implementation Notes
+# Future Considerations
 
-Optional.
-
-Useful implementation guidance.
+Describe expected future evolution.
 
 Examples:
 
-* package affected
-* migration needed
-* rollout strategy
-* compatibility concerns
+* Potential improvements
+* Known limitations
+* Migration considerations
+* Browser support expansion
+* Future ADRs that may supersede this decision
+
+Do not redefine the current decision—only describe expected evolution.
 
 ---
 
 # References
 
+Reference supporting documentation where appropriate.
+
+Examples:
+
 * Master Architecture
+* Architecture Freeze
 * Related ADRs
-* Security documentation
-* Design documents
-* Relevant pull requests
-* External specifications (if applicable)
+* Security Documentation
+* Design Documents
+* Technical Specifications
+* Relevant Pull Requests
 
 ---
 

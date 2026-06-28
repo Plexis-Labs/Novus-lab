@@ -1,0 +1,256 @@
+# ADR-002: Sandboxed Runtime, CSP, Origin Isolation & Typed Bridge
+
+**Status:** Accepted
+
+**Date:** 2026-06-28
+
+**Version:** 1.0
+
+**Authors:** Novus Core Team
+
+**Reviewer(s):** Runtime Lead
+
+---
+
+# Summary
+
+AI-generated micro-apps in Novus execute exclusively inside sandboxed iframes. These micro-apps never receive direct access to browser APIs, extension APIs, the host page DOM, or privileged runtime state.
+
+All communication between generated code and the trusted runtime occurs through a typed, capability-gated, replay-safe bridge protocol. This architecture establishes a strict trust boundary between trusted platform code and AI-generated application code.
+
+---
+
+# Context
+
+Novus allows users to generate custom React applications from natural language prompts.
+
+Unlike traditional browser extensions, these applications are created dynamically by an AI model. While every generated bundle passes through validation and security analysis, generated code must still be considered **untrusted** at runtime.
+
+The platform therefore requires an execution model that:
+
+* Prevents generated code from accessing browser privileges.
+* Prevents generated code from manipulating the host website directly.
+* Allows controlled interaction with trusted runtime services.
+* Supports persistent, interactive applications.
+* Maintains a clear and enforceable security boundary.
+
+---
+
+# Problem Statement
+
+Executing AI-generated code directly inside extension contexts or webpage contexts would create unacceptable security risks.
+
+Without isolation, generated code could potentially:
+
+* Access browser APIs.
+* Interact with privileged extension components.
+* Manipulate arbitrary page elements.
+* Read sensitive browser state.
+* Escape intended permission boundaries.
+* Perform actions beyond the user's approval.
+
+The runtime therefore requires a mechanism that enables rich applications while preventing privilege escalation.
+
+---
+
+# Decision
+
+Novus executes every generated micro-app inside a dedicated sandboxed iframe.
+
+The sandbox:
+
+* Has its own isolated JavaScript environment.
+* Renders the generated React application.
+* Has no direct access to extension APIs.
+* Has no access to privileged runtime services.
+* Has no unrestricted network capabilities.
+* Cannot directly manipulate the host page.
+
+Whenever the generated application requires data or runtime functionality, it communicates through a typed bridge.
+
+Every bridge request is validated before execution.
+
+No generated code ever communicates directly with privileged browser resources.
+
+---
+
+# Architecture Overview
+
+```text
+User
+ │
+ ▼
+Generated React Application
+ │
+ │ (Typed Bridge Request)
+ ▼
+Sandboxed Iframe
+ │
+ ▼
+Trusted Runtime
+ │
+ ├── Capability Validator
+ ├── Permission Manager
+ ├── Route Validator
+ ├── Workspace Engine
+ ├── Storage Engine
+ ├── Adapter Engine
+ └── Security Policy
+ │
+ ▼
+Browser APIs / Website Adapters
+```
+
+The generated application cannot bypass the trusted runtime.
+
+Every privileged operation must pass through the bridge.
+
+---
+
+# Alternatives Considered
+
+## Option A — Execute Generated Code Directly in Content Scripts
+
+### Advantages
+
+* Simpler architecture.
+* Direct page interaction.
+* Lower communication overhead.
+
+### Disadvantages
+
+* Generated code gains excessive privileges.
+* Difficult to enforce capability boundaries.
+* Increased attack surface.
+* Poor long-term security.
+
+---
+
+## Option B — Execute Inside Extension Pages
+
+### Advantages
+
+* Easier integration with extension APIs.
+* Reduced messaging complexity.
+
+### Disadvantages
+
+* Generated code executes too close to privileged extension components.
+* Weak separation between trusted and untrusted code.
+* Higher risk of privilege escalation.
+
+---
+
+## Option C — Sandboxed Iframe with Typed Bridge (Selected)
+
+### Advantages
+
+* Strong execution isolation.
+* Explicit communication boundary.
+* Fine-grained permission enforcement.
+* Independent lifecycle.
+* Easier security auditing.
+* Compatible with capability-based architecture.
+
+### Disadvantages
+
+* Additional bridge complexity.
+* Messaging overhead.
+* More sophisticated lifecycle management.
+
+---
+
+# Selected Approach
+
+The sandboxed iframe architecture provides the strongest balance between flexibility, usability, and security.
+
+Generated applications remain powerful enough to build sophisticated workflows while remaining completely isolated from privileged browser functionality.
+
+---
+
+# Rationale
+
+This decision directly supports Novus' core security principles:
+
+* AI-generated code is always treated as untrusted.
+* Privileged operations remain inside trusted runtime code.
+* Every interaction is explicitly validated.
+* Capabilities are granted rather than assumed.
+* Communication is observable, typed, and auditable.
+* Security policies remain centralized.
+
+This architecture also enables future evolution without weakening the trust model.
+
+New runtime capabilities can be introduced by extending the bridge rather than exposing additional browser APIs.
+
+---
+
+# Trade-offs
+
+## Benefits
+
+* Strong privilege separation.
+* Explicit trust boundary.
+* Easier security auditing.
+* Stable communication protocol.
+* Independent runtime lifecycle.
+* Compatible with immutable artifact validation.
+* Supports replay protection and capability tokens.
+
+## Drawbacks
+
+* Increased implementation complexity.
+* Higher messaging overhead.
+* Additional serialization and validation costs.
+* More components to maintain.
+
+---
+
+# Consequences
+
+## Positive Consequences
+
+* Generated bundles cannot escape their execution environment.
+* Browser APIs remain inaccessible to generated code.
+* Runtime policies can evolve independently.
+* Security reviews become significantly simpler.
+
+## Negative Consequences
+
+* All interactions require bridge messages.
+* Runtime must maintain protocol compatibility.
+* Bridge performance becomes an important engineering concern.
+
+## Risks
+
+* Bridge protocol changes require careful versioning.
+* Serialization bugs may impact compatibility.
+* Weak validation would undermine the trust boundary.
+
+---
+
+# Future Considerations
+
+Future iterations may extend the bridge with additional SDK capabilities, richer streaming APIs, or optimized serialization mechanisms.
+
+However, all future enhancements must preserve the core architectural principle established by this ADR:
+
+> Generated applications remain isolated and may communicate only through a validated, capability-aware bridge.
+
+No future feature should bypass this trust boundary.
+
+---
+
+# References
+
+* Master Execution Plan
+* Sandbox Architecture
+* Capability Runtime
+* Bridge Protocol Specification
+* Bundle Validation Pipeline
+* Security Model
+* ADR-001 – Extension & Manifest V3 Architecture
+
+---
+
+*End of ADR*
