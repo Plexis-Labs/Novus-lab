@@ -3,7 +3,9 @@
 Welcome to the Novus team! This document outlines the governance, coding standards, and workflow required to contribute to the Novus monorepo. Please read this carefully before picking up your first assignment.
 
 ## 1. Assignment Workflow
+
 We operate on a strict Assignment-Driven Development model (e.g., `A-001`, `E-001`).
+
 1. **Claim an Assignment:** Check the Project Board and assign yourself an open task.
 2. **Branch Out:** Create a new branch using the naming convention below.
 3. **Draft PR:** Open a Draft Pull Request early so the team has visibility.
@@ -12,18 +14,22 @@ We operate on a strict Assignment-Driven Development model (e.g., `A-001`, `E-00
 6. **Merge:** Once approved and CI passes, Squash & Merge into `main`.
 
 ## 2. Branching Strategy
-All branches must branch off `main` and include the Assignment ID. 
+
+All branches must branch off `main` and include the Assignment ID.
 Format: `<type>/<assignment-id>-<short-desc>`
 
 **Examples:**
+
 * `feat/E-001-contributing-docs`
 * `fix/C-005-error-framework-typo`
 * `chore/A-002-pnpm-workspace`
 
 ## 3. Commit Style
+
 We strictly enforce [Conventional Commits](https://www.conventionalcommits.org/). Our CI pipeline and `commitlint` hooks will block non-compliant commits.
 
 **Format:** `<type>(<optional scope>): <description>`
+
 * `feat:` A new feature or assignment implementation
 * `fix:` A bug fix
 * `docs:` Documentation only changes
@@ -33,10 +39,12 @@ We strictly enforce [Conventional Commits](https://www.conventionalcommits.org/)
 * `chore:` Changes to the build process or auxiliary tools
 
 ## 4. Local Setup
+
 Our monorepo is managed via `pnpm`.
+
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/your-org/novus.git](https://github.com/your-org/novus.git)
+git clone [https://github.com/Plexis-Labs/Novus-lab.git](https://github.com/Plexis-Labs/Novus-lab.git)
 cd novus
 
 # 2. Install dependencies (DO NOT use npm or yarn)
