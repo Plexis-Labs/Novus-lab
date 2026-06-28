@@ -20,9 +20,9 @@ Provide a concise overview (2–5 sentences) of the architectural decision.
 
 This section should answer:
 
-* What was decided?
-* Why was this decision made?
-* What is the expected outcome?
+- What was decided?
+- Why was this decision made?
+- What is the expected outcome?
 
 A contributor should understand the essence of the decision by reading only this section.
 
@@ -34,12 +34,12 @@ Describe the background leading to this decision.
 
 Include information such as:
 
-* Current architectural state
-* Project requirements
-* Constraints
-* Business or technical motivations
-* Related architectural decisions
-* Previous approaches (if any)
+- Current architectural state
+- Project requirements
+- Constraints
+- Business or technical motivations
+- Related architectural decisions
+- Previous approaches (if any)
 
 ---
 
@@ -49,9 +49,9 @@ Clearly define the architectural problem.
 
 Answer questions such as:
 
-* What challenge are we solving?
-* Why is a decision required?
-* What risks exist if no decision is made?
+- What challenge are we solving?
+- Why is a decision required?
+- What risks exist if no decision is made?
 
 ---
 
@@ -61,10 +61,10 @@ Document the chosen architectural solution.
 
 Describe:
 
-* What was selected
-* Scope of the decision
-* Design principles followed
-* Any important constraints or assumptions
+- What was selected
+- Scope of the decision
+- Design principles followed
+- Any important constraints or assumptions
 
 This section becomes the official architectural source of truth.
 
@@ -94,11 +94,11 @@ For each alternative include:
 
 ### Advantages
 
-* ...
+- ...
 
 ### Disadvantages
 
-* ...
+- ...
 
 ---
 
@@ -110,11 +110,11 @@ For each alternative include:
 
 ### Advantages
 
-* ...
+- ...
 
 ### Disadvantages
 
-* ...
+- ...
 
 ---
 
@@ -130,16 +130,16 @@ Explain the engineering reasoning behind the decision.
 
 Consider aspects such as:
 
-* Security
-* Maintainability
-* Scalability
-* Performance
-* Developer Experience
-* Reliability
-* User Experience
-* Future extensibility
+- Security
+- Maintainability
+- Scalability
+- Performance
+- Developer Experience
+- Reliability
+- User Experience
+- Future extensibility
 
-This section should explain *why* this architecture best satisfies Novus' goals.
+This section should explain _why_ this architecture best satisfies Novus' goals.
 
 ---
 
@@ -149,15 +149,15 @@ Every architectural decision has costs.
 
 ## Benefits
 
-* ...
-* ...
-* ...
+- ...
+- ...
+- ...
 
 ## Drawbacks
 
-* ...
-* ...
-* ...
+- ...
+- ...
+- ...
 
 ---
 
@@ -167,21 +167,21 @@ Describe the long-term impact of this decision.
 
 ## Positive Consequences
 
-* ...
-* ...
-* ...
+- ...
+- ...
+- ...
 
 ## Negative Consequences
 
-* ...
-* ...
-* ...
+- ...
+- ...
+- ...
 
 ## Risks
 
-* ...
-* ...
-* ...
+- ...
+- ...
+- ...
 
 ---
 
@@ -191,11 +191,11 @@ Describe expected future evolution.
 
 Examples:
 
-* Potential improvements
-* Known limitations
-* Migration considerations
-* Browser support expansion
-* Future ADRs that may supersede this decision
+- Potential improvements
+- Known limitations
+- Migration considerations
+- Browser support expansion
+- Future ADRs that may supersede this decision
 
 Do not redefine the current decision—only describe expected evolution.
 
@@ -207,14 +207,14 @@ Reference supporting documentation where appropriate.
 
 Examples:
 
-* Master Architecture
-* Architecture Freeze
-* Related ADRs
-* Security Documentation
-* Design Documents
-* Technical Specifications
-* Relevant Pull Requests
+- Master Architecture
+- Architecture Freeze
+- Related ADRs
+- Security Documentation
+- Design Documents
+- Technical Specifications
+- Relevant Pull Requests
 
 ---
 
-*End of ADR*
+_End of ADR_

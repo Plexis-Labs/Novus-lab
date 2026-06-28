@@ -30,12 +30,12 @@ Novus is designed as a persistent productivity platform.
 
 Its primary responsibilities include:
 
-* storing workspaces;
-* maintaining generated features;
-* preserving notes;
-* caching verified artifacts;
-* tracking datasets;
-* maintaining feature state.
+- storing workspaces;
+- maintaining generated features;
+- preserving notes;
+- caching verified artifacts;
+- tracking datasets;
+- maintaining feature state.
 
 These responsibilities assume durable browser storage and long-lived runtime state.
 
@@ -51,11 +51,11 @@ The platform therefore requires clear rules governing how browser contexts inter
 
 The platform must determine:
 
-* whether generated features should execute in Incognito;
-* how persistent workspaces behave across browser profiles;
-* how browser identities relate to local platform identities;
-* whether browser profiles may share state;
-* how future browser support should preserve these guarantees.
+- whether generated features should execute in Incognito;
+- how persistent workspaces behave across browser profiles;
+- how browser identities relate to local platform identities;
+- whether browser profiles may share state;
+- how future browser support should preserve these guarantees.
 
 Without explicit policies, browser behavior could become inconsistent and compromise user expectations regarding privacy and persistence.
 
@@ -71,11 +71,11 @@ Incognito mode is disabled by default.
 
 When running in Incognito:
 
-* no feature mounting occurs;
-* no workspace data is loaded;
-* no persistent storage is written;
-* no AI generation requests are initiated;
-* no datasets are collected.
+- no feature mounting occurs;
+- no workspace data is loaded;
+- no persistent storage is written;
+- no AI generation requests are initiated;
+- no datasets are collected.
 
 ---
 
@@ -85,19 +85,19 @@ Each browser profile owns an independent `localProfileScope`.
 
 This identifier:
 
-* is randomly generated;
-* remains local to the profile;
-* identifies the installation;
-* is never shared across profiles.
+- is randomly generated;
+- remains local to the profile;
+- identifies the installation;
+- is never shared across profiles.
 
 Profiles never share:
 
-* workspaces;
-* feature state;
-* datasets;
-* notes;
-* cached bundles;
-* permissions.
+- workspaces;
+- feature state;
+- datasets;
+- notes;
+- cached bundles;
+- permissions.
 
 ---
 
@@ -144,15 +144,15 @@ Every browser profile represents a separate Novus environment.
 
 ### Advantages
 
-* Easier multi-profile experience.
-* Less duplicated data.
+- Easier multi-profile experience.
+- Less duplicated data.
 
 ### Disadvantages
 
-* Weak isolation.
-* Privacy concerns.
-* Difficult lifecycle management.
-* Unclear ownership of local data.
+- Weak isolation.
+- Privacy concerns.
+- Difficult lifecycle management.
+- Unclear ownership of local data.
 
 ---
 
@@ -160,15 +160,15 @@ Every browser profile represents a separate Novus environment.
 
 ### Advantages
 
-* Consistent feature availability.
-* Larger execution surface.
+- Consistent feature availability.
+- Larger execution surface.
 
 ### Disadvantages
 
-* Conflicts with Incognito privacy expectations.
-* Temporary storage complicates persistence.
-* Increased security considerations.
-* Reduced predictability.
+- Conflicts with Incognito privacy expectations.
+- Temporary storage complicates persistence.
+- Increased security considerations.
+- Reduced predictability.
 
 ---
 
@@ -176,17 +176,17 @@ Every browser profile represents a separate Novus environment.
 
 ### Advantages
 
-* Strong privacy.
-* Predictable persistence.
-* Independent browser environments.
-* Simpler runtime guarantees.
-* Clear ownership boundaries.
+- Strong privacy.
+- Predictable persistence.
+- Independent browser environments.
+- Simpler runtime guarantees.
+- Clear ownership boundaries.
 
 ### Disadvantages
 
-* No persistent Incognito workflows.
-* Duplicate setup across browser profiles.
-* Future synchronization requires explicit design.
+- No persistent Incognito workflows.
+- Duplicate setup across browser profiles.
+- Future synchronization requires explicit design.
 
 ---
 
@@ -196,11 +196,11 @@ The browser profile becomes the authoritative execution boundary for Novus.
 
 Each profile owns:
 
-* installation identity;
-* persistent storage;
-* generated features;
-* cached artifacts;
-* workspace datasets.
+- installation identity;
+- persistent storage;
+- generated features;
+- cached artifacts;
+- workspace datasets.
 
 Incognito remains intentionally excluded from persistent platform behavior to preserve browser privacy guarantees.
 
@@ -222,18 +222,18 @@ This approach also avoids hidden coupling between multiple browser identities wh
 
 ## Benefits
 
-* Strong profile isolation.
-* Predictable storage ownership.
-* Better privacy.
-* Simpler runtime model.
-* Consistent browser behavior.
-* Reduced accidental data leakage.
+- Strong profile isolation.
+- Predictable storage ownership.
+- Better privacy.
+- Simpler runtime model.
+- Consistent browser behavior.
+- Reduced accidental data leakage.
 
 ## Drawbacks
 
-* No Incognito productivity workflows.
-* Manual setup required per profile.
-* Cross-profile synchronization is deferred.
+- No Incognito productivity workflows.
+- Manual setup required per profile.
+- Cross-profile synchronization is deferred.
 
 ---
 
@@ -241,22 +241,22 @@ This approach also avoids hidden coupling between multiple browser identities wh
 
 ## Positive Consequences
 
-* Browser profiles remain completely independent.
-* Workspace ownership is deterministic.
-* Local identity remains private.
-* Runtime behavior is consistent across installations.
-* Browser privacy guarantees remain respected.
+- Browser profiles remain completely independent.
+- Workspace ownership is deterministic.
+- Local identity remains private.
+- Runtime behavior is consistent across installations.
+- Browser privacy guarantees remain respected.
 
 ## Negative Consequences
 
-* Users cannot continue persistent work inside Incognito sessions.
-* Multi-profile users manage separate Novus environments.
+- Users cannot continue persistent work inside Incognito sessions.
+- Multi-profile users manage separate Novus environments.
 
 ## Risks
 
-* Future browser support must preserve equivalent isolation guarantees.
-* Synchronization features must avoid weakening profile boundaries.
-* Browser API changes may require implementation updates.
+- Future browser support must preserve equivalent isolation guarantees.
+- Synchronization features must avoid weakening profile boundaries.
+- Browser API changes may require implementation updates.
 
 ---
 
@@ -264,29 +264,29 @@ This approach also avoids hidden coupling between multiple browser identities wh
 
 Future releases may support:
 
-* additional Chromium-based browsers;
-* optional profile synchronization;
-* enterprise-managed browser deployments;
-* encrypted cloud synchronization.
+- additional Chromium-based browsers;
+- optional profile synchronization;
+- enterprise-managed browser deployments;
+- encrypted cloud synchronization.
 
 Regardless of future expansion, the following architectural principles remain unchanged:
 
-* browser profiles are independent execution environments;
-* local platform identity is profile-scoped;
-* Incognito does not participate in persistent platform functionality by default.
+- browser profiles are independent execution environments;
+- local platform identity is profile-scoped;
+- Incognito does not participate in persistent platform functionality by default.
 
 ---
 
 # References
 
-* Master Execution Plan
-* Local Profile Scope
-* Identity Model
-* Storage Architecture
-* Incognito & Profile Policy
-* ADR-003 – Storage Boundary
-* ADR-011 – Identity, Device & Cloud Boundary
+- Master Execution Plan
+- Local Profile Scope
+- Identity Model
+- Storage Architecture
+- Incognito & Profile Policy
+- ADR-003 – Storage Boundary
+- ADR-011 – Identity, Device & Cloud Boundary
 
 ---
 
-*End of ADR*
+_End of ADR_

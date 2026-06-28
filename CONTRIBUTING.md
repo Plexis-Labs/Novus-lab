@@ -20,9 +20,9 @@ Format: `<type>/<assignment-id>-<short-desc>`
 
 **Examples:**
 
-* `feat/E-001-contributing-docs`
-* `fix/C-005-error-framework-typo`
-* `chore/A-002-pnpm-workspace`
+- `feat/E-001-contributing-docs`
+- `fix/C-005-error-framework-typo`
+- `chore/A-002-pnpm-workspace`
 
 ## 3. Commit Style
 
@@ -30,13 +30,13 @@ We strictly enforce [Conventional Commits](https://www.conventionalcommits.org/)
 
 **Format:** `<type>(<optional scope>): <description>`
 
-* `feat:` A new feature or assignment implementation
-* `fix:` A bug fix
-* `docs:` Documentation only changes
-* `style:` Formatting, missing semi-colons, etc. (handled by Prettier)
-* `refactor:` Code change that neither fixes a bug nor adds a feature
-* `test:` Adding missing tests or correcting existing tests
-* `chore:` Changes to the build process or auxiliary tools
+- `feat:` A new feature or assignment implementation
+- `fix:` A bug fix
+- `docs:` Documentation only changes
+- `style:` Formatting, missing semi-colons, etc. (handled by Prettier)
+- `refactor:` Code change that neither fixes a bug nor adds a feature
+- `test:` Adding missing tests or correcting existing tests
+- `chore:` Changes to the build process or auxiliary tools
 
 ## 4. Local Setup
 
@@ -59,22 +59,22 @@ pnpm dev
 
 ## 5. Coding Style
 
-* **TypeScript:** We use strict TypeScript across all packages. No `any` types are allowed unless explicitly justified.
-* **Linting & Formatting:** ESLint and Prettier are configured globally. Run `pnpm lint` and `pnpm format` before committing.
-* **Error Handling:** Raw exceptions are forbidden. Use the typed errors defined in our Error Framework (e.g., `DeveloperError`, `RuntimeError`).
+- **TypeScript:** We use strict TypeScript across all packages. No `any` types are allowed unless explicitly justified.
+- **Linting & Formatting:** ESLint and Prettier are configured globally. Run `pnpm lint` and `pnpm format` before committing.
+- **Error Handling:** Raw exceptions are forbidden. Use the typed errors defined in our Error Framework (e.g., `DeveloperError`, `RuntimeError`).
 
 ## 6. Testing
 
 All new contracts, features, and adapters require test coverage.
 
-* **Unit & Contract Tests:** Run `pnpm test` to execute the suite.
-* **E2E Tests:** Playwright is used for browser automation. Run `pnpm e2e`.
+- **Unit & Contract Tests:** Run `pnpm test` to execute the suite.
+- **E2E Tests:** Playwright is used for browser automation. Run `pnpm e2e`.
 
 > **Note:** Do not request a review if tests are failing locally.
 
 ## 7. Review Process
 
-* Ensure your PR description uses the official Pull Request Template.
-* CI/CD must pass (Build, Lint, Test, Format).
-* At least one approval from a designated **Code Owner** is required.
-* Resolve all reviewer comments before merging.
+- Ensure your PR description uses the official Pull Request Template.
+- CI/CD must pass (Build, Lint, Test, Format).
+- At least one approval from a designated **Code Owner** is required.
+- Resolve all reviewer comments before merging.

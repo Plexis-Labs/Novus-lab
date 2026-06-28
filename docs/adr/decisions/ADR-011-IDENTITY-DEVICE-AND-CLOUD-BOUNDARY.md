@@ -40,12 +40,12 @@ The platform therefore requires a clear separation between local identity and cl
 
 The platform must answer several architectural questions:
 
-* How does the runtime uniquely identify an installation?
-* Should users be required to create an account?
-* How are website identities separated from Novus?
-* Which information is stored locally?
-* What information may be transmitted to cloud services?
-* How is user privacy preserved while still enabling AI generation?
+- How does the runtime uniquely identify an installation?
+- Should users be required to create an account?
+- How are website identities separated from Novus?
+- Which information is stored locally?
+- What information may be transmitted to cloud services?
+- How is user privacy preserved while still enabling AI generation?
 
 Without clear identity boundaries, the platform risks coupling local productivity data to unnecessary online identities.
 
@@ -61,10 +61,10 @@ Each browser profile generates a random installation identifier during initial s
 
 This identifier:
 
-* is randomly generated;
-* remains local to the browser profile;
-* identifies the installation rather than the person;
-* is never derived from user information.
+- is randomly generated;
+- remains local to the browser profile;
+- identifies the installation rather than the person;
+- is never derived from user information.
 
 ---
 
@@ -74,10 +74,10 @@ Website accounts remain completely independent.
 
 Examples include:
 
-* GitHub accounts;
-* YouTube accounts;
-* LeetCode accounts;
-* enterprise workspaces.
+- GitHub accounts;
+- YouTube accounts;
+- LeetCode accounts;
+- enterprise workspaces.
 
 Novus never treats website identities as platform identities.
 
@@ -121,16 +121,16 @@ Cloud services provide functionality, not identity ownership.
 
 ### Advantages
 
-* Simplified synchronization.
-* Centralized identity.
-* Easier subscription management.
+- Simplified synchronization.
+- Centralized identity.
+- Easier subscription management.
 
 ### Disadvantages
 
-* Reduced privacy.
-* Additional onboarding friction.
-* Platform becomes cloud-dependent.
-* Local-first philosophy weakened.
+- Reduced privacy.
+- Additional onboarding friction.
+- Platform becomes cloud-dependent.
+- Local-first philosophy weakened.
 
 ---
 
@@ -138,15 +138,15 @@ Cloud services provide functionality, not identity ownership.
 
 ### Advantages
 
-* Existing authentication.
-* Simpler implementation.
+- Existing authentication.
+- Simpler implementation.
 
 ### Disadvantages
 
-* Couples platform to third-party providers.
-* Limits supported websites.
-* Reduces portability.
-* Weak separation of concerns.
+- Couples platform to third-party providers.
+- Limits supported websites.
+- Reduces portability.
+- Weak separation of concerns.
 
 ---
 
@@ -154,16 +154,16 @@ Cloud services provide functionality, not identity ownership.
 
 ### Advantages
 
-* Privacy-first.
-* Offline capable.
-* Independent of third-party accounts.
-* Supports anonymous usage.
-* Strong architectural separation.
+- Privacy-first.
+- Offline capable.
+- Independent of third-party accounts.
+- Supports anonymous usage.
+- Strong architectural separation.
 
 ### Disadvantages
 
-* Cloud synchronization requires additional infrastructure.
-* Multi-device experiences require future design.
+- Cloud synchronization requires additional infrastructure.
+- Multi-device experiences require future design.
 
 ---
 
@@ -183,12 +183,12 @@ The platform exists to augment the user's browser experience—not replace it wi
 
 Separating identities provides several benefits:
 
-* protects user privacy;
-* reduces onboarding friction;
-* enables offline operation;
-* prevents unnecessary data collection;
-* avoids coupling to third-party authentication providers;
-* preserves architectural flexibility.
+- protects user privacy;
+- reduces onboarding friction;
+- enables offline operation;
+- prevents unnecessary data collection;
+- avoids coupling to third-party authentication providers;
+- preserves architectural flexibility.
 
 This separation also simplifies future platform evolution because authentication, synchronization, and AI generation remain independent concerns.
 
@@ -198,18 +198,18 @@ This separation also simplifies future platform evolution because authentication
 
 ## Benefits
 
-* Local-first experience.
-* Improved privacy.
-* Reduced dependency on cloud infrastructure.
-* Offline compatibility.
-* Clear ownership boundaries.
-* Lower operational complexity.
+- Local-first experience.
+- Improved privacy.
+- Reduced dependency on cloud infrastructure.
+- Offline compatibility.
+- Clear ownership boundaries.
+- Lower operational complexity.
 
 ## Drawbacks
 
-* Cloud synchronization requires future work.
-* Multi-device continuity is not automatic.
-* Recovery of local-only data depends on browser storage.
+- Cloud synchronization requires future work.
+- Multi-device continuity is not automatic.
+- Recovery of local-only data depends on browser storage.
 
 ---
 
@@ -217,21 +217,21 @@ This separation also simplifies future platform evolution because authentication
 
 ## Positive Consequences
 
-* Users can begin using Novus without creating an account.
-* Local workspaces remain private by default.
-* Website identities remain isolated.
-* Cloud outages do not invalidate local installations.
+- Users can begin using Novus without creating an account.
+- Local workspaces remain private by default.
+- Website identities remain isolated.
+- Cloud outages do not invalidate local installations.
 
 ## Negative Consequences
 
-* Cross-device synchronization is deferred.
-* Installation identity cannot be reconstructed if local data is permanently lost.
+- Cross-device synchronization is deferred.
+- Installation identity cannot be reconstructed if local data is permanently lost.
 
 ## Risks
 
-* Future cloud features must preserve local-first principles.
-* Synchronization mechanisms must avoid introducing hidden identity coupling.
-* Gateway authentication policies require careful maintenance.
+- Future cloud features must preserve local-first principles.
+- Synchronization mechanisms must avoid introducing hidden identity coupling.
+- Gateway authentication policies require careful maintenance.
 
 ---
 
@@ -239,10 +239,10 @@ This separation also simplifies future platform evolution because authentication
 
 Future platform versions may introduce:
 
-* optional authenticated synchronization;
-* enterprise identity providers;
-* encrypted cloud backup;
-* team workspaces.
+- optional authenticated synchronization;
+- enterprise identity providers;
+- encrypted cloud backup;
+- team workspaces.
 
 Any future identity system must preserve the architectural principle established by this ADR:
 
@@ -254,14 +254,14 @@ Cloud services may extend the platform but must not replace local ownership of u
 
 # References
 
-* Master Execution Plan
-* Identity Model
-* AI Gateway
-* Local Profile Scope
-* Offline Policy
-* ADR-003 – Storage Boundary
-* ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
+- Master Execution Plan
+- Identity Model
+- AI Gateway
+- Local Profile Scope
+- Offline Policy
+- ADR-003 – Storage Boundary
+- ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
 
 ---
 
-*End of ADR*
+_End of ADR_

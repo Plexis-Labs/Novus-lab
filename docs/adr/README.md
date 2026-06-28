@@ -12,29 +12,29 @@ Rather than relying on tribal knowledge, chat history, or pull request discussio
 
 The ADR system exists to:
 
-* Record why architectural decisions were made.
-* Preserve historical context.
-* Make trade-offs explicit.
-* Help future contributors understand the system.
-* Reduce repeated design discussions.
+- Record why architectural decisions were made.
+- Preserve historical context.
+- Make trade-offs explicit.
+- Help future contributors understand the system.
+- Reduce repeated design discussions.
 
 ---
+
 ## Quick Links
 
 - ADR Template → `TEMPLATE.md`
 - ADR Registry → `ADR-INDEX.md`
 
-
 # When to Create an ADR
 
 Create an ADR whenever a decision:
 
-* Changes the architecture.
-* Introduces a new platform-wide pattern.
-* Alters security boundaries.
-* Changes public contracts or SDKs.
-* Impacts multiple packages.
-* Has long-term maintenance implications.
+- Changes the architecture.
+- Introduces a new platform-wide pattern.
+- Alters security boundaries.
+- Changes public contracts or SDKs.
+- Impacts multiple packages.
+- Has long-term maintenance implications.
 
 Do **not** create ADRs for small implementation details, bug fixes, or refactoring that does not change architecture.
 
@@ -94,12 +94,12 @@ docs/
 
 Each ADR should:
 
-* Describe one architectural decision.
-* Explain the problem being solved.
-* Document considered alternatives.
-* Record trade-offs.
-* Explain long-term consequences.
-* Reference related documents where appropriate.
+- Describe one architectural decision.
+- Explain the problem being solved.
+- Document considered alternatives.
+- Record trade-offs.
+- Explain long-term consequences.
+- Reference related documents where appropriate.
 
 Keep ADRs focused and avoid combining unrelated decisions into a single document.
 
@@ -109,11 +109,11 @@ Keep ADRs focused and avoid combining unrelated decisions into a single document
 
 Every ADR should include:
 
-* Author(s)
-* Reviewer(s)
-* Status
-* Version
-* Date
+- Author(s)
+- Reviewer(s)
+- Status
+- Version
+- Date
 
 An ADR becomes part of the official architecture only after review and acceptance.
 
@@ -125,14 +125,14 @@ Accepted ADRs represent historical decisions.
 
 If architecture changes:
 
-* Prefer creating a new ADR that supersedes the previous one.
-* Do not rewrite historical decisions.
-* Preserve architectural history whenever possible.
+- Prefer creating a new ADR that supersedes the previous one.
+- Do not rewrite historical decisions.
+- Preserve architectural history whenever possible.
 
 ---
 
 # References
 
-* Architecture Decision Record Template (`TEMPLATE.md`)
-* ADR Registry (`ADR-INDEX.md`)
-* Project Architecture Documentation
+- Architecture Decision Record Template (`TEMPLATE.md`)
+- ADR Registry (`ADR-INDEX.md`)
+- Project Architecture Documentation

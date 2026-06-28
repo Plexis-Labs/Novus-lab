@@ -26,11 +26,11 @@ This enables users to understand who produced an artifact, how it was reviewed, 
 
 Novus supports multiple categories of distributable artifacts, including:
 
-* official platform components;
-* official adapters;
-* community adapters;
-* generated feature packs;
-* local experimental packs.
+- official platform components;
+- official adapters;
+- community adapters;
+- generated feature packs;
+- local experimental packs.
 
 Each category has different security expectations and operational guarantees.
 
@@ -42,12 +42,12 @@ Without an explicit trust model, users would be unable to distinguish between re
 
 The platform requires a mechanism that:
 
-* communicates artifact trust clearly;
-* distinguishes reviewed and unreviewed content;
-* supports community contributions safely;
-* enables secure updates;
-* allows rollback;
-* preserves user confidence.
+- communicates artifact trust clearly;
+- distinguishes reviewed and unreviewed content;
+- supports community contributions safely;
+- enables secure updates;
+- allows rollback;
+- preserves user confidence.
 
 Trust must become an explicit architectural property rather than an implicit assumption.
 
@@ -59,15 +59,15 @@ Every distributable artifact shall include publisher and trust metadata.
 
 At minimum, each published pack records:
 
-* publisher identity;
-* artifact version;
-* supported platform versions;
-* requested capabilities;
-* review status;
-* trust level;
-* compatibility range;
-* publication history;
-* rollback information.
+- publisher identity;
+- artifact version;
+- supported platform versions;
+- requested capabilities;
+- review status;
+- trust level;
+- compatibility range;
+- publication history;
+- rollback information.
 
 The Trusted Runtime uses this metadata when evaluating installation, updates, and compatibility.
 
@@ -109,15 +109,15 @@ Trust information accompanies the artifact throughout its lifecycle.
 
 ### Advantages
 
-* Simpler metadata.
-* Minimal publication requirements.
+- Simpler metadata.
+- Minimal publication requirements.
 
 ### Disadvantages
 
-* Poor transparency.
-* Weak accountability.
-* Difficult debugging.
-* Reduced user trust.
+- Poor transparency.
+- Weak accountability.
+- Difficult debugging.
+- Reduced user trust.
 
 ---
 
@@ -125,15 +125,15 @@ Trust information accompanies the artifact throughout its lifecycle.
 
 ### Advantages
 
-* Simple installation model.
-* No review distinctions.
+- Simple installation model.
+- No review distinctions.
 
 ### Disadvantages
 
-* Unsafe ecosystem.
-* Difficult security auditing.
-* Experimental content appears equivalent to reviewed content.
-* Increased platform risk.
+- Unsafe ecosystem.
+- Difficult security auditing.
+- Experimental content appears equivalent to reviewed content.
+- Increased platform risk.
 
 ---
 
@@ -141,18 +141,18 @@ Trust information accompanies the artifact throughout its lifecycle.
 
 ### Advantages
 
-* Transparent ecosystem.
-* Clear review status.
-* Better security.
-* User confidence.
-* Controlled community growth.
-* Strong compatibility management.
+- Transparent ecosystem.
+- Clear review status.
+- Better security.
+- User confidence.
+- Controlled community growth.
+- Strong compatibility management.
 
 ### Disadvantages
 
-* Additional publication metadata.
-* Registry maintenance.
-* Publisher verification process.
+- Additional publication metadata.
+- Registry maintenance.
+- Publisher verification process.
 
 ---
 
@@ -172,11 +172,11 @@ Generated software should not automatically inherit trust.
 
 Instead, users should understand:
 
-* who produced it;
-* whether it has been reviewed;
-* which platform versions it supports;
-* what permissions it requests;
-* how it has evolved over time.
+- who produced it;
+- whether it has been reviewed;
+- which platform versions it supports;
+- what permissions it requests;
+- how it has evolved over time.
 
 This approach supports Novus' broader philosophy of transparent security and explicit user consent.
 
@@ -188,18 +188,18 @@ Trust therefore becomes observable, reviewable, and auditable.
 
 ## Benefits
 
-* Clear artifact provenance.
-* Strong user confidence.
-* Transparent review process.
-* Better compatibility management.
-* Safer community ecosystem.
-* Improved operational governance.
+- Clear artifact provenance.
+- Strong user confidence.
+- Transparent review process.
+- Better compatibility management.
+- Safer community ecosystem.
+- Improved operational governance.
 
 ## Drawbacks
 
-* Additional registry infrastructure.
-* More publication metadata.
-* Increased release management responsibilities.
+- Additional registry infrastructure.
+- More publication metadata.
+- Increased release management responsibilities.
 
 ---
 
@@ -207,22 +207,22 @@ Trust therefore becomes observable, reviewable, and auditable.
 
 ## Positive Consequences
 
-* Users understand the origin of every installed artifact.
-* Official and experimental content remain clearly separated.
-* Compatibility becomes easier to evaluate.
-* Rollback history remains traceable.
-* Platform governance improves as the ecosystem grows.
+- Users understand the origin of every installed artifact.
+- Official and experimental content remain clearly separated.
+- Compatibility becomes easier to evaluate.
+- Rollback history remains traceable.
+- Platform governance improves as the ecosystem grows.
 
 ## Negative Consequences
 
-* Community publication requires additional review workflows.
-* Publisher metadata must be maintained throughout the artifact lifecycle.
+- Community publication requires additional review workflows.
+- Publisher metadata must be maintained throughout the artifact lifecycle.
 
 ## Risks
 
-* Weak publisher verification could reduce confidence in the ecosystem.
-* Registry maintenance becomes an ongoing operational responsibility.
-* Trust communication must remain clear to avoid user confusion.
+- Weak publisher verification could reduce confidence in the ecosystem.
+- Registry maintenance becomes an ongoing operational responsibility.
+- Trust communication must remain clear to avoid user confusion.
 
 ---
 
@@ -230,32 +230,32 @@ Trust therefore becomes observable, reviewable, and auditable.
 
 Future platform versions may introduce:
 
-* verified publisher identities;
-* publisher reputation systems;
-* enterprise signing authorities;
-* automated compatibility certification;
-* richer trust visualization within the user interface.
+- verified publisher identities;
+- publisher reputation systems;
+- enterprise signing authorities;
+- automated compatibility certification;
+- richer trust visualization within the user interface.
 
 Regardless of future improvements, the following principles remain permanent:
 
-* trust is explicit;
-* publisher identity is transparent;
-* review status is visible;
-* installation decisions remain informed by trust metadata rather than assumptions.
+- trust is explicit;
+- publisher identity is transparent;
+- review status is visible;
+- installation decisions remain informed by trust metadata rather than assumptions.
 
 ---
 
 # References
 
-* Master Execution Plan
-* Pack Trust & Publisher Model
-* Lab Distribution Policy
-* Signed Community Adapter Registry
-* Adapter Maintenance Model
-* Artifact Distribution
-* ADR-009 – Lab Distribution Policy
-* ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
+- Master Execution Plan
+- Pack Trust & Publisher Model
+- Lab Distribution Policy
+- Signed Community Adapter Registry
+- Adapter Maintenance Model
+- Artifact Distribution
+- ADR-009 – Lab Distribution Policy
+- ADR-010 – Bundle Delivery, Immutable Artifact & Cache Model
 
 ---
 
-*End of ADR*
+_End of ADR_

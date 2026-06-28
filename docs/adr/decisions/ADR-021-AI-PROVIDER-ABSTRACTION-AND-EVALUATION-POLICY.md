@@ -28,23 +28,23 @@ AI generation is one of Novus' defining capabilities.
 
 The platform uses AI to:
 
-* generate new Labs;
-* repair generated code;
-* analyze validation failures;
-* improve developer workflows;
-* assist future platform capabilities.
+- generate new Labs;
+- repair generated code;
+- analyze validation failures;
+- improve developer workflows;
+- assist future platform capabilities.
 
 The language model itself, however, is only one stage of a much larger generation system.
 
 Reliable Lab generation requires:
 
-* structured planning;
-* controlled context assembly;
-* provider routing;
-* deterministic validation;
-* artifact verification;
-* automated evaluation;
-* repair workflows.
+- structured planning;
+- controlled context assembly;
+- provider routing;
+- deterministic validation;
+- artifact verification;
+- automated evaluation;
+- repair workflows.
 
 The platform therefore requires an architecture that treats AI providers as replaceable infrastructure rather than core platform logic.
 
@@ -54,13 +54,13 @@ The platform therefore requires an architecture that treats AI providers as repl
 
 The generation system must ensure that:
 
-* providers can be replaced without redesigning the platform;
-* prompt construction remains deterministic;
-* quality remains measurable;
-* generation failures can be repaired;
-* security policies remain provider-independent;
-* costs remain controllable;
-* runtime artifacts satisfy platform requirements regardless of the underlying model.
+- providers can be replaced without redesigning the platform;
+- prompt construction remains deterministic;
+- quality remains measurable;
+- generation failures can be repaired;
+- security policies remain provider-independent;
+- costs remain controllable;
+- runtime artifacts satisfy platform requirements regardless of the underlying model.
 
 Without abstraction, platform behaviour would become tightly coupled to individual AI providers and model capabilities.
 
@@ -138,16 +138,16 @@ The provider is one component within the pipeline rather than the pipeline itsel
 
 ### Advantages
 
-* Simple implementation.
-* Minimal abstraction.
-* Faster initial development.
+- Simple implementation.
+- Minimal abstraction.
+- Faster initial development.
 
 ### Disadvantages
 
-* Strong vendor lock-in.
-* Difficult provider migration.
-* Inconsistent quality controls.
-* Platform logic becomes provider-specific.
+- Strong vendor lock-in.
+- Difficult provider migration.
+- Inconsistent quality controls.
+- Platform logic becomes provider-specific.
 
 ---
 
@@ -155,15 +155,15 @@ The provider is one component within the pipeline rather than the pipeline itsel
 
 ### Advantages
 
-* Model-specific optimization.
-* Flexible prompts.
+- Model-specific optimization.
+- Flexible prompts.
 
 ### Disadvantages
 
-* Duplicate infrastructure.
-* Difficult maintenance.
-* Inconsistent behaviour.
-* Increased operational complexity.
+- Duplicate infrastructure.
+- Difficult maintenance.
+- Inconsistent behaviour.
+- Increased operational complexity.
 
 ---
 
@@ -171,18 +171,18 @@ The provider is one component within the pipeline rather than the pipeline itsel
 
 ### Advantages
 
-* Provider independence.
-* Consistent generation lifecycle.
-* Unified validation.
-* Centralized evaluation.
-* Easier experimentation.
-* Better long-term maintainability.
+- Provider independence.
+- Consistent generation lifecycle.
+- Unified validation.
+- Centralized evaluation.
+- Easier experimentation.
+- Better long-term maintainability.
 
 ### Disadvantages
 
-* Additional orchestration.
-* More platform infrastructure.
-* Provider adapters require maintenance.
+- Additional orchestration.
+- More platform infrastructure.
+- Provider adapters require maintenance.
 
 ---
 
@@ -192,13 +192,13 @@ Novus separates **generation orchestration** from **model execution**.
 
 The platform owns:
 
-* planning;
-* prompt construction;
-* context preparation;
-* validation;
-* evaluation;
-* repair;
-* artifact production.
+- planning;
+- prompt construction;
+- context preparation;
+- validation;
+- evaluation;
+- repair;
+- artifact production.
 
 AI providers are responsible only for producing candidate outputs.
 
@@ -214,11 +214,11 @@ Coupling the architecture to one provider would make future improvements unneces
 
 Provider abstraction enables Novus to:
 
-* compare providers objectively;
-* route requests according to capability or cost;
-* introduce new models incrementally;
-* preserve consistent runtime behaviour;
-* improve generation quality independently of model vendors.
+- compare providers objectively;
+- route requests according to capability or cost;
+- introduce new models incrementally;
+- preserve consistent runtime behaviour;
+- improve generation quality independently of model vendors.
 
 This architecture also ensures that platform security policies remain under Novus' control rather than becoming dependent on provider-specific features.
 
@@ -228,18 +228,18 @@ This architecture also ensures that platform security policies remain under Novu
 
 ## Benefits
 
-* Provider independence.
-* Consistent validation.
-* Objective evaluation.
-* Easier experimentation.
-* Better cost management.
-* Improved long-term maintainability.
+- Provider independence.
+- Consistent validation.
+- Objective evaluation.
+- Easier experimentation.
+- Better cost management.
+- Improved long-term maintainability.
 
 ## Drawbacks
 
-* Additional orchestration layer.
-* More infrastructure to maintain.
-* Provider adapters require ongoing updates.
+- Additional orchestration layer.
+- More infrastructure to maintain.
+- Provider adapters require ongoing updates.
 
 ---
 
@@ -247,23 +247,23 @@ This architecture also ensures that platform security policies remain under Novu
 
 ## Positive Consequences
 
-* AI providers become replaceable components.
-* Platform quality remains measurable.
-* Validation remains consistent across providers.
-* Repair workflows become standardized.
-* Cost and performance can be optimized independently of runtime architecture.
+- AI providers become replaceable components.
+- Platform quality remains measurable.
+- Validation remains consistent across providers.
+- Repair workflows become standardized.
+- Cost and performance can be optimized independently of runtime architecture.
 
 ## Negative Consequences
 
-* Generation pipeline becomes more sophisticated.
-* Provider integration requires adapter development.
-* Evaluation infrastructure becomes a critical platform dependency.
+- Generation pipeline becomes more sophisticated.
+- Provider integration requires adapter development.
+- Evaluation infrastructure becomes a critical platform dependency.
 
 ## Risks
 
-* Evaluation metrics must evolve with platform capabilities.
-* Provider API changes require maintenance.
-* Poor routing policies could affect generation quality or operational costs.
+- Evaluation metrics must evolve with platform capabilities.
+- Provider API changes require maintenance.
+- Poor routing policies could affect generation quality or operational costs.
 
 ---
 
@@ -271,39 +271,39 @@ This architecture also ensures that platform security policies remain under Novu
 
 Future platform versions may introduce:
 
-* additional commercial and open-weight providers;
-* local inference backends;
-* capability-based model routing;
-* automated provider benchmarking;
-* continuous evaluation datasets;
-* adaptive cost-aware routing.
+- additional commercial and open-weight providers;
+- local inference backends;
+- capability-based model routing;
+- automated provider benchmarking;
+- continuous evaluation datasets;
+- adaptive cost-aware routing.
 
 Regardless of future enhancements, the following architectural principles remain permanent:
 
-* providers remain interchangeable;
-* prompt construction remains platform-owned;
-* validation is mandatory;
-* evaluation precedes acceptance;
-* only verified artifacts become executable Labs.
+- providers remain interchangeable;
+- prompt construction remains platform-owned;
+- validation is mandatory;
+- evaluation precedes acceptance;
+- only verified artifacts become executable Labs.
 
 ---
 
 # References
 
-* AI Architecture Appendix
-* AI Provider Abstraction
-* Generation Pipeline
-* Planner Pipeline
-* Context Builder
-* Evaluation Harness
-* Repair Pipeline
-* Cost Control Strategy
-* Bundle Validation Pipeline
-* Master Execution Plan
-* ADR-005 – Generated Bundle Policy
-* ADR-019 – Sensitive Context Firewall
-* ADR-020 – Action Capability Model
+- AI Architecture Appendix
+- AI Provider Abstraction
+- Generation Pipeline
+- Planner Pipeline
+- Context Builder
+- Evaluation Harness
+- Repair Pipeline
+- Cost Control Strategy
+- Bundle Validation Pipeline
+- Master Execution Plan
+- ADR-005 – Generated Bundle Policy
+- ADR-019 – Sensitive Context Firewall
+- ADR-020 – Action Capability Model
 
 ---
 
-*End of ADR*
+_End of ADR_
