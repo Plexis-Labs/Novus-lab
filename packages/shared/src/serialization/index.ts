@@ -8,6 +8,7 @@ export class SerializationError extends Error {
 }
 
 //Safely parses and strips extra fields to guarantee contract shapes.
+//serialize function
 
 export function serialize<T>(schema: z.ZodType<T>, data: unknown): string {
   const parsed = schema.safeParse(data)

@@ -28,6 +28,7 @@ export default [
 
   {
     files: ['**/*.ts', '**/*.tsx'],
+
     languageOptions: {
       parser: tsParser,
       parserOptions: {
