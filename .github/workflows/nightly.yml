@@ -1,0 +1,63 @@
+name: Nightly Verification Pipeline
+
+on:
+  schedule:
+    # Runs automatically at 02:00 UTC every day
+    - cron: '0 2 * * *'
+  # Allows you to click "Run workflow" manually in the GitHub UI for testing
+  workflow_dispatch: 
+
+jobs:
+  nightly-verification:
+    name: Nightly Checks & Regression
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: 🛠️ Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 1: Snapshot Tests
+      - name: 📸 Run Snapshot Tests
+        run: pnpm run test:snapshots
+        continue-on-error: true # We want the pipeline to finish and report, even if a test fails
+
+      # Step 2: Compatibility Tests
+      - name: 🧩 Run Compatibility Tests
+        run: pnpm run test:compatibility
+        continue-on-error: true
+
+      # Step 3: Adapter Verification (Using B-006 Local Fixtures!)
+      # Notice we explicitly avoid live crawling here per the D-007 specs
+      - name: 🔌 Adapter Verification (Local Fixtures)
+        run: pnpm run test:adapters
+        continue-on-error: true
+
+      # Step 4: Generate the Report
+      - name: 📝 Generate Regression Report
+        run: |
+          echo "# 🌙 Nightly Regression Report" > nightly-report.md
+          echo "**Date:** $(date)" >> nightly-report.md
+          echo "All snapshot, compatibility, and adapter suites have been executed." >> nightly-report.md
+          echo "Please check the GitHub Actions step logs for specific suite failures." >> nightly-report.md
+
+      # Step 5: Upload the Artifact
+      - name: 📤 Upload Nightly Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-regression-report
+          path: nightly-report.md
+          retention-days: 7
