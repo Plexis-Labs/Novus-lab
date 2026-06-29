@@ -4,7 +4,7 @@ on:
   schedule:
     # Runs automatically at 02:00 UTC every day
     - cron: '0 2 * * *'
-  # Allows you to click "Run workflow" manually in the GitHub UI for testing
+
   workflow_dispatch: 
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
         continue-on-error: true
 
       # Step 3: Adapter Verification (Using B-006 Local Fixtures!)
-      # Notice we explicitly avoid live crawling here per the D-007 specs
+      
       - name: 🔌 Adapter Verification (Local Fixtures)
         run: pnpm run test:adapters
         continue-on-error: true
