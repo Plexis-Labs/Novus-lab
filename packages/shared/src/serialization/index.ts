@@ -1,13 +1,14 @@
 import type { z } from 'zod'
 
 export class SerializationError extends Error {
-  constructor(public readonly cause: z.ZodError) {
+  constructor(public override readonly cause: z.ZodError) {
     super('Contract serialization validation failed.')
     this.name = 'SerializationError'
   }
 }
 
 //Safely parses and strips extra fields to guarantee contract shapes.
+//serialize function
 
 export function serialize<T>(schema: z.ZodType<T>, data: unknown): string {
   const parsed = schema.safeParse(data)

@@ -6,7 +6,7 @@ The Novus team takes the security of our platform, our AI generation pipeline, a
 
 **Do not report public security vulnerabilities via GitHub Issues.**
 
-If you discover a security vulnerability within the Novus monorepo, our browser extension, or our AI generation pipeline, please email our Security Team directly at **[Mayurnanda9857@gmail.com](mailto:Mayurnanda9857@gmail.com)**.
+If you discover a security vulnerability within the Novus monorepo, our browser extension, or our AI generation pipeline, please email our Security Team directly at **[Mayurnanda9857@gmail.com](mailto:Mayurnanda9857@gmail.com)**!
 
 - **Response Time:** You will receive an initial acknowledgment within **48 hours**.
 - **Triage:** Our team will triage the issue and determine mitigation steps within **5 business days**.

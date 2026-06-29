@@ -6,16 +6,16 @@
     "moduleResolution": "Bundler",
     "lib": ["ES2022", "DOM"],
 
-    /* Strict Type-Checking Options - This fixes the ESLint error */
     "strict": true,
     "strictNullChecks": true,
 
-    /* Module Resolution */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
 
-    /* Output */
+    "incremental": false,
+    "composite": false,
+
     "declaration": true,
     "declarationMap": true,
     "outDir": "dist"

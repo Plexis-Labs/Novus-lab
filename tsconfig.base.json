@@ -46,3 +46,5 @@
   },
   "exclude": ["node_modules", "dist", "build", ".turbo", "coverage", "playwright-report", "test-results"]
 }
+
+// improved base version (you may remove the comment)
