@@ -1,0 +1,11 @@
+# - name: 📦 Upload Release Bundle
+#   uses: actions/upload-artifact@v4
+#   with:
+#     name: release-assets
+#     path: release/
+
+# - name: 🧩 Upload Extension Package
+#   uses: actions/upload-artifact@v4
+#   with:
+#     name: extension-package
+#     path: packages/extension/dist/

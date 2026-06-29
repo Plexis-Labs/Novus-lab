@@ -6,6 +6,7 @@ import unusedImports from 'eslint-plugin-unused-imports'
 import reactPlugin from 'eslint-plugin-react'
 import reactHooksPlugin from 'eslint-plugin-react-hooks'
 import prettierConfig from 'eslint-config-prettier'
+import globals from 'globals'
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
@@ -123,10 +124,20 @@ export default [
   },
 
   {
-    files: ['tooling/**/*.ts', 'tooling/**/*.js', '*.config.ts', '*.config.js'],
+    files: ['tooling/**/*.ts', 'tooling/**/*.js', '**/*.config.ts', '**/*.config.js'],
+
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
+
     rules: {
       '@typescript-eslint/no-process-env': 'off',
       '@typescript-eslint/no-require-imports': 'off',
+
+      // Since these are Node config files
+      'no-undef': 'off',
     },
   },
 

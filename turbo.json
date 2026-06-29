@@ -53,13 +53,13 @@
       "cache": false
     },
     "typecheck": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^typecheck"],
       "outputs": ["*.tsbuildinfo"],
       "cache": true
     },
 
     "generate:json-schema": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^typecheck"],
       "outputs": ["schemas/**/*.json"],
       "cache": true
     },
