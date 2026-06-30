@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
 
-const isCI = !!process.env.CI
+const isCI = !!process.env['CI']
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -22,8 +22,8 @@ export default defineConfig({
   /* Retry only in CI */
   retries: isCI ? 2 : 0,
 
-  /* Browser extensions are much more stable with a single worker in CI */
-  workers: isCI ? 1 : undefined,
+  /* Playwright strict types require number or string, not undefined */
+  workers: isCI ? 1 : '50%',
 
   /* Reports */
   reporter: [
@@ -33,7 +33,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000',
+    baseURL: process.env['PLAYWRIGHT_BASE_URL'] ?? 'http://localhost:3000',
 
     headless: isCI,
 
@@ -49,18 +49,6 @@ export default defineConfig({
 
     ignoreHTTPSErrors: true,
   },
-
-  /*
-   * Later we'll start the demo application automatically.
-   *
-   * Example:
-   *
-   * webServer: {
-   *   command: "pnpm dev",
-   *   port: 3000,
-   *   reuseExistingServer: !isCI,
-   * }
-   */
 
   projects: [
     {
