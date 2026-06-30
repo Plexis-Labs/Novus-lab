@@ -40,8 +40,7 @@
   },
   "dependencies": {
     "zod": "^3.23.0",
-    "zod-to-json-schema": "^3.23.0",
-    "name": "@novus/shared"
+    "zod-to-json-schema": "^3.23.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
