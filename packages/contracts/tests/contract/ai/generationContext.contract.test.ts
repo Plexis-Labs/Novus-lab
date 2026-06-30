@@ -5,13 +5,8 @@ import validFixture from '../../../fixtures/ai/golden/generationContext.valid.js
 import { GenerationContextJsonSchema } from '../../../generated/generationContext.json-schema'
 import { GenerationContextSchema } from '../../../src/ai/generationContext.schema'
 
-/**
- * Creates a deep clone of the fixture.
- * * Using JSON.parse/stringify strips away Vite's ES Module
- * proxies/getters that cause structuredClone to throw DataCloneError.
- */
 function createContextFixture(): typeof validFixture {
-  return JSON.parse(JSON.stringify(validFixture)) as typeof validFixture
+  return structuredClone(validFixture)
 }
 
 describe('GenerationContext Contract', () => {
