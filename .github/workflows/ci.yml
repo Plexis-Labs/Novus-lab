@@ -69,26 +69,26 @@ jobs:
       - name: 🏗️ Build Workspace
         run: pnpm turbo run build
 
-      # - name: 🧪 Run Unit Tests
-      #   run: pnpm turbo run test
+      - name: 🧪 Run Unit Tests
+        run: pnpm turbo run test
 
-      # # -----------------------------
-      # # Quality Gate 5 — Contract Tests
-      # # -----------------------------
-      #       - name: 📜 Run Contract Tests
-      #         run: pnpm turbo run test:contract
+      # -----------------------------
+      # Quality Gate 5 — Contract Tests
+      # -----------------------------
+      - name: 📜 Run Contract Tests
+        run: pnpm turbo run test:contract
 
-      # # -----------------------------
-      # # Quality Gate 6 — Serialization Tests
-      # # -----------------------------
-      #       - name: 🔄 Run Serialization Tests
-      #         run: pnpm turbo run test:serialization
+      # -----------------------------
+      # Quality Gate 6 — Serialization Tests
+      # -----------------------------
+      - name: 🔄 Run Serialization Tests
+        run: pnpm turbo run test:serialization
 
-      # # -----------------------------
-      # # Quality Gate 7 — Integration Tests
-      # # -----------------------------
-      #       - name: 🔗 Run Integration Tests
-      #         run: pnpm turbo run test:integration
+      # -----------------------------
+      # Quality Gate 7 — Integration Tests
+      # -----------------------------
+      - name: 🔗 Run Integration Tests
+        run: pnpm turbo run test:integration
 
       # -----------------------------
       # Coverage Report

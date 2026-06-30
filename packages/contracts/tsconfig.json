@@ -10,8 +10,9 @@
     "esModuleInterop": true,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "skipLibCheck": true
   },
-  "include": ["src/**/*", "tsup.config.ts"],
+  "include": ["src/**/*", "tsup.config.ts", "fixtures/security/capabilityToken.fixtures.ts", "tests/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
