@@ -1,4 +1,4 @@
-import type { FeatureManifest } from '../schemas'
+import type { FeatureManifest } from '../../src/core/featureManifest.schema'
 
 // The "Golden Fixture" - a perfect, valid example
 export const validFeatureManifest: FeatureManifest = {

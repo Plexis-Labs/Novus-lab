@@ -1,8 +1,10 @@
 import { describe, it, expect } from 'vitest'
 
-import { validFeatureManifest, invalidFeatureManifest } from '../fixtures'
-import { featureManifestSchema } from '../schemas'
-
+import {
+  validFeatureManifest,
+  invalidFeatureManifest,
+} from '../../../fixtures/core/featureManifest.fixtures'
+import { featureManifestSchema } from '../../../src/core/featureManifest.schema'
 describe('G-002: FeatureManifest Contract', () => {
   it('✅ should validate a correct feature manifest (Golden Fixture)', () => {
     const result = featureManifestSchema.safeParse(validFeatureManifest)

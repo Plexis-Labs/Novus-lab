@@ -2,5 +2,5 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {},
   "files": [],
-  "references": []
+  "references": [{ "path": "./tooling" }, { "path": "./packages/shared" }, { "path": "./packages/contracts" }]
 }
