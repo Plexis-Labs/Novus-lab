@@ -1,0 +1,40 @@
+{
+  "clientRequestId": "5fd3d16d-2a43-45b0-a6a8-2f537b1f0c67",
+  "prompt": "Generate a PR review dashboard with review notes and progress tracking.",
+  "adapter": {
+    "id": "github-pr",
+    "version": "1.0.0",
+    "maturityLevel": "L2",
+    "health": "healthy",
+    "approvedEntities": [
+      {
+        "type": "pull_request",
+        "id": "pr-123"
+      }
+    ],
+    "routeKind": "pull_request"
+  },
+  "availableCapabilities": ["workspace.read", "notes.write"],
+  "allowedSurfaces": ["side_panel", "annotation"],
+  "existingDatasets": [
+    {
+      "id": "cbcb0d51-83bb-46e0-b17f-50dbd63bdbb1",
+      "entity": "pull_request",
+      "recordCount": 1,
+      "completeness": "complete",
+      "collectedAt": "2026-01-01T12:00:00.000Z"
+    }
+  ],
+  "dataPolicy": {
+    "offDeviceAllowed": true,
+    "selectedTextAllowed": true
+  },
+  "selectedText": {
+    "content": "Please review the authentication middleware.",
+    "characterCount": 43,
+    "truncated": false,
+    "hash": "sha256:d3f5b63f4b2e8b2f"
+  },
+  "promptVersion": "v1",
+  "generationMode": "generated_bundle"
+}

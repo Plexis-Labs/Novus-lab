@@ -10,7 +10,7 @@ import {
   MISSING_BINDING_TOKEN,
   EXTRA_PROPERTY_TOKEN,
 } from '../../../fixtures/security/capabilityToken.fixtures'
-import { CapabilityTokenJsonSchema } from '../../../src/security/capabilityToken.json-schema'
+import { CapabilityTokenJsonSchema } from '../../../generated/capabilityToken.json-schema'
 import { CapabilityTokenSchema } from '../../../src/security/capabilityToken.schema'
 
 describe('CapabilityToken JSON Schema', () => {
