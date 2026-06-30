@@ -24,11 +24,11 @@
     "test:compatibility": "vitest run tests/compatibility",
     "test:integration": "vitest run tests/integration",
     "test:security": "vitest run tests/security",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit "
   },
   "dependencies": {
-    "@novus/shared": "workspace:*",
     "zod": "^3.23.0",
+    "@novus/shared": "workspace:*",
     "zod-to-json-schema": "^3.23.0"
   },
   "devDependencies": {
