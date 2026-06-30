@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment */
 import { defineConfig, devices } from '@playwright/test'
 
-const isCI = !!process.env.CI
+const isCI = !!process.env['CI']
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -34,7 +33,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000',
+    baseURL: process.env['PLAYWRIGHT_BASE_URL'] ?? 'http://localhost:3000',
 
     headless: isCI,
 
