@@ -64,7 +64,7 @@
       "cache": false
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"],
+      "dependsOn": ["^build"],
       "outputs": ["*.tsbuildinfo"],
       "cache": true
     },
