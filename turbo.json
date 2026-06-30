@@ -51,6 +51,9 @@
     "test:serialization": {
       "dependsOn": ["build"]
     },
+    "test:integration": {
+      "dependsOn": ["build"]
+    },
 
     "lint": {
       "dependsOn": [],
