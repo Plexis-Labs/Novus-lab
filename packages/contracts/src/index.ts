@@ -18,7 +18,7 @@ export * from '../fixtures/core/featureManifest.fixtures'
 export * from './security/capabilityToken.schema'
 export type * from './security/capabilityToken.types'
 export * from '../fixtures/security/capabilityToken.fixtures'
-export * from './security/capabilityToken.json-schema'
+export * from '../generated/capabilityToken.json-schema'
 
 // WORKSPACE DOMAIN (G-007: Workspace Dataset)
 
