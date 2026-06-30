@@ -10,3 +10,8 @@ export * from './security/capabilityToken.schema'
 export type * from './security/capabilityToken.types'
 export * from '../fixtures/security/capabilityToken.fixtures'
 export * from './security/capabilityToken.json-schema'
+
+// WORKSPACE DOMAIN (G-007: Workspace Dataset)
+
+export * from './workspace/workspaceDataset.schema'
+export * from '../fixtures/workspace/workspaceDataset.fixtures'
