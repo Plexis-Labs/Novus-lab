@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment */
 import { defineConfig, devices } from '@playwright/test'
 
-// @ts-expect-error: process is globally injected by Node.js at runtime
 const isCI = !!process.env.CI
 
 export default defineConfig({
@@ -35,7 +34,6 @@ export default defineConfig({
   ],
 
   use: {
-    // @ts-expect-error: process is globally injected by Node.js at runtime
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:3000',
 
     headless: isCI,
