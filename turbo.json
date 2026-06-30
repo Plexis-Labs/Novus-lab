@@ -44,6 +44,17 @@
       "persistent": true
     },
 
+    "test:contract": {
+      "dependsOn": ["build"]
+    },
+
+    "test:serialization": {
+      "dependsOn": ["build"]
+    },
+    "test:integration": {
+      "dependsOn": ["build"]
+    },
+
     "lint": {
       "dependsOn": [],
       "outputs": [],

@@ -16,16 +16,25 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint src/",
-    "test": "vitest run"
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:contract": "vitest run tests/contract",
+    "test:serialization": "vitest run tests/serialization",
+    "test:compatibility": "vitest run tests/compatibility",
+    "test:integration": "vitest run tests/integration",
+    "test:security": "vitest run tests/security",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@novus/shared": "workspace:*",
-    "zod": "^3.23.0"
+    "zod": "^3.23.0",
+    "zod-to-json-schema": "^3.23.0"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
     "tsup": "^8.0.0",
-    "typescript": "^5.4.0",
-    "vitest": "^1.4.0"
+    "typescript": "^5.9.3",
+    "vitest": "^1.6.1"
   }
 }
