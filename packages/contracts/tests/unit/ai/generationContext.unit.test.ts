@@ -6,12 +6,11 @@ import { GenerationContextSchema } from '../../../src/ai/generationContext.schem
 
 /**
  * Creates a deep clone of the fixture.
- *
- * Every test receives an isolated copy so that
- * mutations never leak across test cases.
+ * * Using JSON.parse/stringify strips away Vite's ES Module
+ * proxies/getters that cause structuredClone to throw DataCloneError.
  */
 function createContextFixture(): typeof validFixture {
-  return structuredClone(validFixture)
+  return JSON.parse(JSON.stringify(validFixture)) as typeof validFixture
 }
 
 describe('GenerationContextSchema', () => {
