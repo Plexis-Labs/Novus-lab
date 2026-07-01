@@ -53,3 +53,8 @@ export * from '../generated/collector.json-schema'
 export * from './adapter/siteWorkspaceAdapter.schema'
 export type * from './adapter/siteWorkspaceAdapter.types'
 export * from '../generated/siteWorkspaceAdapter.json-schema'
+
+// Data Projection Contract (G-012)
+export * from './core/dataProjection.schema'
+export type * from './core/dataProjection.types'
+export * from '../generated/dataProjection.json-schema'
