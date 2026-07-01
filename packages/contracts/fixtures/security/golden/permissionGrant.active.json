@@ -1,0 +1,17 @@
+{
+  "grantId": "7f70c5f5-f6bc-46d4-b4d8-7612b1e72a31",
+  "featureId": "88b130b7-2c3d-4b42-9245-f76517c49b4e",
+  "featureVersion": 1,
+
+  "requestedCapabilities": ["workspace.read", "notes.write"],
+
+  "approvedCapabilities": ["workspace.read", "notes.write"],
+
+  "scope": "per_site",
+
+  "sitePattern": "github.com/*",
+
+  "status": "granted",
+
+  "grantedAt": 1735689600000
+}

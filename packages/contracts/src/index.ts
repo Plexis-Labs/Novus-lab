@@ -26,3 +26,13 @@ export * from './workspace/workspaceDataset.schema'
 export * from '../fixtures/workspace/workspaceDataset.fixtures'
 
 export * from './bridge/index'
+
+export * from '../generated/permissionGrant.json-schema'
+
+export * from './security/capabilityToken.schema'
+export type * from './security/capabilityToken.types'
+
+export * from './security/permissionGrant.schema'
+export type * from './security/permissionGrant.types'
+
+export * from '../generated/permissionGrant.json-schema'
