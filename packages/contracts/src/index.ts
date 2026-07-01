@@ -68,7 +68,19 @@ export * from './core/dataProjection.schema'
 export type * from './core/dataProjection.types'
 export * from '../generated/dataProjection.json-schema'
 
+// ==========================================
+// SDK DOMAIN (G-018)
+// ==========================================
+// SDK Configuration
+export * from './sdk/sdkConfiguration.schema'
+export type * from './sdk/sdkConfiguration.types'
+export * from '../generated/sdkConfiguration.json-schema'
 export * from './lifecycle/featureLifecycle.schema'
 export type * from './lifecycle/featureLifecycle.types'
 
 export * from '../generated/featureLifecycle.json-schema'
+
+export * from './ai'
+
+export * from '../generated/generationContext.json-schema'
+export * from '../generated/featurePlan.json-schema'
