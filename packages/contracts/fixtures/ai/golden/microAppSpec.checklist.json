@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+
+  "featureId": "8dce36b6-4b67-4b8a-a52d-48c2dfdd9f30",
+
+  "defaultViewId": "review",
+
+  "views": [
+    {
+      "id": "review",
+
+      "title": "Files to Review",
+
+      "layout": "stack",
+
+      "widgets": [
+        {
+          "id": "heading",
+
+          "kind": "text",
+
+          "content": "Files to Review",
+
+          "variant": "h1"
+        },
+        {
+          "id": "reviewChecklist",
+
+          "kind": "checklist",
+
+          "bind": {
+            "entity": "pullRequestFile",
+            "collection": "list"
+          }
+        }
+      ]
+    }
+  ]
+}

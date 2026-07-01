@@ -77,3 +77,9 @@ export * from './ai'
 
 export * from '../generated/generationContext.json-schema'
 export * from '../generated/featurePlan.json-schema'
+
+export * from './bridge'
+
+export * from '../generated/generationContext.json-schema'
+export * from '../generated/featurePlan.json-schema'
+export * from '../generated/microAppSpec.json-schema'

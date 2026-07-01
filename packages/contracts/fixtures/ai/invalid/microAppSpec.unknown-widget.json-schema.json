@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+
+  "featureId": "2a4d9d71-4184-40c2-8d53-93efb56b9987",
+
+  "defaultViewId": "main",
+
+  "views": [
+    {
+      "id": "main",
+
+      "layout": "stack",
+
+      "widgets": [
+        {
+          "id": "player",
+
+          "kind": "video_player",
+
+          "url": "https://example.com/video.mp4"
+        }
+      ]
+    }
+  ]
+}
