@@ -20,10 +20,18 @@ export type * from './security/capabilityToken.types'
 export * from '../fixtures/security/capabilityToken.fixtures'
 export * from '../generated/capabilityToken.json-schema'
 
-// WORKSPACE DOMAIN (G-007: Workspace Datasets)
+// ==========================================
+// WORKSPACE DOMAIN (G-007 & G-008)
+// ==========================================
 
+// Workspace Dataset
 export * from './workspace/workspaceDataset.schema'
 export * from '../fixtures/workspace/workspaceDataset.fixtures'
+
+// Dataset Provenance
+export * from './workspace/datasetProvenance.schema'
+export type * from './workspace/datasetProvenance.types'
+export * from '../generated/datasetProvenance.json-schema'
 
 // ==========================================
 // ADAPTER DOMAIN (G-010: Route Adapter)
