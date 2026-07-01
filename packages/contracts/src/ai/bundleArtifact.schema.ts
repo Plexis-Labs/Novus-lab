@@ -72,12 +72,12 @@ export const CompatibilitySchema = z
     /**
      * Lowest supported SDK.
      */
-    minimumSdkVersion: z.string(),
+    minimumSdkVersion: z.string().min(1, 'minimumSdkVersion cannot be empty.'),
 
     /**
      * Highest supported SDK.
      */
-    maximumSdkVersion: z.string(),
+    maximumSdkVersion: z.string().min(1, 'maximumSdkVersion cannot be empty.'),
 
     /**
      * Runtime capabilities
@@ -99,12 +99,12 @@ export const CompilerMetadataSchema = z
     /**
      * Compiler version.
      */
-    version: z.string(),
+    version: z.string().min(1, 'Version cannot be empty.'),
 
     /**
      * Build identifier.
      */
-    buildId: z.string(),
+    buildId: z.string().min(1, 'Build ID cannot be empty.'),
 
     /**
      * Compilation timestamp.
