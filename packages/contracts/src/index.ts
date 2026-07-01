@@ -58,3 +58,11 @@ export * from '../generated/siteWorkspaceAdapter.json-schema'
 export * from './core/dataProjection.schema'
 export type * from './core/dataProjection.types'
 export * from '../generated/dataProjection.json-schema'
+
+// ==========================================
+// SDK DOMAIN (G-018)
+// ==========================================
+// SDK Configuration
+export * from './sdk/sdkConfiguration.schema'
+export type * from './sdk/sdkConfiguration.types'
+export * from '../generated/sdkConfiguration.json-schema'
