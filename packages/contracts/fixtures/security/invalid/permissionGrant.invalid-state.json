@@ -1,0 +1,19 @@
+{
+  "grantId": "c5aef4e9-98ea-42cb-a695-9cb8190e20b0",
+
+  "featureId": "88b130b7-2c3d-4b42-9245-f76517c49b4e",
+
+  "featureVersion": 1,
+
+  "requestedCapabilities": ["workspace.read"],
+
+  "approvedCapabilities": ["workspace.read"],
+
+  "scope": "per_site",
+
+  "sitePattern": "github.com/*",
+
+  "status": "denied",
+
+  "grantedAt": 1735689600000
+}

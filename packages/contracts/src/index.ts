@@ -35,6 +35,15 @@ export * from '../generated/datasetProvenance.json-schema'
 
 export * from './bridge/index'
 
+export * from '../generated/permissionGrant.json-schema'
+
+export * from './security/capabilityToken.schema'
+export type * from './security/capabilityToken.types'
+
+export * from './security/permissionGrant.schema'
+export type * from './security/permissionGrant.types'
+
+export * from '../generated/permissionGrant.json-schema'
 // ==========================================
 // ADAPTER DOMAIN (G-009 & G-010)
 // ==========================================

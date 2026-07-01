@@ -1,0 +1,21 @@
+{
+  "grantId": "0d413fa8-bcab-4c73-8ef8-37e49ec01d39",
+
+  "featureId": "88b130b7-2c3d-4b42-9245-f76517c49b4e",
+
+  "featureVersion": 1,
+
+  "requestedCapabilities": ["workspace.read", "notes.write"],
+
+  "approvedCapabilities": ["workspace.read", "notes.write"],
+
+  "scope": "per_site",
+
+  "sitePattern": "github.com/*",
+
+  "status": "revoked",
+
+  "grantedAt": 1735689600000,
+
+  "revokedAt": 1735776000000
+}
