@@ -67,3 +67,8 @@ export * from '../generated/siteWorkspaceAdapter.json-schema'
 export * from './core/dataProjection.schema'
 export type * from './core/dataProjection.types'
 export * from '../generated/dataProjection.json-schema'
+
+export * from './lifecycle/featureLifecycle.schema'
+export type * from './lifecycle/featureLifecycle.types'
+
+export * from '../generated/featureLifecycle.json-schema'
