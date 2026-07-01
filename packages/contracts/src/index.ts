@@ -20,10 +20,18 @@ export type * from './security/capabilityToken.types'
 export * from '../fixtures/security/capabilityToken.fixtures'
 export * from '../generated/capabilityToken.json-schema'
 
-// WORKSPACE DOMAIN (G-007: Workspace Datasets)
+// ==========================================
+// WORKSPACE DOMAIN (G-007 & G-008)
+// ==========================================
 
+// Workspace Dataset
 export * from './workspace/workspaceDataset.schema'
 export * from '../fixtures/workspace/workspaceDataset.fixtures'
+
+// Dataset Provenance
+export * from './workspace/datasetProvenance.schema'
+export type * from './workspace/datasetProvenance.types'
+export * from '../generated/datasetProvenance.json-schema'
 
 export * from './bridge/index'
 
@@ -36,3 +44,26 @@ export * from './security/permissionGrant.schema'
 export type * from './security/permissionGrant.types'
 
 export * from '../generated/permissionGrant.json-schema'
+// ==========================================
+// ADAPTER DOMAIN (G-009 & G-010)
+// ==========================================
+
+// Route Adapter (G-010)
+export * from './adapter/routeAdapter.schema'
+export type * from './adapter/routeAdapter.types'
+export * from '../generated/routeAdapter.json-schema'
+
+// Collector Contract (G-011)
+export * from './core/collector.schema'
+export type * from './core/collector.types'
+export * from '../generated/collector.json-schema'
+
+// Site Workspace Adapter (G-009)
+export * from './adapter/siteWorkspaceAdapter.schema'
+export type * from './adapter/siteWorkspaceAdapter.types'
+export * from '../generated/siteWorkspaceAdapter.json-schema'
+
+// Data Projection Contract (G-012)
+export * from './core/dataProjection.schema'
+export type * from './core/dataProjection.types'
+export * from '../generated/dataProjection.json-schema'
