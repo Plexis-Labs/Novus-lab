@@ -1,0 +1,39 @@
+{
+  "kind": "request",
+  "header": {
+    "protocolVersion": 1,
+    "correlationId": "7d30ab85-6d4d-4e61-a53f-1b9c36c5f8d1",
+    "source": "sandbox",
+    "timestamp": 1760000000000
+  },
+
+  "capabilityToken": {
+    "capabilityTokenId": "e5e9f7cb-5dd3-4d5a-bd17-8f8fd5bcb1cf",
+
+    "featureId": "e0dc1f48-82db-4e27-9b13-1fbc0c8195f4",
+
+    "featureVersion": 1,
+
+    "binding": {
+      "tabId": 12,
+      "iframeInstanceId": "fd7185d4-2cf5-44f7-bb69-6d98d14d80f5",
+      "routeEpoch": 4
+    },
+
+    "capabilities": ["workspace.read", "storage.write"],
+
+    "issuedAt": 1700000000000,
+
+    "expiresAt": 1700003600000,
+
+    "signature": "signed-runtime-token"
+  },
+
+  "method": "Novus.workspace.query",
+
+  "payload": {
+    "workspaceId": "2e3b6a4b-f2c2-4f88-8f56-d67b0b8fbb74",
+    "limit": 20,
+    "cursor": null
+  }
+}
