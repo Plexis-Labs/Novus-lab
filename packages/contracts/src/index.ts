@@ -33,10 +33,18 @@ export * from './workspace/datasetProvenance.schema'
 export type * from './workspace/datasetProvenance.types'
 export * from '../generated/datasetProvenance.json-schema'
 
+export * from './bridge/index'
+
 // ==========================================
-// ADAPTER DOMAIN (G-010: Route Adapter)
+// ADAPTER DOMAIN (G-009 & G-010)
 // ==========================================
+
+// Route Adapter (G-010)
 export * from './adapter/routeAdapter.schema'
 export type * from './adapter/routeAdapter.types'
 export * from '../generated/routeAdapter.json-schema'
-export * from './bridge/index'
+
+// Site Workspace Adapter (G-009)
+export * from './adapter/siteWorkspaceAdapter.schema'
+export type * from './adapter/siteWorkspaceAdapter.types'
+export * from '../generated/siteWorkspaceAdapter.json-schema'
