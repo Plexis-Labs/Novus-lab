@@ -25,4 +25,10 @@ export * from '../generated/capabilityToken.json-schema'
 export * from './workspace/workspaceDataset.schema'
 export * from '../fixtures/workspace/workspaceDataset.fixtures'
 
+// ==========================================
+// ADAPTER DOMAIN (G-010: Route Adapter)
+// ==========================================
+export * from './adapter/routeAdapter.schema'
+export type * from './adapter/routeAdapter.types'
+export * from '../generated/routeAdapter.json-schema'
 export * from './bridge/index'
