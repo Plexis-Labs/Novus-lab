@@ -40,3 +40,8 @@ export * from './adapter/routeAdapter.schema'
 export type * from './adapter/routeAdapter.types'
 export * from '../generated/routeAdapter.json-schema'
 export * from './bridge/index'
+
+// Collector Contract (G-011)
+export * from './core/collector.schema'
+export type * from './core/collector.types'
+export * from '../generated/collector.json-schema'
