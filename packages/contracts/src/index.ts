@@ -75,3 +75,7 @@ export * from '../generated/dataProjection.json-schema'
 export * from './sdk/sdkConfiguration.schema'
 export type * from './sdk/sdkConfiguration.types'
 export * from '../generated/sdkConfiguration.json-schema'
+export * from './lifecycle/featureLifecycle.schema'
+export type * from './lifecycle/featureLifecycle.types'
+
+export * from '../generated/featureLifecycle.json-schema'
