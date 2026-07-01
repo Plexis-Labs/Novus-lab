@@ -1,0 +1,15 @@
+{
+  "kind": "error",
+
+  "header": {
+    "protocolVersion": 1,
+    "correlationId": "7d30ab85-6d4d-4e61-a53f-1b9c36c5f8d1",
+    "source": "runtime",
+    "timestamp": 1760000000014
+  },
+
+  "error": {
+    "code": "UNAUTHORIZED",
+    "message": "Capability token is invalid."
+  }
+}

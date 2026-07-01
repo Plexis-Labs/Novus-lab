@@ -19,7 +19,7 @@
     "fixtures/security/capabilityToken.fixtures.ts",
     "tests/**/*.ts",
     "generated/capabilityToken.json-schema.ts",
-    "generated/generationContext.json-schema.ts"
+    "generated/**/*.ts"
   ],
   "exclude": ["node_modules", "dist"]
 }
