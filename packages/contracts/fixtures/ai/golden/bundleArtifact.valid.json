@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "artifactId": "95d57fd4-1a5f-43fd-bc45-0639d75b1215",
+    "featureId": "1d42072c-3470-4ec0-8bdf-85aef5f4fd80",
+    "featureVersion": 3
+  },
+  "payload": {
+    "compiledJs": "(()=>{\"use strict\";console.log(\"Novus Bundle\");})();",
+    "compiledCss": ".root{display:flex;flex-direction:column;gap:12px}",
+    "sourceMap": "{\"version\":3,\"sources\":[],\"names\":[],\"mappings\":\"\"}"
+  },
+  "compatibility": {
+    "minimumSdkVersion": "1.0.0",
+    "maximumSdkVersion": "1.2.0",
+    "requiredCapabilities": ["workspace.read", "notes.write"]
+  },
+  "compiler": {
+    "version": "0.5.0",
+    "buildId": "build-20260627-001",
+    "compiledAt": 1782505200000
+  },
+  "integrity": {
+    "sourceHash": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+    "compiledHash": "abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789",
+    "manifestHash": "fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",
+    "signature": {
+      "issuerId": "novus-prod",
+      "keyId": "gateway-key-2026-q2",
+      "algorithm": "ed25519",
+      "value": "MEUCIQDdM4A4nI2BlWhp0I7jA5nK1x2K5u9lR9kX4Hn5a8xD6QIgKxQ9TjS7Kz1LmPnVw0qY2YwL7ZxM8Qn4V3F6E2T8="
+    }
+  }
+}

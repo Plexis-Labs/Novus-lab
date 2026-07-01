@@ -16,3 +16,5 @@ export type * from './featurePlan.types'
 
 export * from './microAppSpec.schema'
 export type * from './microAppSpec.types'
+
+export * from './bundleArtifact.schema'
