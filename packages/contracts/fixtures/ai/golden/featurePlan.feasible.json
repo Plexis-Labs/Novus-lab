@@ -1,0 +1,27 @@
+{
+  "intent": "Generate an interactive pull request review checklist.",
+
+  "featureName": "Pull Request Checklist",
+
+  "requiredEntities": ["pullRequestFile"],
+
+  "requestedCapabilities": ["workspace.read", "notes.write"],
+
+  "dataRequirements": {
+    "needsCollection": true,
+    "needsCompleteDataset": false,
+    "partialDataAllowed": true,
+    "estimatedPages": 2,
+    "estimatedRecords": 25
+  },
+
+  "generationMode": "trusted_spec",
+
+  "feasibility": {
+    "status": "feasible"
+  },
+
+  "plannerVersion": "1.0.0",
+
+  "plannerModel": "gpt-5.5"
+}

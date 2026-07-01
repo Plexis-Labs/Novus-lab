@@ -1,0 +1,28 @@
+{
+  "intent": "Generate a pull request review assistant with full diff analysis.",
+
+  "featureName": "Pull Request Review Assistant",
+
+  "requiredEntities": ["pullRequestFile"],
+
+  "requestedCapabilities": ["workspace.read", "notes.write"],
+
+  "dataRequirements": {
+    "needsCollection": true,
+    "needsCompleteDataset": true,
+    "partialDataAllowed": false,
+    "estimatedPages": 4,
+    "estimatedRecords": 80
+  },
+
+  "generationMode": "trusted_spec",
+
+  "feasibility": {
+    "status": "partial",
+    "limitations": ["Full diff analysis is not available; only visible changed files can be tracked."]
+  },
+
+  "plannerVersion": "1.0.0",
+
+  "plannerModel": "gpt-5.5"
+}

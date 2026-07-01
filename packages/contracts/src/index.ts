@@ -79,3 +79,8 @@ export * from './lifecycle/featureLifecycle.schema'
 export type * from './lifecycle/featureLifecycle.types'
 
 export * from '../generated/featureLifecycle.json-schema'
+
+export * from './ai'
+
+export * from '../generated/generationContext.json-schema'
+export * from '../generated/featurePlan.json-schema'
