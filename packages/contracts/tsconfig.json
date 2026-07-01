@@ -13,6 +13,13 @@
     "outDir": "dist",
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "tsup.config.ts", "fixtures/security/capabilityToken.fixtures.ts", "tests/**/*.ts"],
+  "include": [
+    "src/**/*",
+    "tsup.config.ts",
+    "fixtures/security/capabilityToken.fixtures.ts",
+    "tests/**/*.ts",
+    "generated/capabilityToken.json-schema.ts",
+    "generated/generationContext.json-schema.ts"
+  ],
   "exclude": ["node_modules", "dist"]
 }
