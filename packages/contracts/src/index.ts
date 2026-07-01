@@ -24,3 +24,5 @@ export * from '../generated/capabilityToken.json-schema'
 
 export * from './workspace/workspaceDataset.schema'
 export * from '../fixtures/workspace/workspaceDataset.fixtures'
+
+export * from './bridge/index'
