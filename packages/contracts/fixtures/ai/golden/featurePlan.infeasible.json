@@ -1,0 +1,26 @@
+{
+  "intent": "Automatically merge approved pull requests.",
+
+  "featureName": "Automatic Pull Request Merge",
+
+  "requiredEntities": [],
+
+  "requestedCapabilities": [],
+
+  "dataRequirements": {
+    "needsCollection": false,
+    "needsCompleteDataset": false,
+    "partialDataAllowed": true
+  },
+
+  "generationMode": "trusted_spec",
+
+  "feasibility": {
+    "status": "infeasible",
+    "reason": "Novus cannot perform write actions or automated merging on GitHub."
+  },
+
+  "plannerVersion": "1.0.0",
+
+  "plannerModel": "gpt-5.5"
+}
