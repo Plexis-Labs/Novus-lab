@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+
+  "featureId": "1a6bde6e-14e7-4b16-bb8d-4a31fbeff34a",
+
+  "defaultViewId": "dashboard",
+
+  "views": [
+    {
+      "id": "dashboard",
+
+      "title": "Repository Metrics",
+
+      "layout": "grid",
+
+      "widgets": [
+        {
+          "id": "linesAdded",
+
+          "kind": "metric",
+
+          "label": "Lines Added",
+
+          "value": "248",
+
+          "trend": "up"
+        },
+        {
+          "id": "linesRemoved",
+
+          "kind": "metric",
+
+          "label": "Lines Removed",
+
+          "value": "79",
+
+          "trend": "down"
+        },
+        {
+          "id": "filesChanged",
+
+          "kind": "metric",
+
+          "label": "Files Changed",
+
+          "value": "18",
+
+          "trend": "neutral"
+        }
+      ]
+    }
+  ]
+}
