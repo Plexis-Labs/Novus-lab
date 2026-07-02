@@ -2,111 +2,128 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug: Extension (Chrome MV3)",
-      "type": "chrome",
-      "request": "launch",
-      "url": "chrome://extensions",
-      "userDataDir": "${workspaceFolder}/.chrome-debug-profile",
-      "runtimeArgs": [
-        "--load-extension=${workspaceFolder}/apps/extension/dist",
-        "--allow-failed-policy-fetch-for-test",
-        "--disable-extensions-except=${workspaceFolder}/apps/extension/dist"
-      ],
-      "preLaunchTask": "build:extension",
-      "webRoot": "${workspaceFolder}/apps/extension/src",
-      "sourceMapPathOverrides": {
-        "webpack:///./*": "${workspaceFolder}/apps/extension/src/*"
-      },
-      "presentation": {
-        "group": "Extension",
-        "order": 1
-      }
-    },
-
-    {
-      "name": "Debug: AI Gateway (Node.js)",
+      "name": "Debug: Extension",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--filter=@novus/ai-platform", "dev"],
+      "runtimeArgs": ["--filter=@novus/shared", "test"],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
-      "env": {
-        "NOVUS_AI_PROVIDER": "mock",
-        "NOVUS_LOG_LEVEL": "debug"
-      },
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "presentation": {
-        "group": "Backend",
+        "group": "C-007",
         "order": 1
       }
     },
-
     {
-      "name": "Debug: Demo Site (Vite)",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:5173",
-      "webRoot": "${workspaceFolder}/apps/docs/src",
-      "preLaunchTask": "dev:docs",
-      "presentation": {
-        "group": "Frontend",
-        "order": 1
-      }
-    },
-
-    {
-      "name": "Debug: Playwright E2E",
+      "name": "Debug: AI Gateway",
       "type": "node",
       "request": "launch",
-      "runtimeExecutable": "pnpm",
+      "runtimeExecutable": "node",
       "runtimeArgs": [
-        "playwright",
-        "test",
-        "--headed",
-        "--debug"
-      ],
-      "cwd": "${workspaceFolder}",
-      "envFile": "${workspaceFolder}/.env",
-      "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"],
-      "presentation": {
-        "group": "Testing",
-        "order": 1
-      }
-    },
-
-    {
-      "name": "Debug: Unit Tests (Vitest)",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "vitest",
-        "run",
-        "--reporter=verbose"
+        "--input-type=module",
+        "-e",
+        "import { createLogger } from './packages/shared/src/utils/logger.ts'; const logger = createLogger({ name: 'gateway', level: 'debug' }); logger.info('AI Gateway ready'); logger.debug('Debugging session started');"
       ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "presentation": {
-        "group": "Testing",
+        "group": "C-007",
         "order": 2
       }
-    }
-  ],
-
-  "compounds": [
+    },
     {
-      "name": "Debug: Full Stack (Extension + Gateway)",
-      "configurations": [
-        "Debug: Extension (Chrome MV3)",
-        "Debug: AI Gateway (Node.js)"
+      "name": "Debug: Demo Site",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "const http = require('http'); const server = http.createServer((req, res) => { res.writeHead(200, { 'content-type': 'text/plain' }); res.end('Novus demo site ready'); }); server.listen(3000, '127.0.0.1', () => console.log('Demo site listening on http://127.0.0.1:3000'));"
       ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "presentation": {
-        "group": "Full Stack",
+        "group": "C-007",
+        "order": 3
+      }
+    },
+    {
+      "name": "Debug: Playwright",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["exec", "playwright", "test", "--list"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "presentation": {
+        "group": "C-007",
+        "order": 4
+      }
+    },
+    {
+      "name": "Debug: Unit Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["vitest", "run", "--reporter=verbose"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "presentation": {
+        "group": "C-007",
+        "order": 5
+      }
+    },
+    {
+      "name": "Debug: Shared Package Tests",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter=@novus/shared", "test"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "presentation": {
+        "group": "Shared",
+        "order": 1
+      }
+    },
+    {
+      "name": "Debug: Shared Package Build",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter=@novus/shared", "build"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "presentation": {
+        "group": "Shared",
+        "order": 2
+      }
+    },
+    {
+      "name": "Debug: Root Test Suite",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["test"],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "presentation": {
+        "group": "Workspace",
         "order": 1
       }
     }

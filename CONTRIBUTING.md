@@ -57,6 +57,8 @@ cp .env.example .env
 pnpm dev
 ```
 
+For a more detailed walkthrough, see [docs/contributing/LOCAL_BOOTSTRAP.md](docs/contributing/LOCAL_BOOTSTRAP.md).
+
 ## 5. Coding Style
 
 - **TypeScript:** We use strict TypeScript across all packages. No `any` types are allowed unless explicitly justified.
