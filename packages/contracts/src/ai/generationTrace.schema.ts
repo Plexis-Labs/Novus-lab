@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+import { ModelIdSchema, ProviderIdSchema, TraceIdSchema } from '../primitives/identifier.schema'
+import { PromptVersionSchema } from '../primitives/version.schema'
+
 /* -------------------------------------------------------------------------- */
 /*                               Token Usage                                  */
 /* -------------------------------------------------------------------------- */
@@ -146,7 +149,7 @@ export const TraceMetadataSchema = z
     /**
      * Globally unique trace identifier.
      */
-    traceId: z.string().uuid(),
+    traceId: TraceIdSchema,
 
     /**
      * Anonymous installation fingerprint.
@@ -184,17 +187,17 @@ export const TraceConfigurationSchema = z
      * openai
      * anthropic
      */
-    providerId: z.string().min(1).max(50),
+    providerId: ProviderIdSchema,
 
     /**
      * Concrete model identifier.
      */
-    modelId: z.string().min(1).max(100),
+    modelId: ModelIdSchema,
 
     /**
      * Prompt template version.
      */
-    promptVersion: z.string().min(1).max(50),
+    promptVersion: PromptVersionSchema,
 
     /**
      * Generation pipeline selected

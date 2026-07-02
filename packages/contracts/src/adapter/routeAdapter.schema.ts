@@ -1,10 +1,9 @@
 import { z } from 'zod'
 
+import { AdapterVersionSchema } from '../primitives/version.schema'
+
 export const routeAdapterSchema = z.object({
-  version: z
-    .string()
-    .regex(/^\d+\.\d+\.\d+$/)
-    .describe('Schema version of the route adapter.'),
+  version: AdapterVersionSchema,
 
   match: z
     .object({

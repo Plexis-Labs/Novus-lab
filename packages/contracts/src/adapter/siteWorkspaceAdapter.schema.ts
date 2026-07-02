@@ -1,10 +1,9 @@
 import { z } from 'zod'
 
+import { AdapterVersionSchema } from '../primitives/version.schema'
+
 export const siteWorkspaceAdapterSchema = z.object({
-  version: z
-    .string()
-    .regex(/^\d+\.\d+\.\d+$/)
-    .describe('Semantic version of the adapter.'),
+  version: AdapterVersionSchema,
 
   health: z
     .enum(['healthy', 'degraded', 'offline'])
