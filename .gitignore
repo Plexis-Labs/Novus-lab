@@ -28,6 +28,7 @@ html-report/
 .env.development
 .env.staging
 .env.production
+!**/__fixtures__/**/.env
 
 *.log
 logs/
