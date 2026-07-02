@@ -5,3 +5,5 @@ export * from './versioning/index.js'
 export * from './serialization/index.js'
 //G-0013
 export * from './testing/index.js'
+
+export * from './schemas/kutta.schema.js'
