@@ -90,3 +90,10 @@ export * from './bridge'
 export * from '../generated/generationContext.json-schema'
 export * from '../generated/featurePlan.json-schema'
 export * from '../generated/microAppSpec.json-schema'
+
+export * from './primitives'
+
+export * from '../generated/compatibilityMatrix.json-schema'
+
+export * from './platform/compatibilityMatrix.schema'
+export type * from './platform/compatibilityMatrix.types'

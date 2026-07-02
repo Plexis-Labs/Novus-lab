@@ -65,6 +65,9 @@
     "rimraf": "6.0.1",
     "turbo": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^4.1.9"
+    "vitest": "^4.1.9",
+    "@novus/contracts": "workspace:*",
+    "@novus/extension": "workspace:*",
+    "@novus/ai-platform": "workspace:*"
   }
 }

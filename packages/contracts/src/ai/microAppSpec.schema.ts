@@ -1,5 +1,7 @@
 import { z } from 'zod'
 
+import { FeatureIdSchema, ViewIdSchema, WidgetIdSchema } from '../primitives/identifier.schema'
+
 /**
  * Binds a widget to a workspace entity exposed by the
  * Runtime Collection Engine.
@@ -95,14 +97,7 @@ export const WidgetBaseSchema = z
      * analytics,
      * runtime events.
      */
-    id: z
-      .string()
-      .min(1)
-      .max(100)
-      .regex(
-        /^[a-zA-Z][a-zA-Z0-9_-]*$/,
-        "Widget ids must start with a letter and contain only letters, numbers, '_' or '-'.",
-      ),
+    id: WidgetIdSchema,
 
     /**
      * Optional workspace binding.
@@ -228,14 +223,7 @@ export const ViewSchema = z
     /**
      * Stable view identifier.
      */
-    id: z
-      .string()
-      .min(1)
-      .max(100)
-      .regex(
-        /^[a-zA-Z][a-zA-Z0-9_-]*$/,
-        "View ids must start with a letter and contain only letters, numbers, '_' or '-'.",
-      ),
+    id: ViewIdSchema,
 
     /**
      * Human-readable title.
@@ -293,7 +281,7 @@ export const MicroAppSpecBaseSchema = z
     /**
      * Owning feature.
      */
-    featureId: z.string().uuid(),
+    featureId: FeatureIdSchema,
 
     /**
      * Renderable application views.
