@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug: Extension (Chrome MV3)",
+      "name": "Debug: Extension",
       "type": "chrome",
       "request": "launch",
       "url": "chrome://extensions",
@@ -18,46 +18,67 @@
         "webpack:///./*": "${workspaceFolder}/apps/extension/src/*"
       },
       "presentation": {
-        "group": "Extension",
+        "group": "App",
         "order": 1
       }
     },
-
     {
-      "name": "Debug: AI Gateway (Node.js)",
+      "name": "Debug: AI Gateway",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--filter=@novus/ai-platform", "dev"],
+      "runtimeArgs": [
+        "--filter=@novus/ai-platform",
+        "dev"
+      ],
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
-      "env": {
-        "NOVUS_AI_PROVIDER": "mock",
-        "NOVUS_LOG_LEVEL": "debug"
-      },
       "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ],
       "presentation": {
-        "group": "Backend",
-        "order": 1
+        "group": "App",
+        "order": 2
       }
     },
-
     {
-      "name": "Debug: Demo Site (Vite)",
+      "name": "Debug: Demo Site",
       "type": "chrome",
       "request": "launch",
       "url": "http://localhost:5173",
-      "webRoot": "${workspaceFolder}/apps/docs/src",
-      "preLaunchTask": "dev:docs",
+      "webRoot": "${workspaceFolder}/apps/demo/src",
+      "preLaunchTask": "dev:demo",
       "presentation": {
-        "group": "Frontend",
+        "group": "App",
+        "order": 3
+      }
+    },
+    {
+      "name": "Debug: Unit Tests",
+      "type": "node",
+      "request": "launch",
+      "autoAttachChildProcesses": true,
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "vitest",
+        "run"
+      ],
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**",
+        "**/node_modules/**"
+      ],
+      "presentation": {
+        "group": "Test",
         "order": 1
       }
     },
-
     {
-      "name": "Debug: Playwright E2E",
+      "name": "Debug: Playwright",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "pnpm",
@@ -70,40 +91,21 @@
       "cwd": "${workspaceFolder}",
       "envFile": "${workspaceFolder}/.env",
       "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"],
-      "presentation": {
-        "group": "Testing",
-        "order": 1
-      }
-    },
-
-    {
-      "name": "Debug: Unit Tests (Vitest)",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "vitest",
-        "run",
-        "--reporter=verbose"
+      "skipFiles": [
+        "<node_internals>/**"
       ],
-      "cwd": "${workspaceFolder}",
-      "envFile": "${workspaceFolder}/.env",
-      "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
       "presentation": {
-        "group": "Testing",
+        "group": "Test",
         "order": 2
       }
     }
   ],
-
   "compounds": [
     {
       "name": "Debug: Full Stack (Extension + Gateway)",
       "configurations": [
-        "Debug: Extension (Chrome MV3)",
-        "Debug: AI Gateway (Node.js)"
+        "Debug: Extension",
+        "Debug: AI Gateway"
       ],
       "presentation": {
         "group": "Full Stack",

@@ -62,7 +62,7 @@ secrets/
 tmp/
 temp/
 .cache/
-
+.chrome-debug-profile/
 
 playwright-report/
 
