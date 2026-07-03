@@ -35,7 +35,7 @@ export default [
         ...globals.node,
       },
       parserOptions: {
-        project: true,
+        projectService: true,
         tsconfigRootDir: import.meta.dirname,
         ecmaVersion: 2022,
         sourceType: 'module',
