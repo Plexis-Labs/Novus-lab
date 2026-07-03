@@ -19,7 +19,6 @@
     "tsconfig*.json": "jsonc",
     ".prettierrc.json": "jsonc"
   },
-
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -45,18 +44,12 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.inlayHints.parameterNames.enabled": "literals",
-  "typescript.inlayHints.variableTypes.enabled": false,
-
   "eslint.enable": true,
   "eslint.useFlatConfig": true,
   "eslint.workingDirectories": [
-    { "mode": "auto" }
+    {
+      "mode": "auto"
+    }
   ],
   "eslint.validate": [
     "javascript",
@@ -71,14 +64,17 @@
     "**/.turbo": true,
     "**/coverage": true,
     "**/*.tsbuildinfo": true,
-    "**/pnpm-lock.yaml": true
+    "**/pnpm-lock.yaml": true,
+    "**/.chrome-debug-profile": true
   },
   "files.exclude": {
     "**/.git": true,
     "**/node_modules": true,
-    "**/*.tsbuildinfo": true
+    "**/*.tsbuildinfo": true,
+    "**/.DS_Store": true,
+    "**/dist": true,
+    "**/.chrome-debug-profile": true
   },
-
   "git.autofetch": true,
   "git.confirmSync": false,
   "terminal.integrated.defaultProfile.windows": "PowerShell",

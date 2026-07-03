@@ -63,7 +63,7 @@
       "dependsOn": ["build"]
     },
     "lint": {
-      "dependsOn": [],
+      "dependsOn": ["^build"],
       "outputs": [],
       "cache": true
     },
