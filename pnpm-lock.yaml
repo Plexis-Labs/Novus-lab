@@ -41,6 +41,9 @@ importers:
       '@eslint/js':
         specifier: ^9.39.4
         version: 9.39.4
+      '@novus/contracts':
+        specifier: workspace:*
+        version: link:packages/contracts
       '@playwright/test':
         specifier: ^1.61.1
         version: 1.61.1
