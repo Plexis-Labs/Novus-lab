@@ -26,6 +26,7 @@
       "name": "Debug: AI Gateway",
       "type": "node",
       "request": "launch",
+      "autoAttachChildProcesses": true, 
       "runtimeExecutable": "pnpm",
       "runtimeArgs": [
         "--filter=@novus/ai-platform",
