@@ -43,7 +43,9 @@
       "cache": false,
       "persistent": true
     },
-
+    "test:unit": {
+      "dependsOn": ["build"]
+    },
     "test:contract": {
       "dependsOn": ["build"]
     },
@@ -54,7 +56,12 @@
     "test:integration": {
       "dependsOn": ["build"]
     },
-
+    "test:compatibility": {
+      "dependsOn": ["build"]
+    },
+    "test:adapters": {
+      "dependsOn": ["build"]
+    },
     "lint": {
       "dependsOn": [],
       "outputs": [],
