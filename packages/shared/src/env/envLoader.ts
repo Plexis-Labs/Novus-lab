@@ -2,14 +2,20 @@ import { z } from 'zod'
 
 import { ValidationError } from '../errors/NovusErrors'
 
-// 1. Tell TS this might exist, but we won't assume it does globally
-declare var process: { env: Record<string, string | undefined> }
+// 1. Tell TS these might exist, but we won't assume they do globally
+declare var process: { env?: Record<string, string | undefined> }
+
+// Define Vite's import.meta structure to avoid using 'any'
+interface ViteImportMeta {
+  env?: Record<string, string | undefined>
+}
 
 const envSchema = z
   .object({
-    NOVUS_ENV: z.enum(['development', 'staging', 'production']),
+    // Added defaults to prevent local crashes
+    NOVUS_ENV: z.enum(['development', 'staging', 'production']).default('development'),
     NOVUS_LOG_LEVEL: z.enum(['debug', 'info', 'warn', 'error', 'fatal']).default('info'),
-    NOVUS_AI_PROVIDER: z.enum(['openai', 'anthropic', 'gemini', 'mock']),
+    NOVUS_AI_PROVIDER: z.enum(['openai', 'anthropic', 'gemini', 'mock']).default('mock'),
     NOVUS_OPENAI_API_KEY: z.string().optional(),
     NOVUS_ANTHROPIC_API_KEY: z.string().optional(),
     NOVUS_GEMINI_API_KEY: z.string().optional(),
@@ -57,12 +63,31 @@ export type NovusEnvironment = z.infer<typeof envSchema>
 
 let cachedEnv: NovusEnvironment | null = null
 
+// 2. Isomorphic Extractor: Handles Node.js AND Vite/Browser environments
+
+function getGlobalEnv(): Record<string, string | undefined> {
+  if (typeof process !== 'undefined') {
+    if (process.env) {
+      return process.env
+    }
+  }
+
+  // Safely cast import.meta through 'unknown' to our custom interface
+  const meta = import.meta as unknown as ViteImportMeta
+  if (typeof meta !== 'undefined') {
+    if (meta.env) {
+      return meta.env
+    }
+  }
+
+  return {}
+}
+
 export function loadEnvironment(): NovusEnvironment {
   if (cachedEnv) return cachedEnv
 
-  // 2. Isomorphic Check: Safely grab env vars without crashing browsers
-  const processEnv = typeof process !== 'undefined' ? process.env : {}
-  const parsed = envSchema.safeParse(processEnv)
+  const rawEnv = getGlobalEnv()
+  const parsed = envSchema.safeParse(rawEnv)
 
   if (!parsed.success) {
     throw new ValidationError('Invalid Environment Configuration', {

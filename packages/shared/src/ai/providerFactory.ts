@@ -9,10 +9,16 @@ export function getAIProvider(): AIProvider {
       return new MockAIAdapter()
 
     case 'openai':
-      // We will fill this in later, but the structure is ready!
       throw new AdapterError('OpenAI Provider not yet implemented.')
 
+    case 'anthropic':
+      throw new AdapterError('Anthropic Provider not yet implemented.')
+
+    case 'gemini':
+      throw new AdapterError('Gemini Provider not yet implemented.')
+
     default:
-      throw new AdapterError(`Provider ${env.NOVUS_AI_PROVIDER} is not supported yet.`)
+      // TypeScript now correctly infers env.NOVUS_AI_PROVIDER as 'never' here
+      throw new AdapterError(`Provider ${String(env.NOVUS_AI_PROVIDER)} is not supported yet.`)
   }
 }
