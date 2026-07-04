@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.base.json",
+
+  "compilerOptions": {
+    "baseUrl": ".",
+
+    "types": ["vite/client"],
+
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+
+  "include": ["./src", "manifest.ts", "vite.config.ts", "./background", "./panel", "./content/", "env.d.ts"]
+}
