@@ -1,0 +1,21 @@
+{
+  "name": "@novus/extension",
+  "private": true,
+  "description": "Extension Package for the Novus Lab",
+  "author": "Novus Core Team",
+  "license": "Apache-2.0",
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "dependencies": {
+    "@novus/contracts": "workspace:*",
+    "@novus/shared": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": false
+}
