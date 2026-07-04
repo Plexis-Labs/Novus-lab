@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "vitest.explorer",
     "ms-playwright.playwright",
+    "ms-vscode.js-debug",
     "eamodio.gitlens",
     "mhutchie.git-graph",
     "streetsidesoftware.code-spell-checker",
