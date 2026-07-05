@@ -12,5 +12,10 @@
 
   "exclude": ["../../node_modules", "node_modules", "dist"],
   "files": [],
-  "references": [{ "path": "./src/background" }, { "path": "./src/content" }, { "path": "./src/panel" }]
+  "references": [
+    { "path": "./src/background" },
+    { "path": "./src/content" },
+    { "path": "./src/panel" },
+    { "path": "./tsconfig.root.json" }
+  ]
 }
