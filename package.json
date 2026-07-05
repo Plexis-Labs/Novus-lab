@@ -47,7 +47,9 @@
   "devDependencies": {
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
+    "@crxjs/vite-plugin": "^2.7.1",
     "@eslint/js": "^9.39.4",
+    "@novus/contracts": "workspace:*",
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.0.1",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
@@ -65,7 +67,6 @@
     "rimraf": "6.0.1",
     "turbo": "catalog:",
     "typescript": "catalog:",
-    "vitest": "^4.1.9",
-    "@novus/contracts": "workspace:*"
+    "vitest": "^4.1.9"
   }
 }

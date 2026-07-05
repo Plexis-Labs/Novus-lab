@@ -5,10 +5,8 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "types": ["node"],
-    "composite": true,
-    "jsx": "react-jsx"
+    "composite": true
   },
 
-  "include": ["vite.config.ts", "manifest.ts", "src/**/*", "src/**/*.{ts,tsx}", "env.d.ts"],
-  "files": []
+  "include": ["vite.config.ts", "manifest.ts"]
 }
