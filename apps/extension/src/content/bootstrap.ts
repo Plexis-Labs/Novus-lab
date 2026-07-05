@@ -15,5 +15,6 @@ export class ContentBootstrap {
     })
 
     return true
+    // Return value
   }
 }
