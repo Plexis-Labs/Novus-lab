@@ -1,45 +1,32 @@
 # -----------------------------------------------------------------------------
+# PLEXIS LABS: NOVUS PLATFORM CODEOWNERS (Assignment E-002)
+# ------------------------------------------------------------------------------
 
-## PLEXIS LABS: NOVUS PLATFORM CODEOWNERS (Assignment E-002)
+# Default fallback for anything not specified below
+* @Mayur11code @Gurashish73 @neev-ahuja @Shoury-Rana
 
-## ------------------------------------------------------------------------------
+# Monorepo Tooling & Root Configuration (Milestone A & D)
+# Owned by: DevOps Lead & Runtime Lead (Added Shoury for DevOps redundancy)
+/.github/                   @Gurashish73 @Mayur11code @Shoury-Rana
+/tooling/                   @Gurashish73 @Mayur11code @Shoury-Rana
+pnpm-workspace.yaml         @Gurashish73 @Mayur11code @Shoury-Rana
+package.json                @Gurashish73 @Mayur11code @Shoury-Rana
 
-## Default fallback for anything not specified below (Runtime & DevOps Leads)
+# Core Shared Infrastructure (Milestone B)
+# Owned by: Runtime Lead & Adapter Lead (Added Neev for Backend redundancy)
+/packages/shared/           @Mayur11code @Gurashish73 @neev-ahuja
 
-* @Mayur11code @Gurashish73
+# Platform Contracts & SDK (Milestone G) - THE FREEZE BOUNDARY
+# Owned by: AI Lead, Runtime Lead, Adapter Lead
+/packages/contracts/        @Mayur11code @Gurashish73 @neev-ahuja
+/packages/sdk/              @Mayur11code @Gurashish73 @neev-ahuja
 
-## Monorepo Tooling & Root Configuration (Milestone A & D)
+# Architecture Decision Records & Governance (Milestone E & F)
+# Owned by: Core Maintainers (Everyone should be able to approve docs)
+/docs/adr/                  @Mayur11code @Gurashish73 @neev-ahuja @Shoury-Rana
+CONTRIBUTING.md             @Mayur11code @Gurashish73 @neev-ahuja @Shoury-Rana
+SECURITY.md                 @Mayur11code @Gurashish73 @neev-ahuja @Shoury-Rana
 
-## Owned by: DevOps Lead & Runtime Lead
-
-/.github/                           @Gurashish73 @Mayur11code
-/tooling/                           @Gurashish73 @Mayur11code
-pnpm-workspace.yaml                 @Gurashish73 @Mayur11code
-package.json                        @Gurashish73 @Mayur11code
-
-## Core Shared Infrastructure (Milestone B)
-
-## Owned by: Runtime Lead & Adapter Lead
-
-/packages/shared/                   @Mayur11code @Gurashish73
-
-## Platform Contracts & SDK (Milestone G) - THE FREEZE BOUNDARY
-
-## Owned by: AI Lead, Runtime Lead, Adapter Lead
-
-/packages/contracts/                @Mayur11code @Gurashish73
-/packages/sdk/                      @Mayur11code @premsingh314work-dev
-
-## Architecture Decision Records & Governance (Milestone E & F)
-
-## Owned by: Core Maintainers
-
-/docs/adr/                          @Mayur11code @Gurashish73
-CONTRIBUTING.md                     @Mayur11code @Gurashish73
-SECURITY.md                         @Mayur11code @Gurashish73
-
-## Applications
-
-## Owned by: Extension Lead & Sandbox/UI Lead
-
-/apps/extension/                    @premsingh314work-dev @neev-ahuja
+# Applications
+# Owned by: Extension Lead & Sandbox/UI Lead
+/apps/extension/            @neev-ahuja @Gurashish73 @Mayur11code

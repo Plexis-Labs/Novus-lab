@@ -2587,6 +2587,11 @@ packages:
     engines: {node: '>=10.0.0'}
     hasBin: true
 
+  rollup@2.80.0:
+    resolution: {integrity: sha512-cIFJOD1DESzpjOBl763Kp1AH7UE/0fcdHe6rZXUdQ9c50uvgigvW97u3IcSeBwOkgqL/PXPBktBCh0KEu5L8XQ==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+
   rollup@4.62.2:
     resolution: {integrity: sha512-RFnrW4lhXA3s3eqHDZvN654g8OTjzRfqpIRJYczCGB6HzphckVAi/Qh4tbPUbRuDi7s1Llv8g/NspLkttY3gTA==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -4081,6 +4086,8 @@ snapshots:
 
   boolbase@1.0.0: {}
 
+  boolbase@1.0.0: {}
+
   brace-expansion@1.1.15:
     dependencies:
       balanced-match: 1.0.2
@@ -5492,6 +5499,10 @@ snapshots:
     dependencies:
       glob: 11.1.0
       package-json-from-dist: 1.0.1
+
+  rollup@2.80.0:
+    optionalDependencies:
+      fsevents: 2.3.3
 
   rollup@2.80.0:
     optionalDependencies:
