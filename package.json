@@ -47,7 +47,7 @@
   "devDependencies": {
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
-    "@crxjs/vite-plugin": "^2.7.1",
+    "@crxjs/vite-plugin": "2.7.1",
     "@eslint/js": "^9.39.4",
     "@novus/contracts": "workspace:*",
     "@playwright/test": "^1.61.1",
@@ -57,7 +57,7 @@
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
-    "@vitejs/plugin-react": "^6.0.3",
+    "@vitejs/plugin-react": "catalog:",
     "eslint": "9",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
@@ -70,7 +70,7 @@
     "prettier": "catalog:",
     "rimraf": "6.0.1",
     "turbo": "catalog:",
-    "typescript": "^6.0.3",
-    "vitest": "^4.1.9"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   }
 }

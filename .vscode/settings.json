@@ -69,10 +69,10 @@
   },
   "files.exclude": {
     "**/.git": true,
-    "**/node_modules": true,
+    // "**/node_modules": true,
     "**/*.tsbuildinfo": true,
     "**/.DS_Store": true,
-    "**/dist": true,
+    // "**/dist": true,
     "**/.chrome-debug-profile": true
   },
   "git.autofetch": true,

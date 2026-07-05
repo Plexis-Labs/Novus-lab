@@ -29,14 +29,14 @@ export default defineManifest(() => ({
   },
 
   background: {
-    service_worker: 'src/background/index.js',
+    service_worker: 'src/background/runtime.ts',
     type: 'module',
   },
 
   content_scripts: [
     {
       matches: WORKSPACE_MATCHES,
-      js: ['src/background/index.js'],
+      js: ['src/content/index.ts'],
       run_at: 'document_idle',
     },
   ],
