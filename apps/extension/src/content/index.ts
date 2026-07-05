@@ -1,25 +1,33 @@
-/**
- * Novus Lab - Content Script
- * Injected into approved host pages to manage adapters and iframe mounting.
- */
+import { ContentBootstrap } from './bootstrap.js'
+import { RuntimeBridge } from './bridge.js'
+import { EnvironmentDetector } from './environment.js'
+import { MountManager } from './mount.js'
+import { NavigationObserver } from './navigation.js'
+import { ContentRuntime } from './runtime.js'
 
-function bootstrapContentScript(): void {
-  // Prevent duplicate injections (Vite HMR can sometimes trigger this)
-  if (Object.prototype.hasOwnProperty.call(window, 'NOVUS_INJECTED')) {
+function bootstrap(): void {
+  if (!ContentBootstrap.verifySingleInjection()) {
     return
   }
-  Object.defineProperty(window, '__NOVUS_INJECTED__', { value: true, writable: false })
 
-  console.log(`[Novus Content] Injected into host: ${window.location.hostname}`)
+  const host = EnvironmentDetector.detect()
 
-  // Ping the runtime to verify the communication bridge is open
-  chrome.runtime.sendMessage({ type: 'PING_RUNTIME' }, (response) => {
-    if (chrome.runtime.lastError) {
-      console.warn('[Novus Content] Runtime disconnected or sleeping.')
-    } else {
-      console.log('[Novus Content] Successfully connected to Runtime:', response)
-    }
-  })
+  console.info(`[Novus Content] Host detected: ${host}`)
+
+  if (host === 'unknown') {
+    return
+  }
+
+  RuntimeBridge.connect()
+
+  MountManager.initialize()
+
+  NavigationObserver.initialize()
+
+  ContentRuntime.bootstrap()
+
+  // Future:
+  // MountManager.initialize();
 }
 
-bootstrapContentScript()
+bootstrap()

@@ -9,7 +9,14 @@
     "jsx": "react-jsx"
   },
 
-  "include": ["vite.config.ts", "manifest.ts", "env.d.ts", "src/index.ts", "src/bootstrap.ts", "src/shared/**/*"],
+  "include": [
+    "vite.config.ts",
+    "manifest.ts",
+    "env.d.ts",
+    "src/index.ts",
+    "src/content/bootstrap.ts",
+    "src/shared/**/*"
+  ],
   "exclude": ["../../node_modules", "node_modules", "dist"],
   "files": [],
   "references": [{ "path": "./src/background" }, { "path": "./src/content" }, { "path": "./src/panel" }]
