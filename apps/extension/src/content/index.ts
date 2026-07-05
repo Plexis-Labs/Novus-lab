@@ -20,11 +20,10 @@ function bootstrap(): void {
 
   RuntimeBridge.connect()
 
+  ContentRuntime.bootstrap()
   MountManager.initialize()
 
   NavigationObserver.initialize()
-
-  ContentRuntime.bootstrap()
 
   // Future:
   // MountManager.initialize();
