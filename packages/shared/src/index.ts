@@ -28,3 +28,5 @@ export type * from './storage/types'
 
 //G-0013
 export * from './testing/index.js'
+
+export * from './schemas/kutta.schema.js'

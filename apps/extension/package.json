@@ -1,0 +1,28 @@
+{
+  "name": "@novus/extension",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Chrome Extension application for the Novus platform.",
+  "author": "Novus Core Team",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@novus/contracts": "workspace:*",
+    "@novus/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite": "catalog:"
+  }
+}
