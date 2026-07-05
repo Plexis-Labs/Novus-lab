@@ -17,7 +17,8 @@
     "*.css": "css",
     "turbo.json": "jsonc",
     "tsconfig*.json": "jsonc",
-    ".prettierrc.json": "jsonc"
+    ".prettierrc.json": "jsonc",
+    "CODEOWNERS": "plaintext"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
