@@ -19,10 +19,12 @@
   },
   "dependencies": {
     "@novus/contracts": "workspace:*",
-    "@novus/shared": "workspace:*"
+    "@novus/shared": "workspace:*",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "typescript": "catalog:",
+    "typescript": "^6.0.3",
     "vite": "catalog:"
   }
 }

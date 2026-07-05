@@ -1,15 +1,25 @@
 /**
- * Novus Background Service Worker
- *
- * Assignment:
- * P1-A006
- *
- * Responsible for:
- * - Extension lifecycle
- * - Message routing
- * - Adapter orchestration
+ * Novus Lab - Content Script
+ * Injected into approved host pages to manage adapters and iframe mounting.
  */
 
-console.info('[Novus] Content script is here baby')
+function bootstrapContentScript(): void {
+  // Prevent duplicate injections (Vite HMR can sometimes trigger this)
+  if (Object.prototype.hasOwnProperty.call(window, 'NOVUS_INJECTED')) {
+    return
+  }
+  Object.defineProperty(window, '__NOVUS_INJECTED__', { value: true, writable: false })
 
-export {}
+  console.log(`[Novus Content] Injected into host: ${window.location.hostname}`)
+
+  // Ping the runtime to verify the communication bridge is open
+  chrome.runtime.sendMessage({ type: 'PING_RUNTIME' }, (response) => {
+    if (chrome.runtime.lastError) {
+      console.warn('[Novus Content] Runtime disconnected or sleeping.')
+    } else {
+      console.log('[Novus Content] Successfully connected to Runtime:', response)
+    }
+  })
+}
+
+bootstrapContentScript()
