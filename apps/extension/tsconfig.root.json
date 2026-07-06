@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node", "chrome"],
+    "jsx": "react-jsx"
+  },
+
+  "include": ["manifest.ts", "vite.config.ts", "env.d.ts", "src/index.ts", "src/shared/**/*"]
+}

@@ -24,7 +24,9 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "typescript": "^6.0.3",
-    "vite": "catalog:"
+    "@crxjs/vite-plugin": "catalog:",
+    "@vitejs/plugin-react": "catalog:",
+    "vite": "catalog:",
+    "typescript": "catalog:"
   }
 }
