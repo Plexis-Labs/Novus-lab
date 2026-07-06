@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "types": ["chrome"]
+  },
+  "include": ["**/*"],
+  "exclude": ["../../node_modules", "node_modules"]
+}

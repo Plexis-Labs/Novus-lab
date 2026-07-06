@@ -33,6 +33,8 @@ export default [
       parser: tsParser,
       globals: {
         ...globals.node,
+        ...globals.browser,
+        chrome: 'readonly',
       },
       parserOptions: {
         projectService: true,
