@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import { DiagnosticsCard } from './components/DiagnosticsCard.js'
+import { HealthCard } from './components/HealthCard.js'
 import { StatusBar } from './components/statusbar.js'
 import { useRuntimeStatus } from './hooks/useRuntimeStatus.js'
 import { PanelRuntime } from './runtime/runtime.js'
@@ -19,6 +21,10 @@ export default function App(): ReactElement {
 
   useEffect(() => {
     PanelRuntime.bootstrap()
+
+    return () => {
+      PanelRuntime.shutdown()
+    }
   }, [])
 
   return (
@@ -38,22 +44,25 @@ export default function App(): ReactElement {
       <main
         style={{
           flex: 1,
+          overflowY: 'auto',
+          padding: '28px 20px',
           display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '24px',
+          flexDirection: 'column',
+          gap: '20px',
         }}
       >
-        <div
+        <section
           style={{
             textAlign: 'center',
-            maxWidth: '420px',
+            paddingBottom: '8px',
           }}
         >
           <h1
             style={{
-              fontSize: '1.35rem',
-              marginBottom: '12px',
+              margin: 0,
+              fontSize: '1.6rem',
+              fontWeight: 500,
+              letterSpacing: '0.04em',
             }}
           >
             Novus Lab
@@ -61,15 +70,19 @@ export default function App(): ReactElement {
 
           <p
             style={{
-              color: '#9ca3af',
-              lineHeight: 1.6,
+              marginTop: '12px',
+              color: '#8b8b92',
+              lineHeight: 1.7,
+              fontSize: '14px',
             }}
           >
-            Runtime initialized.
-            <br />
-            Ready for workspace feature generation.
+            AI-generated persistent workspace augmentation.
           </p>
-        </div>
+        </section>
+
+        <HealthCard runtime={runtime} />
+
+        <DiagnosticsCard runtime={runtime} />
       </main>
 
       <footer
