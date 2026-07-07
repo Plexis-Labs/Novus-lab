@@ -15,10 +15,6 @@ export interface RuntimeHealth {
   timestamp: number | null
 }
 
-const PING_MESSAGE = {
-  type: 'PING_RUNTIME',
-} as const
-
 /**
  * Sends a health check request to the Service Worker.
  *
@@ -26,36 +22,18 @@ const PING_MESSAGE = {
  * are represented as an "offline" status instead of
  * throwing exceptions.
  */
+import { MessageClient } from '@novus/message-bus'
+
+const client = new MessageClient()
+
 export async function pingRuntime(): Promise<RuntimeHealth> {
-  return new Promise<RuntimeHealth>((resolve) => {
-    try {
-      chrome.runtime.sendMessage(PING_MESSAGE, (response: RuntimeHealth) => {
-        if (chrome.runtime.lastError !== undefined) {
-          console.warn('[Novus Panel] Runtime unavailable:', chrome.runtime.lastError.message)
-
-          resolve({
-            status: 'offline',
-            version: null,
-            timestamp: null,
-          })
-
-          return
-        }
-
-        resolve({
-          status: response.status,
-          version: response.version,
-          timestamp: response.timestamp,
-        })
-      })
-    } catch (error) {
-      console.error('[Novus Panel] Failed to contact runtime.', error)
-
-      resolve({
-        status: 'offline',
-        version: null,
-        timestamp: null,
-      })
-    }
+  const response = await client.send<RuntimeHealth>({
+    type: 'PING_RUNTIME',
   })
+
+  if (!response.success || response.data === undefined) {
+    throw new Error(response.error ?? 'Runtime did not return a valid response.')
+  }
+
+  return response.data
 }
