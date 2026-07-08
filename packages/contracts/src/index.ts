@@ -98,3 +98,6 @@ export * from '../generated/compatibilityMatrix.json-schema'
 
 export type * from './platform/compatibilityMatrix.types'
 export * from './platform/compatibilityMatrix.schema'
+
+export type * from './runtime/runtimeHealth.types'
+export * from './runtime/runtimeHealth.schema'

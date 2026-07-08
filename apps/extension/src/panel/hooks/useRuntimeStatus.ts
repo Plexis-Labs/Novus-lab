@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { pingRuntime, type RuntimeHealth } from '../runtime/connection.js'
+import { pingRuntime } from '../runtime/connection.js'
+
+import type { RuntimeHealth } from '@novus/contracts'
 
 export interface RuntimeConnectionState {
   readonly status: RuntimeHealth['status'] | 'connecting'

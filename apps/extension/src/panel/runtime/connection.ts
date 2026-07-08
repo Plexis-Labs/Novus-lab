@@ -1,39 +1,43 @@
+import { RuntimeHealthSchema, type RuntimeHealth } from '@novus/contracts'
+import { MessageClient } from '@novus/message-bus'
+
 /**
  * Panel Runtime Connection
  *
  * Encapsulates communication between the Side Panel
  * and the Manifest V3 Service Worker.
  *
- * This module intentionally contains no React code.
- */
-
-export type RuntimeStatus = 'healthy' | 'offline'
-
-export interface RuntimeHealth {
-  status: RuntimeStatus
-  version: string | null
-  timestamp: number | null
-}
-
-/**
- * Sends a health check request to the Service Worker.
+ * Owns:
+ * - Runtime RPC invocation
+ * - Runtime payload validation
  *
- * The returned promise always resolves. Runtime failures
- * are represented as an "offline" status instead of
- * throwing exceptions.
+ * Does NOT own:
+ * - React state
+ * - UI
+ * - Transport implementation
  */
-import { MessageClient } from '@novus/message-bus'
 
 const client = new MessageClient()
 
+/**
+ * Requests the current Runtime health.
+ *
+ * Every Bridge payload crossing the runtime
+ * boundary is validated before entering the
+ * React application.
+ */
 export async function pingRuntime(): Promise<RuntimeHealth> {
-  const response = await client.send<RuntimeHealth>({
-    type: 'PING_RUNTIME',
-  })
+  const response = await client.request('PING_RUNTIME')
 
-  if (!response.success || response.data === undefined) {
-    throw new Error(response.error ?? 'Runtime did not return a valid response.')
+  if (response.kind === 'error') {
+    throw new Error(response.error.message)
   }
 
-  return response.data
+  const result = RuntimeHealthSchema.safeParse(response.payload)
+
+  if (!result.success) {
+    throw new Error('Runtime returned an invalid RuntimeHealth payload.')
+  }
+
+  return result.data
 }
