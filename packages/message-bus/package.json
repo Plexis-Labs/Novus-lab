@@ -17,7 +17,8 @@
     "clean": "rimraf dist *.tsbuildinfo"
   },
   "dependencies": {
-    "@novus/shared": "workspace:*"
+    "@novus/shared": "workspace:*",
+    "@novus/contracts": "workspace:*"
   },
   "devDependencies": {
     "typescript": "catalog:"
