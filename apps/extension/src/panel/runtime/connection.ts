@@ -1,4 +1,4 @@
-import { RuntimeHealthSchema, type RuntimeHealth } from '@novus/contracts'
+import { BridgeMethod, RuntimeHealthSchema, type RuntimeHealth } from '@novus/contracts'
 import { MessageClient } from '@novus/message-bus'
 
 /**
@@ -27,7 +27,7 @@ const client = new MessageClient()
  * React application.
  */
 export async function pingRuntime(): Promise<RuntimeHealth> {
-  const response = await client.request('PING_RUNTIME')
+  const response = await client.request(BridgeMethod.RuntimePing, undefined)
 
   if (response.kind === 'error') {
     throw new Error(response.error.message)

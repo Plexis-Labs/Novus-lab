@@ -1,41 +1,60 @@
-import type { BridgeError, BridgeHeader, BridgeRequest, BridgeResponse } from '@novus/contracts'
+import type {
+  BridgeError,
+  BridgeHeader,
+  BridgeRequest,
+  BridgeResponse,
+  BridgeRegistry,
+} from '@novus/contracts'
 
 /**
  * Client responsible for dispatching requests
  * to the Trusted Runtime.
  *
- * All BridgeRequest construction is centralized here
+ * All BridgeRequest consytruction is centralized here
  * so consumers never manually assemble protocol objects.
  */
 export class MessageClient {
   /**
-   * Public API used by the extension.
+   * Dispatch a strongly typed request to the Runtime.
    *
-   * Example:
-   *
-   * await client.request(
-   *   "PING_RUNTIME",
-   * );
+   * The payload and response types are inferred from
+   * the Bridge Registry.
    */
-  public async request(method: string, payload?: unknown): Promise<BridgeResponse | BridgeError> {
-    const request: BridgeRequest = {
+  public async request<TMethod extends keyof BridgeRegistry>(
+    method: TMethod,
+    payload: BridgeRegistry[TMethod]['payload'],
+  ): Promise<BridgeResponse | BridgeError> {
+    const request = this.buildRequest(method, payload)
+
+    return this.send(request)
+  }
+
+  /**
+   * Constructs a BridgeRequest.
+   */
+  private buildRequest<TMethod extends keyof BridgeRegistry>(
+    method: TMethod,
+    payload: BridgeRegistry[TMethod]['payload'],
+  ): BridgeRequest {
+    return {
       kind: 'request',
 
       header: this.buildHeader(),
 
       capabilityToken: this.buildCapabilityToken(),
 
-      method: this.buildMethod(method),
+      method,
 
       payload,
     }
-
-    return this.send(request)
   }
 
   /**
    * Dispatches a BridgeRequest through the
    * Chrome Runtime transport.
+   *
+   * This layer intentionally remains transport-only
+   * and therefore does not know about the BridgeRegistry.
    */
   private async send(request: BridgeRequest): Promise<BridgeResponse | BridgeError> {
     return await new Promise((resolve, reject) => {
@@ -70,19 +89,8 @@ export class MessageClient {
   }
 
   /**
-   * Constructs the runtime method identifier.
-   *
-   * TODO(P1-B003):
-   * Replace this temporary formatter with the
-   * generated Runtime Method Registry.
-   */
-  private buildMethod(method: string): string {
-    return `Novus.runtime.${method}`
-  }
-
-  /**
    * Builds the capability token attached to
-   * every bridge request.
+   * every Bridge request.
    *
    * TODO(P1-C001):
    * Replace this placeholder with a signed

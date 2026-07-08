@@ -1,15 +1,17 @@
-import type { BridgeError, BridgeRequest, BridgeResponse } from '@novus/contracts'
+import type { BridgeError, BridgeRegistry, BridgeRequest, BridgeResponse } from '@novus/contracts'
 
 /**
  * Runtime handler.
  *
  * Receives only the payload. Transport
  * metadata remains inside the Message Bus.
+ *
+ * NOTE:
+ * Payload validation is the responsibility
+ * of the registered handler using the
+ * appropriate Zod schema from @novus/contracts.
  */
-export type MessageHandler<TPayload = unknown, TResult = unknown> = (
-  payload: TPayload,
-  sender: chrome.runtime.MessageSender,
-) => Promise<TResult> | TResult
+export type MessageHandler = (payload: unknown, sender: chrome.runtime.MessageSender) => unknown
 
 /**
  * Central runtime message router.
@@ -20,22 +22,30 @@ export type MessageHandler<TPayload = unknown, TResult = unknown> = (
  * - bridge protocol adaptation
  */
 export class MessageServer {
-  private readonly handlers = new Map<string, MessageHandler>()
+  /**
+   * Runtime handler registry.
+   *
+   * Handlers are intentionally stored without
+   * payload typing because Chrome delivers
+   * untrusted payloads across the runtime
+   * boundary.
+   */
+  private readonly handlers = new Map<keyof BridgeRegistry, MessageHandler>()
 
   private listening = false
 
   /**
    * Register a runtime handler.
+   *
+   * The Bridge Method must originate from the
+   * canonical Bridge Registry.
    */
-  public register<TPayload = unknown, TResult = unknown>(
-    method: string,
-    handler: MessageHandler<TPayload, TResult>,
-  ): void {
+  public register(method: keyof BridgeRegistry, handler: MessageHandler): void {
     if (this.handlers.has(method)) {
       console.warn(`[MessageServer] Overwriting handler "${method}".`)
     }
 
-    this.handlers.set(method, handler as MessageHandler)
+    this.handlers.set(method, handler)
   }
 
   /**
@@ -65,7 +75,7 @@ export class MessageServer {
     sender: chrome.runtime.MessageSender,
     sendResponse: (response: BridgeResponse | BridgeError) => void,
   ): Promise<void> {
-    const handler = this.handlers.get(request.method)
+    const handler = this.handlers.get(request.method as keyof BridgeRegistry)
 
     if (handler === undefined) {
       sendResponse(
@@ -89,27 +99,17 @@ export class MessageServer {
 
   /**
    * Constructs a Bridge success response.
-   *
-   * TODO(P1-B003):
-   * Build a dedicated response header
-   * instead of echoing the request header.
    */
   private buildSuccessResponse(request: BridgeRequest, payload: unknown): BridgeResponse {
     return {
       kind: 'response',
-
       header: request.header,
-
       payload,
     }
   }
 
   /**
    * Constructs a Bridge error response.
-   *
-   * TODO(P1-B004):
-   * Replace generic errors with the
-   * Runtime Error Registry.
    */
   private buildErrorResponse(request: BridgeRequest, error: unknown): BridgeError {
     const runtimeError = error instanceof Error ? error : new Error(String(error))
