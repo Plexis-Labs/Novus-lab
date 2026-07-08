@@ -4,7 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-# CATALOGS
 catalogs:
   default:
     '@commitlint/cli':
@@ -201,6 +200,9 @@ importers:
 
   packages/message-bus:
     dependencies:
+      '@novus/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@novus/shared':
         specifier: workspace:*
         version: link:../shared
