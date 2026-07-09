@@ -8,7 +8,14 @@
  * without breaking older extension versions.
  */
 
-import { BridgeErrorSchema, BridgeResponseSchema } from '@novus/contracts'
+import {
+  BridgeErrorSchema,
+  BridgeResponseSchema,
+  BRIDGE_PROTOCOL_VERSION,
+  DEFAULT_BRIDGE_TIMEOUT_MS,
+} from '@novus/contracts'
+
+import { TimeoutError } from '../errors/TimeoutError.js'
 
 import type {
   BridgeError,
@@ -35,10 +42,11 @@ export class MessageClient {
   public async request<TMethod extends keyof BridgeRegistry>(
     method: TMethod,
     payload: BridgeRegistry[TMethod]['payload'],
+    timeoutMs = DEFAULT_BRIDGE_TIMEOUT_MS,
   ): Promise<BridgeResponse | BridgeError> {
     const request = this.buildRequest(method, payload)
 
-    return this.send(request)
+    return this.withTimeout(this.send(request), timeoutMs)
   }
 
   /**
@@ -110,13 +118,41 @@ export class MessageClient {
    */
   private buildHeader(): BridgeHeader {
     return {
-      protocolVersion: 1,
+      protocolVersion: BRIDGE_PROTOCOL_VERSION,
 
       correlationId: crypto.randomUUID(),
 
       source: 'runtime',
 
       timestamp: Date.now(),
+    }
+  }
+
+  /**
+   * Races an asynchronous transport operation
+   * against a strict timeout.
+   *
+   * The returned Promise rejects with a
+   * TimeoutError if the operation fails to
+   * complete before the configured deadline.
+   */
+  private async withTimeout<T>(operation: Promise<T>, timeoutMs: number): Promise<T> {
+    let timeoutId: ReturnType<typeof setTimeout> | undefined
+
+    try {
+      return await Promise.race([
+        operation,
+
+        new Promise<T>((_, reject) => {
+          timeoutId = setTimeout(() => {
+            reject(new TimeoutError(timeoutMs))
+          }, timeoutMs)
+        }),
+      ])
+    } finally {
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId)
+      }
     }
   }
 

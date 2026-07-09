@@ -1,5 +1,6 @@
-import type { BridgeError, BridgeRegistry, BridgeRequest, BridgeResponse } from '@novus/contracts'
+import { BRIDGE_PROTOCOL_VERSION } from '@novus/contracts'
 
+import type { BridgeError, BridgeRegistry, BridgeRequest, BridgeResponse } from '@novus/contracts'
 /**
  * Runtime handler.
  *
@@ -78,6 +79,12 @@ export class MessageServer {
     sender: chrome.runtime.MessageSender,
     sendResponse: (response: BridgeResponse | BridgeError) => void,
   ): Promise<void> {
+    const protocolError = this.validateProtocolVersion(request)
+
+    if (protocolError !== null) {
+      sendResponse(protocolError)
+      return
+    }
     const response = await this.executeHandler(request, sender)
 
     sendResponse(response)
@@ -106,11 +113,22 @@ export class MessageServer {
       )
     }
 
+    const startedAt = performance.now()
+
+    this.traceExecutionStart(request)
+
     try {
       const payload = await handler(request.payload, sender)
 
+      const duration = performance.now() - startedAt
+
+      this.traceExecutionSuccess(request, duration)
+
       return this.buildSuccessResponse(request, payload)
     } catch (error) {
+      const duration = performance.now() - startedAt
+
+      this.traceExecutionFailure(request, duration, error)
       return this.buildErrorResponse(request, error)
     }
   }
@@ -147,5 +165,64 @@ export class MessageServer {
         },
       },
     }
+  }
+  /**
+   * Validates the incoming Bridge protocol.
+   *
+   * Requests targeting an unsupported protocol
+   * version are rejected before any business
+   * logic executes.
+   */
+  private validateProtocolVersion(request: BridgeRequest): BridgeError | null {
+    if (request.header.protocolVersion !== BRIDGE_PROTOCOL_VERSION) {
+      return this.buildErrorResponse(
+        request,
+        new Error(
+          `Unsupported Bridge protocol version "${String(request.header.protocolVersion)}". Expected "${String(BRIDGE_PROTOCOL_VERSION)}".`,
+        ),
+      )
+    }
+
+    return null
+  }
+  /**
+   * Emits a trace indicating that a Bridge
+   * request has begun execution.
+   *
+   * TODO(P2-OBS):
+   * Replace console.debug with the
+   * Observability Engine.
+   */
+  private traceExecutionStart(request: BridgeRequest): void {
+    console.debug(`[MessageServer] ↘ ${request.header.correlationId} ${request.method}`)
+  }
+
+  /**
+   * Emits a trace indicating that a Bridge
+   * request completed successfully.
+   *
+   * TODO(P2-OBS):
+   * Replace console.debug with the
+   * Observability Engine.
+   */
+  private traceExecutionSuccess(request: BridgeRequest, durationMs: number): void {
+    console.debug(
+      `[MessageServer] ↗ ${request.header.correlationId} ${request.method} (${durationMs.toFixed(2)} ms)`,
+    )
+  }
+
+  /**
+   * Emits a trace indicating that a Bridge
+   * request failed.
+   *
+   * TODO(P2-OBS):
+   * Replace console.error with the
+   * Observability Engine.
+   */
+  private traceExecutionFailure(request: BridgeRequest, durationMs: number, error: unknown): void {
+    console.error(
+      `[MessageServer] ✖ ${request.header.correlationId} ${request.method} (${durationMs.toFixed(2)} ms)`,
+      error,
+    )
   }
 }
