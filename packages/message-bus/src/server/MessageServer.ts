@@ -70,30 +70,48 @@ export class MessageServer {
   /**
    * Dispatches an incoming Bridge request.
    */
+  /**
+   * Dispatches an incoming Bridge request.
+   */
   private async handleMessage(
     request: BridgeRequest,
     sender: chrome.runtime.MessageSender,
     sendResponse: (response: BridgeResponse | BridgeError) => void,
   ): Promise<void> {
+    const response = await this.executeHandler(request, sender)
+
+    sendResponse(response)
+  }
+
+  /**
+   * Executes a registered runtime handler and
+   * deterministically produces a Bridge response.
+   *
+   * Owns:
+   * - Handler lookup
+   * - Handler execution
+   * - Exception handling
+   * - Response construction
+   */
+  private async executeHandler(
+    request: BridgeRequest,
+    sender: chrome.runtime.MessageSender,
+  ): Promise<BridgeResponse | BridgeError> {
     const handler = this.handlers.get(request.method as keyof BridgeRegistry)
 
     if (handler === undefined) {
-      sendResponse(
-        this.buildErrorResponse(
-          request,
-          new Error(`No handler registered for "${request.method}".`),
-        ),
+      return this.buildErrorResponse(
+        request,
+        new Error(`No handler registered for "${request.method}".`),
       )
-
-      return
     }
 
     try {
-      const result = await handler(request.payload, sender)
+      const payload = await handler(request.payload, sender)
 
-      sendResponse(this.buildSuccessResponse(request, result))
+      return this.buildSuccessResponse(request, payload)
     } catch (error) {
-      sendResponse(this.buildErrorResponse(request, error))
+      return this.buildErrorResponse(request, error)
     }
   }
 

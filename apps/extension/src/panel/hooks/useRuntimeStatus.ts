@@ -10,7 +10,7 @@ export interface RuntimeConnectionState {
   readonly timestamp: number | null
 }
 
-const HEARTBEAT_INTERVAL_MS = 30_000
+const HEARTBEAT_INTERVAL_MS = 10_000
 
 /**
  * React hook responsible for maintaining the

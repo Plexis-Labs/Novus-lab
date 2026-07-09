@@ -1,3 +1,15 @@
+/*
+ * TODO(P1-B005):
+ *
+ * Verify the protocolVersion in the Bridge
+ * header before accepting the response.
+ *
+ * This will allow future protocol upgrades
+ * without breaking older extension versions.
+ */
+
+import { BridgeErrorSchema, BridgeResponseSchema } from '@novus/contracts'
+
 import type {
   BridgeError,
   BridgeHeader,
@@ -65,7 +77,27 @@ export class MessageClient {
             return
           }
 
-          resolve(response)
+          if (response === undefined) {
+            reject(new Error('No Bridge response received.'))
+
+            return
+          }
+
+          const success = BridgeResponseSchema.safeParse(response)
+
+          if (success.success) {
+            resolve(success.data)
+            return
+          }
+
+          const failure = BridgeErrorSchema.safeParse(response)
+
+          if (failure.success) {
+            resolve(failure.data)
+            return
+          }
+
+          reject(new Error('Received malformed Bridge response.'))
         })
       } catch (error) {
         reject(error instanceof Error ? error : new Error(String(error)))
