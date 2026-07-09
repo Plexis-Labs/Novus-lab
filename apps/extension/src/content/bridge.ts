@@ -1,23 +1,18 @@
+import { BridgeMethod } from '@novus/contracts'
+import { MessageClient } from '@novus/message-bus'
+
+const client = new MessageClient()
+
 export class RuntimeBridge {
-  public static connect(): void {
+  public static async connect(): Promise<void> {
     console.info('[Novus Content] Connecting to Runtime...')
 
     try {
-      chrome.runtime.sendMessage(
-        {
-          type: 'PING_RUNTIME',
-        },
-        (response) => {
-          if (chrome.runtime.lastError) {
-            console.warn('[Novus Content] Runtime unavailable.', chrome.runtime.lastError.message)
-            return
-          }
+      const response = await client.request(BridgeMethod.RuntimePing, undefined)
 
-          console.info('[Novus Content] Runtime connected.', response)
-        },
-      )
-    } catch {
-      console.error('[Novus Content] Extension context invalidated.')
+      console.info('[Novus Content] Runtime connected.', response)
+    } catch (error) {
+      console.warn('[Novus Content] Runtime unavailable.', error)
     }
   }
 }

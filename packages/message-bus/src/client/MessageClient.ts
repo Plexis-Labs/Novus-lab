@@ -15,6 +15,7 @@ import {
   DEFAULT_BRIDGE_TIMEOUT_MS,
 } from '@novus/contracts'
 
+import { ErrorSerializer } from '../errors/ErrorSerializer.js'
 import { TimeoutError } from '../errors/TimeoutError.js'
 
 import type {
@@ -101,7 +102,11 @@ export class MessageClient {
           const failure = BridgeErrorSchema.safeParse(response)
 
           if (failure.success) {
-            resolve(failure.data)
+            // 1. Extract the internal error contract from parsed success data
+            const runtimeError = ErrorSerializer.deserialize(failure.data.error)
+
+            // 2. Reject the promise instead of resolving it
+            reject(runtimeError)
             return
           }
 

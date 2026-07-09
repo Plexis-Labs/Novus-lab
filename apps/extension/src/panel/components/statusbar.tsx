@@ -6,6 +6,7 @@ interface StatusBarProps {
 }
 
 const STATUS_COLORS = {
+  error: '#cc2b07',
   connecting: '#f59e0b',
   healthy: '#22c55e',
   offline: '#ef4444',

@@ -1,7 +1,10 @@
 import { BRIDGE_PROTOCOL_VERSION } from '@novus/contracts'
 
+import { ErrorSerializer } from '../errors/ErrorSerializer.js'
+
 import type { BridgeError, BridgeRegistry, BridgeRequest, BridgeResponse } from '@novus/contracts'
 /**
+ *
  * Runtime handler.
  *
  * Receives only the payload. Transport
@@ -147,23 +150,16 @@ export class MessageServer {
   /**
    * Constructs a Bridge error response.
    */
+  /**
+   * Constructs a Bridge error response.
+   */
   private buildErrorResponse(request: BridgeRequest, error: unknown): BridgeError {
-    const runtimeError = error instanceof Error ? error : new Error(String(error))
-
     return {
       kind: 'error',
 
       header: request.header,
 
-      error: {
-        code: 'INTERNAL_ERROR',
-
-        message: runtimeError.message,
-
-        details: {
-          stack: runtimeError.stack,
-        },
-      },
+      error: ErrorSerializer.serialize(error),
     }
   }
   /**
