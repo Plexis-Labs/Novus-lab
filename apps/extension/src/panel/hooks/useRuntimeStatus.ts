@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { pingRuntime, type RuntimeHealth } from '../runtime/connection.js'
+import { pingRuntime } from '../runtime/connection.js'
+
+import type { RuntimeHealth } from '@novus/contracts'
 
 export interface RuntimeConnectionState {
-  readonly status: RuntimeHealth['status'] | 'connecting'
+  readonly status: RuntimeHealth['status'] | 'connecting' | 'error'
   readonly version: string | null
   readonly timestamp: number | null
 }
 
-const HEARTBEAT_INTERVAL_MS = 30_000
+const HEARTBEAT_INTERVAL_MS = 10_000
 
 /**
  * React hook responsible for maintaining the
@@ -26,17 +28,26 @@ export function useRuntimeStatus(): RuntimeConnectionState {
     let disposed = false
 
     const updateRuntimeStatus = async (): Promise<void> => {
-      const runtime = await pingRuntime()
+      try {
+        const runtime = await pingRuntime()
 
-      if (disposed) {
-        return
+        if (disposed) return
+
+        setState({
+          status: runtime.status,
+          version: runtime.version,
+          timestamp: runtime.timestamp,
+        })
+      } catch (error) {
+        if (disposed) return
+
+        console.log(error)
+        setState({
+          status: 'error',
+          version: null,
+          timestamp: Date.now(),
+        })
       }
-
-      setState({
-        status: runtime.status,
-        version: runtime.version,
-        timestamp: runtime.timestamp,
-      })
     }
 
     void updateRuntimeStatus()

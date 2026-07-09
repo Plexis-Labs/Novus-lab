@@ -1,61 +1,43 @@
+import { BridgeMethod, RuntimeHealthSchema, type RuntimeHealth } from '@novus/contracts'
+import { MessageClient } from '@novus/message-bus'
+
 /**
  * Panel Runtime Connection
  *
  * Encapsulates communication between the Side Panel
  * and the Manifest V3 Service Worker.
  *
- * This module intentionally contains no React code.
+ * Owns:
+ * - Runtime RPC invocation
+ * - Runtime payload validation
+ *
+ * Does NOT own:
+ * - React state
+ * - UI
+ * - Transport implementation
  */
 
-export type RuntimeStatus = 'healthy' | 'offline'
-
-export interface RuntimeHealth {
-  status: RuntimeStatus
-  version: string | null
-  timestamp: number | null
-}
-
-const PING_MESSAGE = {
-  type: 'PING_RUNTIME',
-} as const
+const client = new MessageClient()
 
 /**
- * Sends a health check request to the Service Worker.
+ * Requests the current Runtime health.
  *
- * The returned promise always resolves. Runtime failures
- * are represented as an "offline" status instead of
- * throwing exceptions.
+ * Every Bridge payload crossing the runtime
+ * boundary is validated before entering the
+ * React application.
  */
 export async function pingRuntime(): Promise<RuntimeHealth> {
-  return new Promise<RuntimeHealth>((resolve) => {
-    try {
-      chrome.runtime.sendMessage(PING_MESSAGE, (response: RuntimeHealth) => {
-        if (chrome.runtime.lastError !== undefined) {
-          console.warn('[Novus Panel] Runtime unavailable:', chrome.runtime.lastError.message)
+  const response = await client.request(BridgeMethod.RuntimePing, undefined)
 
-          resolve({
-            status: 'offline',
-            version: null,
-            timestamp: null,
-          })
+  if (response.kind === 'error') {
+    throw new Error(response.error.message)
+  }
 
-          return
-        }
+  const result = RuntimeHealthSchema.safeParse(response.payload)
 
-        resolve({
-          status: response.status,
-          version: response.version,
-          timestamp: response.timestamp,
-        })
-      })
-    } catch (error) {
-      console.error('[Novus Panel] Failed to contact runtime.', error)
+  if (!result.success) {
+    throw new Error('Runtime returned an invalid RuntimeHealth payload.')
+  }
 
-      resolve({
-        status: 'offline',
-        version: null,
-        timestamp: null,
-      })
-    }
-  })
+  return result.data
 }

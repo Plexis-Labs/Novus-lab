@@ -1,8 +1,5 @@
 import { ContentBootstrap } from './bootstrap.js'
-import { RuntimeBridge } from './bridge.js'
 import { EnvironmentDetector } from './environment.js'
-import { MountManager } from './mount.js'
-import { NavigationObserver } from './navigation.js'
 import { ContentRuntime } from './runtime.js'
 
 function bootstrap(): void {
@@ -18,15 +15,7 @@ function bootstrap(): void {
     return
   }
 
-  RuntimeBridge.connect()
-
-  ContentRuntime.bootstrap()
-  MountManager.initialize()
-
-  NavigationObserver.initialize()
-
-  // Future:
-  // MountManager.initialize();
+  void ContentRuntime.bootstrap()
 }
 
 bootstrap()

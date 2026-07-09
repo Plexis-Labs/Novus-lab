@@ -11,7 +11,7 @@ import { NavigationObserver } from './navigation.js'
  * inside the isolated content script environment.
  */
 export class ContentRuntime {
-  public static bootstrap(): void {
+  public static async bootstrap(): Promise<void> {
     console.info('[Novus Content] Bootstrapping Content Runtime...')
 
     if (!ContentBootstrap.verifySingleInjection()) {
@@ -27,13 +27,20 @@ export class ContentRuntime {
       return
     }
 
-    RuntimeBridge.connect()
+    try {
+      // 2. Await critical setup tasks sequentially or in parallel
+      await RuntimeBridge.connect()
 
-    MountManager.initialize()
+      MountManager.initialize()
+      NavigationObserver.initialize()
 
-    NavigationObserver.initialize()
+      console.info('[Novus Content] Bootstrap complete.')
+    } catch (error) {
+      // 3. Prevent silent crashes by catching errors
 
-    console.info('[Novus Content] Bootstrap complete.')
+      console.error('[Novus Content] Bootstrap failed:', error)
+      throw error
+    }
 
     // Future:
     // AdapterRegistry.initialize(host)

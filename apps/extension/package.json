@@ -20,6 +20,7 @@
   "dependencies": {
     "@novus/contracts": "workspace:*",
     "@novus/shared": "workspace:*",
+    "@novus/message-bus": "workspace:*",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

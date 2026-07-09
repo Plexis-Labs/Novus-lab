@@ -147,6 +147,9 @@ importers:
       '@novus/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      '@novus/message-bus':
+        specifier: workspace:*
+        version: link:../../packages/message-bus
       '@novus/shared':
         specifier: workspace:*
         version: link:../../packages/shared
@@ -194,6 +197,19 @@ importers:
       vitest:
         specifier: 'catalog:'
         version: 4.1.9(@types/node@26.1.0)(vite@7.1.7(@types/node@26.1.0)(jiti@2.6.1)(tsx@4.23.0)(yaml@2.5.1))
+
+  packages/message-bus:
+    dependencies:
+      '@novus/contracts':
+        specifier: workspace:*
+        version: link:../contracts
+      '@novus/shared':
+        specifier: workspace:*
+        version: link:../shared
+    devDependencies:
+      typescript:
+        specifier: 'catalog:'
+        version: 5.5.4
 
   packages/shared:
     dependencies:
